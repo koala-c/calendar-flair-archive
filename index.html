@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Calendar Flairs Archive</title>
+  <title id="page-title">Calendar Flair Archive (Unofficial)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,43 +14,47 @@
   <div class="background-shape shape-two" aria-hidden="true"></div>
 
   <header class="hero">
-    <p class="eyebrow">Calendar Flair Archive</p>
-    <h1>Old vs New Google Calendar Flairs</h1>
-    <p class="intro">
-      A compact visual archive to compare the classic flair set against the newer style.
+    <p class="eyebrow" id="eyebrow-text">Calendar Flair Archive</p>
+    <h1 id="hero-title">Keyword-Triggered Calendar Flairs</h1>
+    <p class="intro" id="hero-intro">
+      Compare illustration flairs that appear when event text matches certain keywords.
     </p>
   </header>
 
   <main class="layout">
     <section class="panel controls-panel" aria-label="Display controls">
-      <h2>Display</h2>
-      <div class="toggle-row">
-        <button class="toggle active" data-filter="all">All</button>
-        <button class="toggle" data-filter="old">Old only</button>
-        <button class="toggle" data-filter="new">New only</button>
+      <div class="display-head">
+        <h2 id="display-title">Display</h2>
+        <div id="language-controls" class="language-controls" aria-label="Language controls"></div>
       </div>
-      <p class="hint">Tip: edit arrays in <code>script.js</code> to add your own flair names/colors.</p>
+      <label class="search-wrap" for="keyword-search">
+        <span id="search-label">Search keyword</span>
+        <input id="keyword-search" type="search" placeholder="Search in selected language">
+      </label>
+      <p class="hint" id="hint-text">Tip: each card shows the new illustration by default. Hover to reveal the old one. If there is no new version, the old one appears in grey and becomes normal on hover.</p>
+      <p class="source" id="keyword-source-status">Keyword source: loading...</p>
     </section>
 
-    <section class="panel" aria-labelledby="old-title">
+    <section class="panel" aria-labelledby="all-title">
       <div class="panel-head">
-        <h2 id="old-title">Old Flairs</h2>
-        <span class="count" id="old-count">0</span>
+        <h2 id="all-title">Flairs</h2>
+        <span class="count" id="flair-count">0</span>
       </div>
-      <div class="grid" id="old-grid"></div>
-    </section>
-
-    <section class="panel" aria-labelledby="new-title">
-      <div class="panel-head">
-        <h2 id="new-title">New Flairs</h2>
-        <span class="count" id="new-count">0</span>
-      </div>
-      <div class="grid" id="new-grid"></div>
+      <div class="grid" id="flair-grid"></div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Made for visual comparison of Google Calendar flair generations.</p>
+    <p id="footer-source-text">
+      Archive for comparing old and new keyword flair illustrations.
+      Source reference:
+      <a href="https://ssl.gstatic.com/calendar/images/eventillustrations/2024_v2/" target="_blank" rel="noopener noreferrer">Google image assets (ssl.gstatic.com)</a>.
+    </p>
+    <p class="legal" id="legal-text">
+      Icons shown for comparison purposes. All rights belong to Google.
+      This is an unofficial, independent hobby archive and is not affiliated with, endorsed by, or sponsored by Google.
+      Google Calendar is a trademark of Google.
+    </p>
   </footer>
 
   <script src="script.js"></script>

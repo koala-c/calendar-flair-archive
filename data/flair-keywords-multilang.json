@@ -1,0 +1,6357 @@
+{
+  "locales": [
+    {
+      "code": "en_us",
+      "label": "English (US)",
+      "tl": "en"
+    },
+    {
+      "code": "en_gb",
+      "label": "English (UK)",
+      "tl": "en"
+    },
+    {
+      "code": "es_es",
+      "label": "Espa?ol (ES)",
+      "tl": "es"
+    },
+    {
+      "code": "ca_es",
+      "label": "Catal? (CA)",
+      "tl": "ca"
+    },
+    {
+      "code": "fr_fr",
+      "label": "Fran?ais (FR)",
+      "tl": "fr"
+    },
+    {
+      "code": "de_de",
+      "label": "Deutsch (DE)",
+      "tl": "de"
+    },
+    {
+      "code": "it_it",
+      "label": "Italiano (IT)",
+      "tl": "it"
+    },
+    {
+      "code": "pt_br",
+      "label": "Portugu?s (BR)",
+      "tl": "pt"
+    },
+    {
+      "code": "ru_ru",
+      "label": "??????? (RU)",
+      "tl": "ru"
+    },
+    {
+      "code": "nl_nl",
+      "label": "Nederlands (NL)",
+      "tl": "nl"
+    },
+    {
+      "code": "pl_pl",
+      "label": "Polski (PL)",
+      "tl": "pl"
+    },
+    {
+      "code": "tr_tr",
+      "label": "T?rk?e (TR)",
+      "tl": "tr"
+    },
+    {
+      "code": "sv_se",
+      "label": "Svenska (SE)",
+      "tl": "sv"
+    },
+    {
+      "code": "no_no",
+      "label": "Norsk (NO)",
+      "tl": "no"
+    },
+    {
+      "code": "da_dk",
+      "label": "Dansk (DK)",
+      "tl": "da"
+    },
+    {
+      "code": "fi_fi",
+      "label": "Suomi (FI)",
+      "tl": "fi"
+    },
+    {
+      "code": "cs_cz",
+      "label": "?e?tina (CZ)",
+      "tl": "cs"
+    },
+    {
+      "code": "sk_sk",
+      "label": "Sloven?ina (SK)",
+      "tl": "sk"
+    },
+    {
+      "code": "hr_hr",
+      "label": "Hrvatski (HR)",
+      "tl": "hr"
+    },
+    {
+      "code": "sl_si",
+      "label": "Sloven??ina (SI)",
+      "tl": "sl"
+    },
+    {
+      "code": "hu_hu",
+      "label": "Magyar (HU)",
+      "tl": "hu"
+    },
+    {
+      "code": "lt_lt",
+      "label": "Lietuvi? (LT)",
+      "tl": "lt"
+    },
+    {
+      "code": "lv_lv",
+      "label": "Latvie?u (LV)",
+      "tl": "lv"
+    },
+    {
+      "code": "uk_ua",
+      "label": "?????????? (UA)",
+      "tl": "uk"
+    },
+    {
+      "code": "bg_bg",
+      "label": "????????? (BG)",
+      "tl": "bg"
+    },
+    {
+      "code": "el_gr",
+      "label": "???????? (GR)",
+      "tl": "el"
+    },
+    {
+      "code": "he_il",
+      "label": "????? (IL)",
+      "tl": "he"
+    },
+    {
+      "code": "ar_sa",
+      "label": "??????? (SA)",
+      "tl": "ar"
+    },
+    {
+      "code": "fa_ir",
+      "label": "????? (IR)",
+      "tl": "fa"
+    },
+    {
+      "code": "hi_in",
+      "label": "?????? (IN)",
+      "tl": "hi"
+    },
+    {
+      "code": "id_id",
+      "label": "Bahasa Indonesia (ID)",
+      "tl": "id"
+    },
+    {
+      "code": "vi_vn",
+      "label": "Ti?ng Vi?t (VN)",
+      "tl": "vi"
+    },
+    {
+      "code": "th_th",
+      "label": "??? (TH)",
+      "tl": "th"
+    },
+    {
+      "code": "fil_ph",
+      "label": "Filipino (PH)",
+      "tl": "tl"
+    },
+    {
+      "code": "zh_cn",
+      "label": "?? (CN)",
+      "tl": "zh-CN"
+    },
+    {
+      "code": "ja_jp",
+      "label": "??? (JP)",
+      "tl": "ja"
+    },
+    {
+      "code": "ko_kr",
+      "label": "??? (KR)",
+      "tl": "ko"
+    }
+  ],
+  "keywordsByLocale": {
+    "en_us": {
+      "americanfootball": [
+        "american football"
+      ],
+      "archery": [
+        "archery"
+      ],
+      "art": [
+        "painting",
+        "art workshop",
+        "sketching workshop",
+        "drawing workshop"
+      ],
+      "athleticsjumping": [
+        "athletic jumping",
+        "athletics jumping"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "bbq",
+        "barbecue",
+        "barbeque"
+      ],
+      "beer": [
+        "beer",
+        "beers",
+        "oktoberfest",
+        "october fest",
+        "octoberfest"
+      ],
+      "drinks": [
+        "drinks",
+        "cocktail",
+        "cocktails",
+        "beer",
+        "beers"
+      ],
+      "billiard": [
+        "billiard"
+      ],
+      "birthday": [
+        "birthday"
+      ],
+      "boxing": [
+        "boxing"
+      ],
+      "bookclub": [
+        "book club"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "breakfast"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "dinner"
+      ],
+      "carmaintenance": [
+        "car maintenance",
+        "car repair",
+        "mot"
+      ],
+      "cooking": [
+        "cooking"
+      ],
+      "climbing": [
+        "climbing",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "chinese new year",
+        "chinese new years",
+        "chinese new year's"
+      ],
+      "cinema": [
+        "cinema",
+        "movie",
+        "movies"
+      ],
+      "coffee": [
+        "coffee",
+        "coffees",
+        "café",
+        "cafés"
+      ],
+      "videogaming": [
+        "video game",
+        "video games",
+        "videogaming",
+        "videogames"
+      ],
+      "backtoschool": [
+        "back to school",
+        "kids pickup",
+        "kids dropoff"
+      ],
+      "kidspickupdropoff": [
+        "back to school",
+        "kids pickup",
+        "kids dropoff"
+      ],
+      "fieldhockey": [
+        "field hockey",
+        "hockey"
+      ],
+      "graduation": [
+        "graduation",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby sevens",
+        "rugby"
+      ],
+      "walkingdog": [
+        "walking dog",
+        "walk dog",
+        "walk the dog"
+      ],
+      "studying": [
+        "studying"
+      ],
+      "learnlanguage": [
+        "english class",
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ],
+      "honors": [],
+      "handcraft": [
+        "sewing",
+        "embroidery",
+        "quilting"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "sleep",
+        "sleeping",
+        "nap",
+        "napping"
+      ],
+      "theateropera": [
+        "theater",
+        "theatre opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theatreopera"
+      ]
+    },
+    "en_gb": {
+      "americanfootball": [
+        "american football"
+      ],
+      "archery": [
+        "archery"
+      ],
+      "art": [
+        "painting",
+        "art workshop",
+        "sketching workshop",
+        "drawing workshop"
+      ],
+      "athleticsjumping": [
+        "athletic jumping",
+        "athletics jumping"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "bbq",
+        "barbecue",
+        "barbeque"
+      ],
+      "beer": [
+        "beer",
+        "beers",
+        "oktoberfest",
+        "october fest",
+        "octoberfest"
+      ],
+      "drinks": [
+        "drinks",
+        "cocktail",
+        "cocktails",
+        "beer",
+        "beers"
+      ],
+      "billiard": [
+        "billiard"
+      ],
+      "birthday": [
+        "birthday"
+      ],
+      "boxing": [
+        "boxing"
+      ],
+      "bookclub": [
+        "book club"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "breakfast"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "dinner"
+      ],
+      "carmaintenance": [
+        "car maintenance",
+        "car repair",
+        "mot"
+      ],
+      "cooking": [
+        "cooking"
+      ],
+      "climbing": [
+        "climbing",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "chinese new year",
+        "chinese new years",
+        "chinese new year's"
+      ],
+      "cinema": [
+        "cinema",
+        "movie",
+        "movies"
+      ],
+      "coffee": [
+        "coffee",
+        "coffees",
+        "café",
+        "cafés"
+      ],
+      "videogaming": [
+        "video game",
+        "video games",
+        "videogaming",
+        "videogames"
+      ],
+      "backtoschool": [
+        "back to school",
+        "kids pickup",
+        "kids dropoff"
+      ],
+      "kidspickupdropoff": [
+        "back to school",
+        "kids pickup",
+        "kids dropoff"
+      ],
+      "fieldhockey": [
+        "field hockey",
+        "hockey"
+      ],
+      "graduation": [
+        "graduation",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby sevens",
+        "rugby"
+      ],
+      "walkingdog": [
+        "walking dog",
+        "walk dog",
+        "walk the dog"
+      ],
+      "studying": [
+        "studying"
+      ],
+      "learnlanguage": [
+        "english class",
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ],
+      "honors": [],
+      "handcraft": [
+        "sewing",
+        "embroidery",
+        "quilting"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "sleep",
+        "sleeping",
+        "nap",
+        "napping"
+      ],
+      "theateropera": [
+        "theater",
+        "theatre opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theatreopera"
+      ]
+    },
+    "es_es": {
+      "americanfootball": [
+        "fútbol americano"
+      ],
+      "archery": [
+        "tiro al arco"
+      ],
+      "art": [
+        "cuadro",
+        "taller de arte",
+        "taller de dibujo"
+      ],
+      "athleticsjumping": [
+        "salto atlético",
+        "salto de atletismo"
+      ],
+      "badminton": [
+        "bádminton"
+      ],
+      "baseball": [
+        "béisbol"
+      ],
+      "basketball": [
+        "baloncesto"
+      ],
+      "bbq": [
+        "barbacoa",
+        "parilla"
+      ],
+      "beer": [
+        "cerveza",
+        "cervezas",
+        "oktoberfest",
+        "festival de octubre",
+        "fiesta de octubre"
+      ],
+      "drinks": [
+        "bebidas",
+        "cóctel",
+        "cócteles",
+        "cerveza",
+        "cervezas"
+      ],
+      "billiard": [
+        "de billar"
+      ],
+      "birthday": [
+        "cumpleaños"
+      ],
+      "boxing": [
+        "boxeo"
+      ],
+      "bookclub": [
+        "círculo de lectores"
+      ],
+      "bowling": [
+        "bolos"
+      ],
+      "breakfast": [
+        "desayuno"
+      ],
+      "camping": [
+        "cámping"
+      ],
+      "dinner": [
+        "cena"
+      ],
+      "carmaintenance": [
+        "mantenimiento del auto",
+        "reparacion de autos",
+        "agudeza"
+      ],
+      "cooking": [
+        "cocinando"
+      ],
+      "climbing": [
+        "escalada",
+        "búlder"
+      ],
+      "chinesenewyear": [
+        "año nuevo chino"
+      ],
+      "cinema": [
+        "cine",
+        "película"
+      ],
+      "coffee": [
+        "café",
+        "cafes",
+        "cafetería",
+        "cafeterías"
+      ],
+      "videogaming": [
+        "videojuego",
+        "juegos de vídeo",
+        "videojuegos"
+      ],
+      "backtoschool": [
+        "regreso a la escuela",
+        "recogida de niños",
+        "entrega de niños"
+      ],
+      "kidspickupdropoff": [
+        "regreso a la escuela",
+        "recogida de niños",
+        "entrega de niños"
+      ],
+      "fieldhockey": [
+        "hockey sobre césped",
+        "hockey"
+      ],
+      "graduation": [
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby a siete",
+        "rugby"
+      ],
+      "walkingdog": [
+        "perro paseando",
+        "pasear al perro"
+      ],
+      "studying": [
+        "estudiando"
+      ],
+      "learnlanguage": [
+        "clase de ingles",
+        "curso de ingles",
+        "practicar ingles",
+        "clase de francés",
+        "curso de francés",
+        "clase de alemán",
+        "curso de alemán"
+      ],
+      "honors": [],
+      "handcraft": [
+        "de coser",
+        "bordado",
+        "acolchado"
+      ],
+      "karate": [
+        "kárate"
+      ],
+      "sleep": [
+        "dormir",
+        "durmiendo",
+        "siesta"
+      ],
+      "theateropera": [
+        "teatro",
+        "ópera teatro"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatroópera"
+      ]
+    },
+    "ca_es": {
+      "americanfootball": [
+        "futbol americà"
+      ],
+      "archery": [
+        "tir amb arc"
+      ],
+      "art": [
+        "pintura",
+        "taller d'art",
+        "taller de dibuix"
+      ],
+      "athleticsjumping": [
+        "salts atlètics",
+        "salts d'atletisme"
+      ],
+      "badminton": [
+        "bàdminton"
+      ],
+      "baseball": [
+        "beisbol"
+      ],
+      "basketball": [
+        "bàsquet"
+      ],
+      "bbq": [
+        "barbacoa"
+      ],
+      "beer": [
+        "cervesa",
+        "cerveses",
+        "oktoberfest",
+        "festa d'octubre"
+      ],
+      "drinks": [
+        "begudes",
+        "còctel",
+        "còctels",
+        "cervesa",
+        "cerveses"
+      ],
+      "billiard": [
+        "billar"
+      ],
+      "birthday": [
+        "aniversari"
+      ],
+      "boxing": [
+        "boxa"
+      ],
+      "bookclub": [
+        "club de lectura"
+      ],
+      "bowling": [
+        "bitlles"
+      ],
+      "breakfast": [
+        "esmorzar"
+      ],
+      "camping": [
+        "acampada"
+      ],
+      "dinner": [
+        "sopar"
+      ],
+      "carmaintenance": [
+        "manteniment del cotxe",
+        "reparació de cotxes",
+        "mot"
+      ],
+      "cooking": [
+        "cuinar"
+      ],
+      "climbing": [
+        "escalada",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "any nou xinès"
+      ],
+      "cinema": [
+        "cinema",
+        "pel·lícula",
+        "pel·lícules"
+      ],
+      "coffee": [
+        "cafè",
+        "cafès"
+      ],
+      "videogaming": [
+        "videojoc",
+        "videojocs"
+      ],
+      "backtoschool": [
+        "tornada a l'escola",
+        "recollida de nens",
+        "baixada dels nens"
+      ],
+      "kidspickupdropoff": [
+        "tornada a l'escola",
+        "recollida de nens",
+        "baixada dels nens"
+      ],
+      "fieldhockey": [
+        "hoquei herba",
+        "hoquei"
+      ],
+      "graduation": [
+        "graduació"
+      ],
+      "rugbysevens": [
+        "rugbi a set",
+        "rugbi"
+      ],
+      "walkingdog": [
+        "gos passejant",
+        "passejar el gos"
+      ],
+      "studying": [
+        "estudiant"
+      ],
+      "learnlanguage": [
+        "classe d'anglès",
+        "curs d'anglès",
+        "practicar anglès",
+        "classe de francès",
+        "curs de francès",
+        "classe d'alemany",
+        "curs d'alemany"
+      ],
+      "honors": [],
+      "handcraft": [
+        "cosir",
+        "brodats",
+        "encoixinat"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "dormir",
+        "dormint",
+        "migdiada"
+      ],
+      "theateropera": [
+        "teatre",
+        "òpera teatral"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatreopera"
+      ]
+    },
+    "fr_fr": {
+      "americanfootball": [
+        "football américain"
+      ],
+      "archery": [
+        "tir à l'arc"
+      ],
+      "art": [
+        "peinture",
+        "atelier artistique",
+        "atelier de dessin"
+      ],
+      "athleticsjumping": [
+        "saut athlétique",
+        "saut d'athlétisme"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "base-ball"
+      ],
+      "basketball": [
+        "basket-ball"
+      ],
+      "bbq": [
+        "un barbecue",
+        "barbecue"
+      ],
+      "beer": [
+        "bière",
+        "bières",
+        "fête de la bière",
+        "fête d'octobre"
+      ],
+      "drinks": [
+        "boissons",
+        "cocktail",
+        "cocktails",
+        "bière",
+        "bières"
+      ],
+      "billiard": [
+        "billard"
+      ],
+      "birthday": [
+        "anniversaire"
+      ],
+      "boxing": [
+        "boxe"
+      ],
+      "bookclub": [
+        "club de lecture"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "petit-déjeuner"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "dîner"
+      ],
+      "carmaintenance": [
+        "entretien de voiture",
+        "réparation de voiture",
+        "mot"
+      ],
+      "cooking": [
+        "cuisson"
+      ],
+      "climbing": [
+        "escalade",
+        "bloc"
+      ],
+      "chinesenewyear": [
+        "nouvel an chinois",
+        "le nouvel an chinois"
+      ],
+      "cinema": [
+        "cinéma",
+        "film",
+        "films"
+      ],
+      "coffee": [
+        "café",
+        "cafés"
+      ],
+      "videogaming": [
+        "jeu vidéo",
+        "jeux vidéo"
+      ],
+      "backtoschool": [
+        "retour à l'école",
+        "ramassage pour enfants",
+        "dépôt des enfants"
+      ],
+      "kidspickupdropoff": [
+        "retour à l'école",
+        "ramassage pour enfants",
+        "dépôt des enfants"
+      ],
+      "fieldhockey": [
+        "hockey sur gazon",
+        "hockey"
+      ],
+      "graduation": [
+        "graduation",
+        "diplôme"
+      ],
+      "rugbysevens": [
+        "rugby à sept",
+        "rugby"
+      ],
+      "walkingdog": [
+        "chien qui marche",
+        "promener le chien"
+      ],
+      "studying": [
+        "étudier"
+      ],
+      "learnlanguage": [
+        "cours d'anglais",
+        "pratiquer l'anglais",
+        "cours de français",
+        "cours d'allemand"
+      ],
+      "honors": [],
+      "handcraft": [
+        "couture",
+        "broderie",
+        "piquage"
+      ],
+      "karate": [
+        "karaté"
+      ],
+      "sleep": [
+        "dormir",
+        "somme",
+        "faire la sieste"
+      ],
+      "theateropera": [
+        "théâtre",
+        "opéra de théâtre"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "théâtreopéra"
+      ]
+    },
+    "de_de": {
+      "americanfootball": [
+        "amerikanischer fußball"
+      ],
+      "archery": [
+        "bogenschießen"
+      ],
+      "art": [
+        "malerei",
+        "kunstwerkstatt",
+        "skizzen-workshop",
+        "zeichenwerkstatt"
+      ],
+      "athleticsjumping": [
+        "sportliches springen",
+        "leichtathletikspringen"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "grill"
+      ],
+      "beer": [
+        "bier",
+        "biere",
+        "oktoberfest"
+      ],
+      "drinks": [
+        "getränke",
+        "cocktail",
+        "cocktails",
+        "bier",
+        "biere"
+      ],
+      "billiard": [
+        "billard-"
+      ],
+      "birthday": [
+        "geburtstag"
+      ],
+      "boxing": [
+        "boxen"
+      ],
+      "bookclub": [
+        "buchclub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "frühstück"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "abendessen"
+      ],
+      "carmaintenance": [
+        "autowartung",
+        "autoreparatur",
+        "mot"
+      ],
+      "cooking": [
+        "kochen"
+      ],
+      "climbing": [
+        "klettern",
+        "bouldern"
+      ],
+      "chinesenewyear": [
+        "chinesisches neues jahr",
+        "chinesisches neujahr"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filme"
+      ],
+      "coffee": [
+        "kaffee",
+        "cafe",
+        "cafés"
+      ],
+      "videogaming": [
+        "videospiel",
+        "videospiele"
+      ],
+      "backtoschool": [
+        "zurück zur schule",
+        "abholung der kinder",
+        "abgabe der kinder"
+      ],
+      "kidspickupdropoff": [
+        "zurück zur schule",
+        "abholung der kinder",
+        "abgabe der kinder"
+      ],
+      "fieldhockey": [
+        "hockey",
+        "eishockey"
+      ],
+      "graduation": [
+        "abschluss"
+      ],
+      "rugbysevens": [
+        "rugby-siebener",
+        "rugby"
+      ],
+      "walkingdog": [
+        "gehender hund",
+        "mit dem hund spazieren gehen"
+      ],
+      "studying": [
+        "studieren"
+      ],
+      "learnlanguage": [
+        "englischunterricht",
+        "englischkurs",
+        "englisch üben",
+        "französischunterricht",
+        "französischkurs",
+        "deutschunterricht",
+        "deutschkurs"
+      ],
+      "honors": [],
+      "handcraft": [
+        "nähen",
+        "stickerei",
+        "quilten"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "schlafen",
+        "nickerchen",
+        "nickerchen machen"
+      ],
+      "theateropera": [
+        "theater",
+        "theateroper"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theateroper"
+      ]
+    },
+    "it_it": {
+      "americanfootball": [
+        "football americano"
+      ],
+      "archery": [
+        "tiro con l'arco"
+      ],
+      "art": [
+        "pittura",
+        "laboratorio d'arte",
+        "laboratorio di schizzi",
+        "laboratorio di disegno"
+      ],
+      "athleticsjumping": [
+        "salto atletico",
+        "salto di atletica leggera"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "pallacanestro"
+      ],
+      "bbq": [
+        "barbecue"
+      ],
+      "beer": [
+        "birra",
+        "birre",
+        "oktoberfest",
+        "festa di ottobre"
+      ],
+      "drinks": [
+        "bevande",
+        "cocktail",
+        "birra",
+        "birre"
+      ],
+      "billiard": [
+        "biliardo"
+      ],
+      "birthday": [
+        "compleanno"
+      ],
+      "boxing": [
+        "boxe"
+      ],
+      "bookclub": [
+        "circolo del libro"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "colazione"
+      ],
+      "camping": [
+        "campeggio"
+      ],
+      "dinner": [
+        "cena"
+      ],
+      "carmaintenance": [
+        "manutenzione dell'auto",
+        "riparazione auto",
+        "mot"
+      ],
+      "cooking": [
+        "cucina"
+      ],
+      "climbing": [
+        "arrampicata",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "capodanno cinese"
+      ],
+      "cinema": [
+        "cinema",
+        "film"
+      ],
+      "coffee": [
+        "caffè"
+      ],
+      "videogaming": [
+        "videogioco",
+        "videogiochi"
+      ],
+      "backtoschool": [
+        "tornare a scuola",
+        "ritiro bambini",
+        "riconsegna dei bambini"
+      ],
+      "kidspickupdropoff": [
+        "tornare a scuola",
+        "ritiro bambini",
+        "riconsegna dei bambini"
+      ],
+      "fieldhockey": [
+        "hockey su prato",
+        "hockey"
+      ],
+      "graduation": [
+        "laurea"
+      ],
+      "rugbysevens": [
+        "rugby a sette",
+        "rugby"
+      ],
+      "walkingdog": [
+        "cane da passeggio",
+        "camminare con il cane",
+        "portare a spasso il cane"
+      ],
+      "studying": [
+        "studiando"
+      ],
+      "learnlanguage": [
+        "lezione di inglese",
+        "corso di inglese",
+        "praticare l'inglese",
+        "lezione di francese",
+        "corso di francese",
+        "lezione di tedesco",
+        "corso di tedesco"
+      ],
+      "honors": [],
+      "handcraft": [
+        "cucito",
+        "ricamo",
+        "trapuntatura"
+      ],
+      "karate": [
+        "karatè"
+      ],
+      "sleep": [
+        "sonno",
+        "dormire",
+        "pisolino"
+      ],
+      "theateropera": [
+        "teatro",
+        "opera teatrale"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatroopera"
+      ]
+    },
+    "pt_br": {
+      "americanfootball": [
+        "futebol americano"
+      ],
+      "archery": [
+        "tiro com arco"
+      ],
+      "art": [
+        "pintura",
+        "oficina de arte",
+        "oficina de desenho"
+      ],
+      "athleticsjumping": [
+        "salto atlético",
+        "salto de atletismo"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "beisebol"
+      ],
+      "basketball": [
+        "basquetebol"
+      ],
+      "bbq": [
+        "churrasco"
+      ],
+      "beer": [
+        "cerveja",
+        "cervejas",
+        "oktoberfest",
+        "festa de outubro"
+      ],
+      "drinks": [
+        "bebidas",
+        "coquetel",
+        "coquetéis",
+        "cerveja",
+        "cervejas"
+      ],
+      "billiard": [
+        "de bilhar"
+      ],
+      "birthday": [
+        "aniversário"
+      ],
+      "boxing": [
+        "boxe"
+      ],
+      "bookclub": [
+        "clube do livro"
+      ],
+      "bowling": [
+        "boliche"
+      ],
+      "breakfast": [
+        "café da manhã"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "jantar"
+      ],
+      "carmaintenance": [
+        "manutenção de carro",
+        "reparação de automóveis",
+        "mot"
+      ],
+      "cooking": [
+        "culinária"
+      ],
+      "climbing": [
+        "escalando",
+        "pedregulho"
+      ],
+      "chinesenewyear": [
+        "ano novo chinês"
+      ],
+      "cinema": [
+        "cinema",
+        "filme",
+        "filmes"
+      ],
+      "coffee": [
+        "café",
+        "cafés"
+      ],
+      "videogaming": [
+        "videogame",
+        "jogos de vídeo"
+      ],
+      "backtoschool": [
+        "de volta à escola",
+        "coleta de crianças",
+        "entrega de crianças"
+      ],
+      "kidspickupdropoff": [
+        "de volta à escola",
+        "coleta de crianças",
+        "entrega de crianças"
+      ],
+      "fieldhockey": [
+        "hóquei em campo",
+        "hóquei"
+      ],
+      "graduation": [
+        "graduação"
+      ],
+      "rugbysevens": [
+        "rugby de sete",
+        "rúgbi"
+      ],
+      "walkingdog": [
+        "cachorro passeando",
+        "passear com cachorro",
+        "passear com o cachorro"
+      ],
+      "studying": [
+        "estudo"
+      ],
+      "learnlanguage": [
+        "aula de inglês",
+        "curso de inglês",
+        "praticar inglês",
+        "aula de francês",
+        "curso de francês",
+        "aula de alemão",
+        "curso de alemão"
+      ],
+      "honors": [],
+      "handcraft": [
+        "de costura",
+        "bordado",
+        "acolchoado"
+      ],
+      "karate": [
+        "karatê"
+      ],
+      "sleep": [
+        "dormir",
+        "dormindo",
+        "sesta",
+        "cochilando"
+      ],
+      "theateropera": [
+        "teatro",
+        "ópera de teatro"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "ópera de teatro"
+      ]
+    },
+    "ru_ru": {
+      "americanfootball": [
+        "американский футбол"
+      ],
+      "archery": [
+        "стрельба из лука"
+      ],
+      "art": [
+        "рисование",
+        "художественная мастерская",
+        "мастер-класс по эскизам",
+        "мастерская рисования"
+      ],
+      "athleticsjumping": [
+        "спортивные прыжки",
+        "легкая атлетика, прыжки"
+      ],
+      "badminton": [
+        "бадминтон"
+      ],
+      "baseball": [
+        "бейсбол"
+      ],
+      "basketball": [
+        "баскетбол"
+      ],
+      "bbq": [
+        "барбекю"
+      ],
+      "beer": [
+        "пиво",
+        "октоберфест",
+        "октябрьский фестиваль"
+      ],
+      "drinks": [
+        "напитки",
+        "коктейль",
+        "коктейли",
+        "пиво"
+      ],
+      "billiard": [
+        "бильярд"
+      ],
+      "birthday": [
+        "день рождения"
+      ],
+      "boxing": [
+        "бокс"
+      ],
+      "bookclub": [
+        "книжный клуб"
+      ],
+      "bowling": [
+        "боулинг"
+      ],
+      "breakfast": [
+        "завтрак"
+      ],
+      "camping": [
+        "кемпинг"
+      ],
+      "dinner": [
+        "ужин"
+      ],
+      "carmaintenance": [
+        "обслуживание автомобиля",
+        "ремонт автомобиля",
+        "мот"
+      ],
+      "cooking": [
+        "приготовление пищи"
+      ],
+      "climbing": [
+        "восхождение",
+        "боулдеринг"
+      ],
+      "chinesenewyear": [
+        "китайский новый год"
+      ],
+      "cinema": [
+        "кино",
+        "фильм",
+        "фильмы"
+      ],
+      "coffee": [
+        "кофе",
+        "кафе"
+      ],
+      "videogaming": [
+        "видеоигра",
+        "видеоигры"
+      ],
+      "backtoschool": [
+        "обратно в школу",
+        "детский пикап",
+        "высадка детей"
+      ],
+      "kidspickupdropoff": [
+        "обратно в школу",
+        "детский пикап",
+        "высадка детей"
+      ],
+      "fieldhockey": [
+        "хоккей на траве",
+        "хоккей"
+      ],
+      "graduation": [
+        "выпускной"
+      ],
+      "rugbysevens": [
+        "регби-семерки",
+        "регби"
+      ],
+      "walkingdog": [
+        "гуляющая собака",
+        "гулять с собакой",
+        "выгуливать собаку"
+      ],
+      "studying": [
+        "изучение"
+      ],
+      "learnlanguage": [
+        "урок английского",
+        "курс английского языка",
+        "практиковать английский",
+        "урок французского языка",
+        "курс французского языка",
+        "урок немецкого языка",
+        "курс немецкого языка"
+      ],
+      "honors": [],
+      "handcraft": [
+        "шитье",
+        "вышивка",
+        "стегание"
+      ],
+      "karate": [
+        "каратэ"
+      ],
+      "sleep": [
+        "спать",
+        "спит",
+        "вздремнуть",
+        "дремлет"
+      ],
+      "theateropera": [
+        "театр",
+        "театр оперы"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "театропера"
+      ]
+    },
+    "nl_nl": {
+      "americanfootball": [
+        "amerikaans voetbal"
+      ],
+      "archery": [
+        "boogschieten"
+      ],
+      "art": [
+        "schilderen",
+        "kunst workshop",
+        "workshop schetsen",
+        "tekenatelier"
+      ],
+      "athleticsjumping": [
+        "atletisch springen",
+        "atletiek springen"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "honkbal"
+      ],
+      "basketball": [
+        "basketbal"
+      ],
+      "bbq": [
+        "barbecue"
+      ],
+      "beer": [
+        "bier",
+        "bieren",
+        "oktoberfeest",
+        "oktober feest"
+      ],
+      "drinks": [
+        "drankjes",
+        "cocktail",
+        "cocktails",
+        "bier",
+        "bieren"
+      ],
+      "billiard": [
+        "biljart"
+      ],
+      "birthday": [
+        "verjaardag"
+      ],
+      "boxing": [
+        "boksen"
+      ],
+      "bookclub": [
+        "boekenclub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "ontbijt"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "diner"
+      ],
+      "carmaintenance": [
+        "auto onderhoud",
+        "auto reparatie",
+        "mot"
+      ],
+      "cooking": [
+        "koken"
+      ],
+      "climbing": [
+        "klimmen",
+        "boulderen"
+      ],
+      "chinesenewyear": [
+        "chinees nieuwjaar"
+      ],
+      "cinema": [
+        "bioscoop",
+        "film",
+        "films"
+      ],
+      "coffee": [
+        "koffie",
+        "café",
+        "cafés"
+      ],
+      "videogaming": [
+        "videogame",
+        "videogames",
+        "videogamen"
+      ],
+      "backtoschool": [
+        "terug naar school",
+        "kinderen ophalen",
+        "kinderen afzetten"
+      ],
+      "kidspickupdropoff": [
+        "terug naar school",
+        "kinderen ophalen",
+        "kinderen afzetten"
+      ],
+      "fieldhockey": [
+        "hockey"
+      ],
+      "graduation": [
+        "graduatie",
+        "afstuderen"
+      ],
+      "rugbysevens": [
+        "rugby zevens",
+        "rugby"
+      ],
+      "walkingdog": [
+        "wandelende hond",
+        "hond uitlaten",
+        "de hond uitlaten"
+      ],
+      "studying": [
+        "studeren"
+      ],
+      "learnlanguage": [
+        "engelse les",
+        "engelse cursus",
+        "oefen engels",
+        "franse klasse",
+        "cursus frans",
+        "duitse klasse",
+        "cursus duits"
+      ],
+      "honors": [],
+      "handcraft": [
+        "naaien",
+        "borduurwerk",
+        "quilten"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "slaap",
+        "slapen",
+        "dutje",
+        "dutten"
+      ],
+      "theateropera": [
+        "theater",
+        "theater-opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theateropera"
+      ]
+    },
+    "pl_pl": {
+      "americanfootball": [
+        "futbol amerykański"
+      ],
+      "archery": [
+        "łucznictwo"
+      ],
+      "art": [
+        "malarstwo",
+        "warsztaty plastyczne",
+        "warsztaty szkicowania",
+        "warsztat rysunkowy"
+      ],
+      "athleticsjumping": [
+        "skoki lekkoatletyczne"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "koszykówka"
+      ],
+      "bbq": [
+        "grill",
+        "rożen"
+      ],
+      "beer": [
+        "piwo",
+        "piwa",
+        "oktoberfest",
+        "październikowe święto",
+        "październikowy festiwal"
+      ],
+      "drinks": [
+        "napoje",
+        "koktajl",
+        "koktajle",
+        "piwo",
+        "piwa"
+      ],
+      "billiard": [
+        "bilard"
+      ],
+      "birthday": [
+        "urodziny"
+      ],
+      "boxing": [
+        "boks"
+      ],
+      "bookclub": [
+        "klub książki"
+      ],
+      "bowling": [
+        "kręgle"
+      ],
+      "breakfast": [
+        "śniadanie"
+      ],
+      "camping": [
+        "kemping"
+      ],
+      "dinner": [
+        "kolacja"
+      ],
+      "carmaintenance": [
+        "konserwacja samochodu",
+        "naprawa samochodu",
+        "mot"
+      ],
+      "cooking": [
+        "gotowanie"
+      ],
+      "climbing": [
+        "wspinaczka",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "chiński nowy rok"
+      ],
+      "cinema": [
+        "kino",
+        "film"
+      ],
+      "coffee": [
+        "kawa",
+        "kawy",
+        "kawiarnia",
+        "kawiarnie"
+      ],
+      "videogaming": [
+        "gra wideo",
+        "gry wideo"
+      ],
+      "backtoschool": [
+        "powrót do szkoły",
+        "odbiór dzieci",
+        "odwóz dzieci"
+      ],
+      "kidspickupdropoff": [
+        "powrót do szkoły",
+        "odbiór dzieci",
+        "odwóz dzieci"
+      ],
+      "fieldhockey": [
+        "hokej na trawie",
+        "hokej"
+      ],
+      "graduation": [
+        "podziałka",
+        "ukończenie szkoły"
+      ],
+      "rugbysevens": [
+        "siódemki rugby",
+        "rugby"
+      ],
+      "walkingdog": [
+        "spacerujący pies",
+        "spacerować z psem",
+        "wyprowadzić psa"
+      ],
+      "studying": [
+        "uczenie się"
+      ],
+      "learnlanguage": [
+        "lekcja angielskiego",
+        "kurs angielskiego",
+        "ćwiczyć angielski",
+        "klasa francuska",
+        "kurs francuskiego",
+        "klasa niemiecka",
+        "kurs niemieckiego"
+      ],
+      "honors": [],
+      "handcraft": [
+        "szycie",
+        "haft",
+        "pikowanie"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "spać",
+        "spanie",
+        "drzemka"
+      ],
+      "theateropera": [
+        "teatr",
+        "opera teatralna"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatropera"
+      ]
+    },
+    "tr_tr": {
+      "americanfootball": [
+        "amerikan futbolu"
+      ],
+      "archery": [
+        "okçuluk"
+      ],
+      "art": [
+        "tablo",
+        "sanat atölyesi",
+        "eskiz atölyesi",
+        "çizim atölyesi"
+      ],
+      "athleticsjumping": [
+        "atletik atlama",
+        "atletizm atlama"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "beyzbol"
+      ],
+      "basketball": [
+        "basketbol"
+      ],
+      "bbq": [
+        "barbekü"
+      ],
+      "beer": [
+        "bira",
+        "biralar",
+        "ekim festivali"
+      ],
+      "drinks": [
+        "içecekler",
+        "kokteyl",
+        "kokteyller",
+        "bira",
+        "biralar"
+      ],
+      "billiard": [
+        "bilardo"
+      ],
+      "birthday": [
+        "doğum günü"
+      ],
+      "boxing": [
+        "boks"
+      ],
+      "bookclub": [
+        "kitap kulübü"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "kahvaltı"
+      ],
+      "camping": [
+        "kamp"
+      ],
+      "dinner": [
+        "akşam yemeği"
+      ],
+      "carmaintenance": [
+        "araba bakımı",
+        "araba tamiri",
+        "amaç"
+      ],
+      "cooking": [
+        "yemek pişirmek"
+      ],
+      "climbing": [
+        "tırmanma",
+        "kaya tırmanışı"
+      ],
+      "chinesenewyear": [
+        "çin yeni yılı"
+      ],
+      "cinema": [
+        "sinema",
+        "film",
+        "filmler"
+      ],
+      "coffee": [
+        "kahve",
+        "kahveler",
+        "kafe",
+        "kafeler"
+      ],
+      "videogaming": [
+        "video oyunu",
+        "video oyunları"
+      ],
+      "backtoschool": [
+        "okula dönüş",
+        "çocuklar pikap",
+        "çocukların ayrılması"
+      ],
+      "kidspickupdropoff": [
+        "okula dönüş",
+        "çocuklar pikap",
+        "çocukların ayrılması"
+      ],
+      "fieldhockey": [
+        "çim hokeyi",
+        "hokey"
+      ],
+      "graduation": [
+        "mezuniyet"
+      ],
+      "rugbysevens": [
+        "ragbi yedili",
+        "rugby"
+      ],
+      "walkingdog": [
+        "yürüyen köpek",
+        "köpek gezdirmek",
+        "köpeği gezdirmek"
+      ],
+      "studying": [
+        "ders çalışıyor"
+      ],
+      "learnlanguage": [
+        "i̇ngilizce sınıfı",
+        "i̇ngilizce kursu",
+        "i̇ngilizce pratik yap",
+        "fransızca sınıfı",
+        "fransızca kursu",
+        "almanca sınıfı",
+        "almanca kursu"
+      ],
+      "honors": [],
+      "handcraft": [
+        "dikiş",
+        "nakış",
+        "kapitone"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "uyumak",
+        "uyku",
+        "şekerleme",
+        "uyuklayan"
+      ],
+      "theateropera": [
+        "tiyatro",
+        "tiyatro operası"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "tiyatro operası"
+      ]
+    },
+    "sv_se": {
+      "americanfootball": [
+        "amerikansk fotboll"
+      ],
+      "archery": [
+        "bågskytte"
+      ],
+      "art": [
+        "målning",
+        "konstverkstad",
+        "skissverkstad",
+        "ritverkstad"
+      ],
+      "athleticsjumping": [
+        "atletisk hoppning",
+        "friidrottshoppning"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketboll"
+      ],
+      "bbq": [
+        "bbq",
+        "utegrill",
+        "grilla"
+      ],
+      "beer": [
+        "öl",
+        "oktoberfest",
+        "oktober fest"
+      ],
+      "drinks": [
+        "drycker",
+        "cocktail",
+        "cocktails",
+        "öl"
+      ],
+      "billiard": [
+        "biljard"
+      ],
+      "birthday": [
+        "födelsedag"
+      ],
+      "boxing": [
+        "boxning"
+      ],
+      "bookclub": [
+        "bokklubb"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "frukost"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "middag"
+      ],
+      "carmaintenance": [
+        "bilunderhåll",
+        "bilreparation",
+        "mot"
+      ],
+      "cooking": [
+        "matlagning"
+      ],
+      "climbing": [
+        "klättrande",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "kinesiskt nyår",
+        "kinesiska nyåret"
+      ],
+      "cinema": [
+        "bio",
+        "film",
+        "filmer"
+      ],
+      "coffee": [
+        "kaffe",
+        "kafé",
+        "kaféer"
+      ],
+      "videogaming": [
+        "videospel",
+        "tv-spel"
+      ],
+      "backtoschool": [
+        "tillbaka till skolan",
+        "barn hämtning",
+        "barn lämnar"
+      ],
+      "kidspickupdropoff": [
+        "tillbaka till skolan",
+        "barn hämtning",
+        "barn lämnar"
+      ],
+      "fieldhockey": [
+        "landhockey",
+        "hockey"
+      ],
+      "graduation": [
+        "gradering",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby sjuor",
+        "rugby"
+      ],
+      "walkingdog": [
+        "gåhund",
+        "gå med hund",
+        "gå ut med hunden"
+      ],
+      "studying": [
+        "studerande"
+      ],
+      "learnlanguage": [
+        "engelska klass",
+        "engelska kurs",
+        "träna engelska",
+        "franska klass",
+        "franska kurs",
+        "tysk klass",
+        "tyska kurs"
+      ],
+      "honors": [],
+      "handcraft": [
+        "sömnad",
+        "broderi",
+        "kviltning"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "sova",
+        "sovande",
+        "tupplur"
+      ],
+      "theateropera": [
+        "teater",
+        "teateropera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teateroperan"
+      ]
+    },
+    "no_no": {
+      "americanfootball": [
+        "amerikansk fotball"
+      ],
+      "archery": [
+        "bueskyting"
+      ],
+      "art": [
+        "maleri",
+        "kunstverksted",
+        "skisseverksted",
+        "tegneverksted"
+      ],
+      "athleticsjumping": [
+        "atletisk hopping",
+        "friidrett hopping"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "bbq",
+        "grilling"
+      ],
+      "beer": [
+        "øl",
+        "oktoberfest",
+        "oktober fest"
+      ],
+      "drinks": [
+        "drinker",
+        "cocktail",
+        "cocktailer",
+        "øl"
+      ],
+      "billiard": [
+        "biljard"
+      ],
+      "birthday": [
+        "fødselsdag"
+      ],
+      "boxing": [
+        "boksing"
+      ],
+      "bookclub": [
+        "bokklubb"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "frokost"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "middag"
+      ],
+      "carmaintenance": [
+        "vedlikehold av bilen",
+        "bilreparasjon",
+        "mot"
+      ],
+      "cooking": [
+        "matlaging"
+      ],
+      "climbing": [
+        "klatring",
+        "buldring"
+      ],
+      "chinesenewyear": [
+        "kinesisk nyttår"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filmer"
+      ],
+      "coffee": [
+        "kaffe",
+        "kafe",
+        "kafeer"
+      ],
+      "videogaming": [
+        "videospill",
+        "videospilling"
+      ],
+      "backtoschool": [
+        "tilbake til skolen",
+        "henting av barn",
+        "avlevering av barn"
+      ],
+      "kidspickupdropoff": [
+        "tilbake til skolen",
+        "henting av barn",
+        "avlevering av barn"
+      ],
+      "fieldhockey": [
+        "landhockey",
+        "hockey"
+      ],
+      "graduation": [
+        "eksamen",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby syvere",
+        "rugby"
+      ],
+      "walkingdog": [
+        "turhund",
+        "gå tur med hund",
+        "gå tur med hunden"
+      ],
+      "studying": [
+        "studerer"
+      ],
+      "learnlanguage": [
+        "engelsk klasse",
+        "engelsk kurs",
+        "øve på engelsk",
+        "fransk klasse",
+        "fransk kurs",
+        "tysk klasse",
+        "tyskkurs"
+      ],
+      "honors": [],
+      "handcraft": [
+        "sying",
+        "broderi",
+        "quilting"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "sove",
+        "sover",
+        "lur"
+      ],
+      "theateropera": [
+        "teater",
+        "teateropera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teateropera"
+      ]
+    },
+    "da_dk": {
+      "americanfootball": [
+        "amerikansk fodbold"
+      ],
+      "archery": [
+        "bueskydning"
+      ],
+      "art": [
+        "maleri",
+        "kunstværksted",
+        "skitseværksted",
+        "tegneværksted"
+      ],
+      "athleticsjumping": [
+        "atletisk springning",
+        "atletikspring"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "bbq",
+        "grill"
+      ],
+      "beer": [
+        "øl",
+        "oktoberfest",
+        "oktober fest"
+      ],
+      "drinks": [
+        "drikkevarer",
+        "cocktail",
+        "cocktails",
+        "øl"
+      ],
+      "billiard": [
+        "billard"
+      ],
+      "birthday": [
+        "fødselsdag"
+      ],
+      "boxing": [
+        "boksning"
+      ],
+      "bookclub": [
+        "bogklub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "morgenmad"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "middag"
+      ],
+      "carmaintenance": [
+        "bilvedligeholdelse",
+        "bilreparation",
+        "mot"
+      ],
+      "cooking": [
+        "madlavning"
+      ],
+      "climbing": [
+        "klatring",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "kinesisk nytår"
+      ],
+      "cinema": [
+        "biograf",
+        "film"
+      ],
+      "coffee": [
+        "kaffe",
+        "cafe",
+        "caféer"
+      ],
+      "videogaming": [
+        "videospil"
+      ],
+      "backtoschool": [
+        "tilbage til skolen",
+        "afhentning af børn",
+        "børn afleveres"
+      ],
+      "kidspickupdropoff": [
+        "tilbage til skolen",
+        "afhentning af børn",
+        "børn afleveres"
+      ],
+      "fieldhockey": [
+        "landhockey",
+        "hockey"
+      ],
+      "graduation": [
+        "eksamen",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby syvere",
+        "rugby"
+      ],
+      "walkingdog": [
+        "gåhund",
+        "gå tur med hund",
+        "gå tur med hunden"
+      ],
+      "studying": [
+        "studerer"
+      ],
+      "learnlanguage": [
+        "engelsk klasse",
+        "engelsk kursus",
+        "øve engelsk",
+        "fransk klasse",
+        "fransk kursus",
+        "tysk klasse",
+        "tysk kursus"
+      ],
+      "honors": [],
+      "handcraft": [
+        "syning",
+        "broderi",
+        "quiltning"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "sove",
+        "sover",
+        "lur"
+      ],
+      "theateropera": [
+        "teater",
+        "teater opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teateropera"
+      ]
+    },
+    "fi_fi": {
+      "americanfootball": [
+        "amerikkalainen jalkapallo"
+      ],
+      "archery": [
+        "jousiammunta"
+      ],
+      "art": [
+        "maalaus",
+        "taiteen työpaja",
+        "luonnostyöpaja",
+        "piirustuspaja"
+      ],
+      "athleticsjumping": [
+        "urheilullinen hyppy",
+        "yleisurheiluhyppy"
+      ],
+      "badminton": [
+        "sulkapallo"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "koripallo"
+      ],
+      "bbq": [
+        "bbq",
+        "grilli"
+      ],
+      "beer": [
+        "olut",
+        "oluita",
+        "oktoberfest",
+        "lokakuun fest",
+        "lokakuun festivaali"
+      ],
+      "drinks": [
+        "juomia",
+        "cocktail",
+        "cocktaileja",
+        "olut",
+        "oluita"
+      ],
+      "billiard": [
+        "biljardi-"
+      ],
+      "birthday": [
+        "syntymäpäivä"
+      ],
+      "boxing": [
+        "nyrkkeily"
+      ],
+      "bookclub": [
+        "kirjakerho"
+      ],
+      "bowling": [
+        "keilailu"
+      ],
+      "breakfast": [
+        "aamiainen"
+      ],
+      "camping": [
+        "telttailu"
+      ],
+      "dinner": [
+        "päivällinen"
+      ],
+      "carmaintenance": [
+        "auton huolto",
+        "auton korjaus",
+        "mot"
+      ],
+      "cooking": [
+        "ruoanlaitto"
+      ],
+      "climbing": [
+        "kiipeilyä",
+        "boulderointia"
+      ],
+      "chinesenewyear": [
+        "kiinalainen uusi vuosi",
+        "kiinalainen uusivuosi"
+      ],
+      "cinema": [
+        "elokuva",
+        "elokuvia"
+      ],
+      "coffee": [
+        "kahvia",
+        "kahvit",
+        "kahvila",
+        "kahvilat"
+      ],
+      "videogaming": [
+        "videopeli",
+        "videopelit",
+        "videopelaaminen"
+      ],
+      "backtoschool": [
+        "takaisin kouluun",
+        "lasten nouto",
+        "lasten pudotus"
+      ],
+      "kidspickupdropoff": [
+        "takaisin kouluun",
+        "lasten nouto",
+        "lasten pudotus"
+      ],
+      "fieldhockey": [
+        "maahockey",
+        "jääkiekko"
+      ],
+      "graduation": [
+        "valmistumisen",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugbyseitsemän",
+        "rugby"
+      ],
+      "walkingdog": [
+        "kävely koira",
+        "ulkoiluttaa koiraa"
+      ],
+      "studying": [
+        "opiskelu"
+      ],
+      "learnlanguage": [
+        "englannin luokka",
+        "englannin kurssi",
+        "harjoitella englantia",
+        "ranskan luokka",
+        "ranskan kurssi",
+        "saksan luokka",
+        "saksan kurssi"
+      ],
+      "honors": [],
+      "handcraft": [
+        "ompelu",
+        "kirjonta",
+        "tikkaus"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "nukkua",
+        "nukkumassa",
+        "torkut",
+        "nappaamassa"
+      ],
+      "theateropera": [
+        "teatteri",
+        "teatteri ooppera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatteriooppera"
+      ]
+    },
+    "cs_cz": {
+      "americanfootball": [
+        "americký fotbal"
+      ],
+      "archery": [
+        "lukostřelba"
+      ],
+      "art": [
+        "malování",
+        "výtvarná dílna",
+        "skicovací dílna",
+        "kreslířská dílna"
+      ],
+      "athleticsjumping": [
+        "atletické skákání",
+        "atletický skok"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "grilování"
+      ],
+      "beer": [
+        "pivo",
+        "piva",
+        "oktoberfest",
+        "říjnový svátek",
+        "říjnový festival"
+      ],
+      "drinks": [
+        "nápoje",
+        "koktejl",
+        "koktejly",
+        "pivo",
+        "piva"
+      ],
+      "billiard": [
+        "kulečník"
+      ],
+      "birthday": [
+        "narozeniny"
+      ],
+      "boxing": [
+        "box"
+      ],
+      "bookclub": [
+        "knižní klub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "snídaně"
+      ],
+      "camping": [
+        "kempování"
+      ],
+      "dinner": [
+        "večeře"
+      ],
+      "carmaintenance": [
+        "údržba vozu",
+        "oprava auta",
+        "mot"
+      ],
+      "cooking": [
+        "vaření"
+      ],
+      "climbing": [
+        "lezení",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "čínský nový rok"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filmy"
+      ],
+      "coffee": [
+        "káva",
+        "kávy",
+        "kavárna",
+        "kavárny"
+      ],
+      "videogaming": [
+        "videohra",
+        "videohry"
+      ],
+      "backtoschool": [
+        "zpátky do školy",
+        "vyzvednutí dětí",
+        "odchod dětí"
+      ],
+      "kidspickupdropoff": [
+        "zpátky do školy",
+        "vyzvednutí dětí",
+        "odchod dětí"
+      ],
+      "fieldhockey": [
+        "pozemní hokej",
+        "hokej"
+      ],
+      "graduation": [
+        "promoce"
+      ],
+      "rugbysevens": [
+        "ragbyové sedmičky",
+        "ragby"
+      ],
+      "walkingdog": [
+        "venčení psa",
+        "venčit psa"
+      ],
+      "studying": [
+        "studovat"
+      ],
+      "learnlanguage": [
+        "třída angličtiny",
+        "kurz angličtiny",
+        "procvičovat angličtinu",
+        "francouzská třída",
+        "kurz francouzštiny",
+        "německá třída",
+        "kurz němčiny"
+      ],
+      "honors": [],
+      "handcraft": [
+        "šití",
+        "výšivka",
+        "prošívání"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "spát",
+        "spací",
+        "zdřímnutí",
+        "podřimování"
+      ],
+      "theateropera": [
+        "divadlo",
+        "divadelní opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "divadelní opera"
+      ]
+    },
+    "sk_sk": {
+      "americanfootball": [
+        "americký futbal"
+      ],
+      "archery": [
+        "lukostreľba"
+      ],
+      "art": [
+        "maľovanie",
+        "výtvarná dielňa",
+        "skicovacia dielňa",
+        "kresliarsky workshop"
+      ],
+      "athleticsjumping": [
+        "atletické skákanie",
+        "atletické skoky"
+      ],
+      "badminton": [
+        "bedminton"
+      ],
+      "baseball": [
+        "bejzbal"
+      ],
+      "basketball": [
+        "basketbal"
+      ],
+      "bbq": [
+        "grilovanie"
+      ],
+      "beer": [
+        "pivo",
+        "piva",
+        "oktoberfest",
+        "októbrový sviatok",
+        "októbrový festival"
+      ],
+      "drinks": [
+        "nápoje",
+        "koktail",
+        "koktaily",
+        "pivo",
+        "piva"
+      ],
+      "billiard": [
+        "biliard"
+      ],
+      "birthday": [
+        "narodeniny"
+      ],
+      "boxing": [
+        "boxu"
+      ],
+      "bookclub": [
+        "knižný klub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "raňajky"
+      ],
+      "camping": [
+        "kempovanie"
+      ],
+      "dinner": [
+        "večera"
+      ],
+      "carmaintenance": [
+        "údržba auta",
+        "oprava auta",
+        "mot"
+      ],
+      "cooking": [
+        "varenie"
+      ],
+      "climbing": [
+        "lezenie",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "čínsky nový rok"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filmy"
+      ],
+      "coffee": [
+        "kávu",
+        "kávy",
+        "kaviareň",
+        "kaviarne"
+      ],
+      "videogaming": [
+        "videohra",
+        "videohry"
+      ],
+      "backtoschool": [
+        "späť do školy",
+        "vyzdvihnutie detí",
+        "odchod detí"
+      ],
+      "kidspickupdropoff": [
+        "späť do školy",
+        "vyzdvihnutie detí",
+        "odchod detí"
+      ],
+      "fieldhockey": [
+        "pozemný hokej",
+        "hokej"
+      ],
+      "graduation": [
+        "promócie",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rugby sedmičky",
+        "rugby"
+      ],
+      "walkingdog": [
+        "venčenie psa",
+        "venčiť psa"
+      ],
+      "studying": [
+        "štúdium"
+      ],
+      "learnlanguage": [
+        "anglická trieda",
+        "kurz angličtiny",
+        "precvičiť angličtinu",
+        "francúzska trieda",
+        "kurz francúzštiny",
+        "nemecká trieda",
+        "kurz nemčiny"
+      ],
+      "honors": [],
+      "handcraft": [
+        "šitie",
+        "vyšívanie",
+        "prešívanie"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "spať",
+        "zdriemnuť si",
+        "driemanie"
+      ],
+      "theateropera": [
+        "divadlo",
+        "divadelná opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "divadelná opera"
+      ]
+    },
+    "hr_hr": {
+      "americanfootball": [
+        "američki nogomet"
+      ],
+      "archery": [
+        "streljaštvo"
+      ],
+      "art": [
+        "slika",
+        "likovna radionica",
+        "radionica skiciranja",
+        "radionica crtanja"
+      ],
+      "athleticsjumping": [
+        "atletsko skakanje"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "bejzbol"
+      ],
+      "basketball": [
+        "košarka"
+      ],
+      "bbq": [
+        "roštilj",
+        "roštiljanje"
+      ],
+      "beer": [
+        "pivo",
+        "piva",
+        "oktoberfest",
+        "listopad fest",
+        "listopadski festival"
+      ],
+      "drinks": [
+        "pića",
+        "koktel",
+        "koktele",
+        "pivo",
+        "piva"
+      ],
+      "billiard": [
+        "biljar"
+      ],
+      "birthday": [
+        "rođendan"
+      ],
+      "boxing": [
+        "boks"
+      ],
+      "bookclub": [
+        "knjižni klub"
+      ],
+      "bowling": [
+        "kuglanje"
+      ],
+      "breakfast": [
+        "doručak"
+      ],
+      "camping": [
+        "kampiranje"
+      ],
+      "dinner": [
+        "večera"
+      ],
+      "carmaintenance": [
+        "održavanje automobila",
+        "popravak automobila",
+        "mot"
+      ],
+      "cooking": [
+        "kuhanje"
+      ],
+      "climbing": [
+        "penjanje",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "kineska nova godina"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filmovi"
+      ],
+      "coffee": [
+        "kava",
+        "kave",
+        "kafić",
+        "kavane"
+      ],
+      "videogaming": [
+        "video igra",
+        "video igre",
+        "igranje videoigara"
+      ],
+      "backtoschool": [
+        "natrag u školu",
+        "preuzimanje djece",
+        "odlazak djece"
+      ],
+      "kidspickupdropoff": [
+        "natrag u školu",
+        "preuzimanje djece",
+        "odlazak djece"
+      ],
+      "fieldhockey": [
+        "hokej na travi",
+        "hokej"
+      ],
+      "graduation": [
+        "matura",
+        "maturación"
+      ],
+      "rugbysevens": [
+        "ragbi sedam",
+        "ragbi"
+      ],
+      "walkingdog": [
+        "psa u šetnji",
+        "prošetati psa"
+      ],
+      "studying": [
+        "studiranje"
+      ],
+      "learnlanguage": [
+        "razred engleskog",
+        "tečaj engleskog",
+        "vježbati engleski",
+        "razred francuskog",
+        "tečaj francuskog",
+        "razred njemačkog",
+        "tečaj njemačkog"
+      ],
+      "honors": [],
+      "handcraft": [
+        "šivanje",
+        "vez",
+        "prošivanje"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "spavati",
+        "spavanje",
+        "drijemati",
+        "drijemanje"
+      ],
+      "theateropera": [
+        "kazalište",
+        "kazališna opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "kazališna opera"
+      ]
+    },
+    "sl_si": {
+      "americanfootball": [
+        "ameriški nogomet"
+      ],
+      "archery": [
+        "lokostrelstvo"
+      ],
+      "art": [
+        "slikanje",
+        "likovna delavnica",
+        "delavnica skiciranja",
+        "risarska delavnica"
+      ],
+      "athleticsjumping": [
+        "atletski skoki"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "košarka"
+      ],
+      "bbq": [
+        "bbq",
+        "žar"
+      ],
+      "beer": [
+        "pivo",
+        "piva",
+        "oktoberfest",
+        "oktober fest"
+      ],
+      "drinks": [
+        "pijače",
+        "koktajl",
+        "koktajli",
+        "pivo",
+        "piva"
+      ],
+      "billiard": [
+        "biljard"
+      ],
+      "birthday": [
+        "rojstni dan"
+      ],
+      "boxing": [
+        "boks"
+      ],
+      "bookclub": [
+        "knjižni klub"
+      ],
+      "bowling": [
+        "balinanje"
+      ],
+      "breakfast": [
+        "zajtrk"
+      ],
+      "camping": [
+        "kampiranje"
+      ],
+      "dinner": [
+        "večerja"
+      ],
+      "carmaintenance": [
+        "vzdrževanje avtomobila",
+        "popravilo avtomobila",
+        "mot"
+      ],
+      "cooking": [
+        "kuhanje"
+      ],
+      "climbing": [
+        "plezanje",
+        "balvansko plezanje"
+      ],
+      "chinesenewyear": [
+        "kitajsko novo leto"
+      ],
+      "cinema": [
+        "kino",
+        "film",
+        "filmi"
+      ],
+      "coffee": [
+        "kava",
+        "kave",
+        "kavarna",
+        "kavarne"
+      ],
+      "videogaming": [
+        "video igra",
+        "video igre"
+      ],
+      "backtoschool": [
+        "nazaj v šolo",
+        "prevzem otrok",
+        "odvoz otrok"
+      ],
+      "kidspickupdropoff": [
+        "nazaj v šolo",
+        "prevzem otrok",
+        "odvoz otrok"
+      ],
+      "fieldhockey": [
+        "hokej na travi",
+        "hokej"
+      ],
+      "graduation": [
+        "matura",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "ragbi sedem",
+        "ragbi"
+      ],
+      "walkingdog": [
+        "sprehajanje psa",
+        "sprehajati psa"
+      ],
+      "studying": [
+        "študij"
+      ],
+      "learnlanguage": [
+        "razred angleščine",
+        "tečaj angleščine",
+        "vadite angleščino",
+        "razred francoščine",
+        "tečaj francoščine",
+        "razred nemščine",
+        "tečaj nemščine"
+      ],
+      "honors": [],
+      "handcraft": [
+        "šivanje",
+        "vezenje",
+        "prešivanje"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "spati",
+        "spanje",
+        "dremež",
+        "dremanje"
+      ],
+      "theateropera": [
+        "gledališče",
+        "gledališka opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "gledališčeopera"
+      ]
+    },
+    "hu_hu": {
+      "americanfootball": [
+        "amerikai futball"
+      ],
+      "archery": [
+        "íjászat"
+      ],
+      "art": [
+        "festés",
+        "művészeti műhely",
+        "vázlatos műhely",
+        "rajzműhely"
+      ],
+      "athleticsjumping": [
+        "atlétikai ugrás",
+        "atlétika ugrás"
+      ],
+      "badminton": [
+        "tollaslabda"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "kosárlabda"
+      ],
+      "bbq": [
+        "bbq",
+        "barbecue",
+        "barbeque"
+      ],
+      "beer": [
+        "sör",
+        "sörök",
+        "oktoberfest",
+        "októberi fesztivál"
+      ],
+      "drinks": [
+        "italokat",
+        "koktél",
+        "koktélok",
+        "sör",
+        "sörök"
+      ],
+      "billiard": [
+        "biliárd"
+      ],
+      "birthday": [
+        "születésnap"
+      ],
+      "boxing": [
+        "boksz"
+      ],
+      "bookclub": [
+        "könyvklub"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "reggeli"
+      ],
+      "camping": [
+        "kemping"
+      ],
+      "dinner": [
+        "vacsora"
+      ],
+      "carmaintenance": [
+        "autó karbantartás",
+        "autójavítás",
+        "mot"
+      ],
+      "cooking": [
+        "főzés"
+      ],
+      "climbing": [
+        "mászó",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "kínai újév"
+      ],
+      "cinema": [
+        "mozi",
+        "film",
+        "filmeket"
+      ],
+      "coffee": [
+        "kávé",
+        "kávék",
+        "kávéház",
+        "kávézók"
+      ],
+      "videogaming": [
+        "videojáték",
+        "videojátékok"
+      ],
+      "backtoschool": [
+        "vissza az iskolába",
+        "gyerekek pickup",
+        "gyerekek kiszállása"
+      ],
+      "kidspickupdropoff": [
+        "vissza az iskolába",
+        "gyerekek pickup",
+        "gyerekek kiszállása"
+      ],
+      "fieldhockey": [
+        "mezőnyhoki",
+        "jégkorong"
+      ],
+      "graduation": [
+        "érettségi",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "rögbi hetesek",
+        "rögbi"
+      ],
+      "walkingdog": [
+        "sétáló kutya",
+        "kutyát sétáltatni",
+        "sétáltatni a kutyát"
+      ],
+      "studying": [
+        "tanul"
+      ],
+      "learnlanguage": [
+        "angol osztály",
+        "angol tanfolyam",
+        "gyakorolni az angolt",
+        "francia osztály",
+        "francia tanfolyam",
+        "német osztály",
+        "német nyelvtanfolyam"
+      ],
+      "honors": [],
+      "handcraft": [
+        "varrás",
+        "hímzés",
+        "foltvarró"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "alvás",
+        "szundikál",
+        "szunyókálás"
+      ],
+      "theateropera": [
+        "színház",
+        "színházi opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "színházi opera"
+      ]
+    },
+    "lt_lt": {
+      "americanfootball": [
+        "amerikietiškas futbolas"
+      ],
+      "archery": [
+        "šaudymas iš lanko"
+      ],
+      "art": [
+        "tapyba",
+        "meno dirbtuves",
+        "eskizų dirbtuvės",
+        "piešimo dirbtuvės"
+      ],
+      "athleticsjumping": [
+        "sportinis šokinėjimas",
+        "lengvosios atletikos šokinėjimas"
+      ],
+      "badminton": [
+        "badmintonas"
+      ],
+      "baseball": [
+        "beisbolas"
+      ],
+      "basketball": [
+        "krepšinio"
+      ],
+      "bbq": [
+        "bbq",
+        "kepsninė"
+      ],
+      "beer": [
+        "alaus",
+        "oktoberfest",
+        "spalio mėnesio šventė"
+      ],
+      "drinks": [
+        "gėrimai",
+        "kokteilis",
+        "kokteiliai",
+        "alaus"
+      ],
+      "billiard": [
+        "biliardas"
+      ],
+      "birthday": [
+        "gimtadienis"
+      ],
+      "boxing": [
+        "boksas"
+      ],
+      "bookclub": [
+        "knygų klubas"
+      ],
+      "bowling": [
+        "boulingas"
+      ],
+      "breakfast": [
+        "pusryčiai"
+      ],
+      "camping": [
+        "stovyklavimas"
+      ],
+      "dinner": [
+        "vakarienė"
+      ],
+      "carmaintenance": [
+        "automobilio priežiūra",
+        "automobilių remontas",
+        "mot"
+      ],
+      "cooking": [
+        "maisto gaminimas"
+      ],
+      "climbing": [
+        "kopimas",
+        "riedulys"
+      ],
+      "chinesenewyear": [
+        "kinų naujieji metai"
+      ],
+      "cinema": [
+        "kinas",
+        "filmas",
+        "filmai"
+      ],
+      "coffee": [
+        "kavos",
+        "kavinė",
+        "kavinės"
+      ],
+      "videogaming": [
+        "vaizdo žaidimas",
+        "vaizdo žaidimai",
+        "vaizdo žaidimų"
+      ],
+      "backtoschool": [
+        "atgal į mokyklą",
+        "vaikų paėmimas",
+        "vaikų išleidimas"
+      ],
+      "kidspickupdropoff": [
+        "atgal į mokyklą",
+        "vaikų paėmimas",
+        "vaikų išleidimas"
+      ],
+      "fieldhockey": [
+        "lauko ritulys",
+        "ledo ritulys"
+      ],
+      "graduation": [
+        "baigimo",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "regbio septynetai",
+        "regbis"
+      ],
+      "walkingdog": [
+        "vaikščiojantis šuo",
+        "vedžioti šunį"
+      ],
+      "studying": [
+        "studijuojant"
+      ],
+      "learnlanguage": [
+        "anglų kalbos klasė",
+        "anglų kalbos kursas",
+        "praktikuoti anglų kalbą",
+        "prancūzų klasė",
+        "prancūzų kalbos kursas",
+        "vokiečių klasė",
+        "vokiečių kalbos kursas"
+      ],
+      "honors": [],
+      "handcraft": [
+        "siuvimas",
+        "siuvinėjimas",
+        "dygsniavimas"
+      ],
+      "karate": [
+        "karatė"
+      ],
+      "sleep": [
+        "miegoti",
+        "miegantis",
+        "snaudulys"
+      ],
+      "theateropera": [
+        "teatras",
+        "teatro opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teatro opera"
+      ]
+    },
+    "lv_lv": {
+      "americanfootball": [
+        "amerikāņu futbols"
+      ],
+      "archery": [
+        "loka šaušana"
+      ],
+      "art": [
+        "gleznošana",
+        "mākslas darbnīca",
+        "skicēšanas darbnīca",
+        "zīmēšanas darbnīca"
+      ],
+      "athleticsjumping": [
+        "atlētiskā lēkšana",
+        "vieglatlētikas lēkšana"
+      ],
+      "badminton": [
+        "badmintons"
+      ],
+      "baseball": [
+        "beisbols"
+      ],
+      "basketball": [
+        "basketbols"
+      ],
+      "bbq": [
+        "bbq",
+        "bārbekjū"
+      ],
+      "beer": [
+        "alus",
+        "oktoberfest",
+        "oktobra svētki",
+        "oktobra festivāls"
+      ],
+      "drinks": [
+        "dzērieni",
+        "kokteilis",
+        "kokteiļi",
+        "alus"
+      ],
+      "billiard": [
+        "biljards"
+      ],
+      "birthday": [
+        "dzimšanas diena"
+      ],
+      "boxing": [
+        "bokss"
+      ],
+      "bookclub": [
+        "grāmatu klubs"
+      ],
+      "bowling": [
+        "boulings"
+      ],
+      "breakfast": [
+        "brokastis"
+      ],
+      "camping": [
+        "kempings"
+      ],
+      "dinner": [
+        "vakariņas"
+      ],
+      "carmaintenance": [
+        "auto apkope",
+        "auto remonts",
+        "mot"
+      ],
+      "cooking": [
+        "ēdiena gatavošana"
+      ],
+      "climbing": [
+        "kāpšana",
+        "laukakmeņu veidošanās"
+      ],
+      "chinesenewyear": [
+        "ķīniešu jaunais gads"
+      ],
+      "cinema": [
+        "kino",
+        "filma",
+        "filmas"
+      ],
+      "coffee": [
+        "kafija",
+        "kafijas",
+        "kafejnīca",
+        "kafejnīcas"
+      ],
+      "videogaming": [
+        "video spēle",
+        "video spēles",
+        "videospēles"
+      ],
+      "backtoschool": [
+        "atpakaļ uz skolu",
+        "bērnu pikaps",
+        "bērnu izlaišana"
+      ],
+      "kidspickupdropoff": [
+        "atpakaļ uz skolu",
+        "bērnu pikaps",
+        "bērnu izlaišana"
+      ],
+      "fieldhockey": [
+        "lauka hokejs",
+        "hokejs"
+      ],
+      "graduation": [
+        "izlaidums",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "regbija septiņnieki",
+        "regbijs"
+      ],
+      "walkingdog": [
+        "pastaigu suns",
+        "pastaigu suni",
+        "staigāt ar suni"
+      ],
+      "studying": [
+        "studējot"
+      ],
+      "learnlanguage": [
+        "angļu valodas klase",
+        "angļu valodas kurss",
+        "praktizēt angļu valodu",
+        "franču klase",
+        "franču kurss",
+        "vācu klase",
+        "vācu valodas kurss"
+      ],
+      "honors": [],
+      "handcraft": [
+        "šūšana",
+        "izšuvumi",
+        "vatēšana"
+      ],
+      "karate": [
+        "karatē"
+      ],
+      "sleep": [
+        "gulēt",
+        "guļot",
+        "snauda",
+        "snauduļošana"
+      ],
+      "theateropera": [
+        "teātris",
+        "teātra opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "teātra opera"
+      ]
+    },
+    "uk_ua": {
+      "americanfootball": [
+        "американський футбол"
+      ],
+      "archery": [
+        "стрільба з лука"
+      ],
+      "art": [
+        "живопис",
+        "художня майстерня",
+        "майстерня ескізів",
+        "майстерня малювання"
+      ],
+      "athleticsjumping": [
+        "атлетичні стрибки",
+        "легкоатлетичні стрибки"
+      ],
+      "badminton": [
+        "бадмінтон"
+      ],
+      "baseball": [
+        "бейсбол"
+      ],
+      "basketball": [
+        "баскетбол"
+      ],
+      "bbq": [
+        "барбекю"
+      ],
+      "beer": [
+        "пиво",
+        "октоберфест",
+        "жовтень фест"
+      ],
+      "drinks": [
+        "напої",
+        "коктейль",
+        "коктейлі",
+        "пиво"
+      ],
+      "billiard": [
+        "більярд"
+      ],
+      "birthday": [
+        "день народження"
+      ],
+      "boxing": [
+        "бокс"
+      ],
+      "bookclub": [
+        "книжковий клуб"
+      ],
+      "bowling": [
+        "боулінг"
+      ],
+      "breakfast": [
+        "сніданок"
+      ],
+      "camping": [
+        "кемпінг"
+      ],
+      "dinner": [
+        "вечеря"
+      ],
+      "carmaintenance": [
+        "обслуговування автомобіля",
+        "ремонт автомобіля",
+        "mot"
+      ],
+      "cooking": [
+        "приготування їжі"
+      ],
+      "climbing": [
+        "лазіння",
+        "боулдерінг"
+      ],
+      "chinesenewyear": [
+        "китайський новий рік"
+      ],
+      "cinema": [
+        "кіно",
+        "фільм",
+        "фільми"
+      ],
+      "coffee": [
+        "кава",
+        "кафе"
+      ],
+      "videogaming": [
+        "відеогра",
+        "відеоігри"
+      ],
+      "backtoschool": [
+        "назад до школи",
+        "дитячий пікап",
+        "висадка дітей"
+      ],
+      "kidspickupdropoff": [
+        "назад до школи",
+        "дитячий пікап",
+        "висадка дітей"
+      ],
+      "fieldhockey": [
+        "хокей на траві",
+        "хокей"
+      ],
+      "graduation": [
+        "випускний",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "регбі-7",
+        "регбі"
+      ],
+      "walkingdog": [
+        "вигул собаки",
+        "вигулювати собаку"
+      ],
+      "studying": [
+        "навчання"
+      ],
+      "learnlanguage": [
+        "клас англійської мови",
+        "курс англійської мови",
+        "практикувати англійську",
+        "французький клас",
+        "курс французької мови",
+        "клас німецької мови",
+        "курс німецької мови"
+      ],
+      "honors": [],
+      "handcraft": [
+        "шиття",
+        "вишивка",
+        "стьобання"
+      ],
+      "karate": [
+        "карате"
+      ],
+      "sleep": [
+        "сон",
+        "спить",
+        "дрімати",
+        "дрімає"
+      ],
+      "theateropera": [
+        "театр",
+        "театр опера"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theatreopera"
+      ]
+    },
+    "bg_bg": {
+      "americanfootball": [
+        "американски футбол"
+      ],
+      "archery": [
+        "стрелба с лък"
+      ],
+      "art": [
+        "живопис",
+        "художествена работилница",
+        "работилница за скициране",
+        "работилница по рисуване"
+      ],
+      "athleticsjumping": [
+        "атлетически скокове",
+        "лекоатлетически скокове"
+      ],
+      "badminton": [
+        "бадминтон"
+      ],
+      "baseball": [
+        "бейзбол"
+      ],
+      "basketball": [
+        "баскетбол"
+      ],
+      "bbq": [
+        "барбекю"
+      ],
+      "beer": [
+        "бира",
+        "бири",
+        "октоберфест",
+        "октомври фест"
+      ],
+      "drinks": [
+        "напитки",
+        "коктейл",
+        "коктейли",
+        "бира",
+        "бири"
+      ],
+      "billiard": [
+        "билярд"
+      ],
+      "birthday": [
+        "рожден ден"
+      ],
+      "boxing": [
+        "бокс"
+      ],
+      "bookclub": [
+        "книжен клуб"
+      ],
+      "bowling": [
+        "боулинг"
+      ],
+      "breakfast": [
+        "закуска"
+      ],
+      "camping": [
+        "къмпингуване"
+      ],
+      "dinner": [
+        "вечеря"
+      ],
+      "carmaintenance": [
+        "поддръжка на автомобили",
+        "ремонт на автомобили",
+        "mot"
+      ],
+      "cooking": [
+        "готвене"
+      ],
+      "climbing": [
+        "катерене",
+        "боулдъринг"
+      ],
+      "chinesenewyear": [
+        "китайска нова година"
+      ],
+      "cinema": [
+        "кино",
+        "филм",
+        "филми"
+      ],
+      "coffee": [
+        "кафе",
+        "кафета",
+        "кафене",
+        "кафенета"
+      ],
+      "videogaming": [
+        "видео игра",
+        "видео игри",
+        "видеоигри"
+      ],
+      "backtoschool": [
+        "обратно на училище",
+        "детски пикап",
+        "отпадане на деца"
+      ],
+      "kidspickupdropoff": [
+        "обратно на училище",
+        "детски пикап",
+        "отпадане на деца"
+      ],
+      "fieldhockey": [
+        "хокей на трева",
+        "хокей"
+      ],
+      "graduation": [
+        "дипломиране",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "ръгби седем",
+        "ръгби"
+      ],
+      "walkingdog": [
+        "ходене на куче",
+        "разходка с куче",
+        "разходете кучето"
+      ],
+      "studying": [
+        "изучаване"
+      ],
+      "learnlanguage": [
+        "час по английски",
+        "курс по английски език",
+        "практикувай английски",
+        "френски клас",
+        "курс по френски",
+        "час по немски",
+        "курс по немски"
+      ],
+      "honors": [],
+      "handcraft": [
+        "шиене",
+        "бродерия",
+        "ватиране"
+      ],
+      "karate": [
+        "карате"
+      ],
+      "sleep": [
+        "сън",
+        "спящ",
+        "дрямка",
+        "подремване"
+      ],
+      "theateropera": [
+        "театър",
+        "театър опера"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "театрална опера"
+      ]
+    },
+    "el_gr": {
+      "americanfootball": [
+        "αμερικανικό ποδόσφαιρο"
+      ],
+      "archery": [
+        "τοξοβολία"
+      ],
+      "art": [
+        "ζωγραφική",
+        "εργαστήριο τέχνης",
+        "εργαστήριο σκίτσο",
+        "εργαστήριο σχεδίου"
+      ],
+      "athleticsjumping": [
+        "αθλητικό άλμα",
+        "άλματα στίβου"
+      ],
+      "badminton": [
+        "παιγνίδι όμοιο με τέννις"
+      ],
+      "baseball": [
+        "μπέιζμπολ"
+      ],
+      "basketball": [
+        "καλαθοσφαίρα"
+      ],
+      "bbq": [
+        "bbq",
+        "ψησταριά",
+        "μπάρμπεκιου"
+      ],
+      "beer": [
+        "μπύρα",
+        "μπύρες",
+        "oktoberfest",
+        "γιορτή οκτωβρίου",
+        "οκτωβρίου φεστιβάλ"
+      ],
+      "drinks": [
+        "αναψυκτικά",
+        "κοκτέιλ",
+        "μπύρα",
+        "μπύρες"
+      ],
+      "billiard": [
+        "μπιλιάρδο"
+      ],
+      "birthday": [
+        "γενέθλια"
+      ],
+      "boxing": [
+        "πυγμαχία"
+      ],
+      "bookclub": [
+        "λέσχη βιβλίου"
+      ],
+      "bowling": [
+        "μπόουλινγκ"
+      ],
+      "breakfast": [
+        "πρωινό"
+      ],
+      "camping": [
+        "κατασκήνωση"
+      ],
+      "dinner": [
+        "δείπνο"
+      ],
+      "carmaintenance": [
+        "συντήρηση αυτοκινήτου",
+        "επισκευή αυτοκινήτου",
+        "ευφυολόγημα"
+      ],
+      "cooking": [
+        "μαγείρεμα"
+      ],
+      "climbing": [
+        "ορειβασία",
+        "bouldering"
+      ],
+      "chinesenewyear": [
+        "κινέζικο νέο έτος",
+        "κινεζική νέα χρονιά"
+      ],
+      "cinema": [
+        "σινεμά",
+        "ταινία",
+        "κινηματογράφος"
+      ],
+      "coffee": [
+        "καφές",
+        "καφέδες",
+        "καφενείο",
+        "καφετέριες"
+      ],
+      "videogaming": [
+        "βιντεοπαιχνίδι",
+        "βιντεοπαιχνίδια",
+        "videogaming"
+      ],
+      "backtoschool": [
+        "πίσω στο σχολείο",
+        "παιδική παραλαβή",
+        "αποβίβαση παιδιών"
+      ],
+      "kidspickupdropoff": [
+        "πίσω στο σχολείο",
+        "παιδική παραλαβή",
+        "αποβίβαση παιδιών"
+      ],
+      "fieldhockey": [
+        "χόκεϊ επί χόρτου",
+        "χακί"
+      ],
+      "graduation": [
+        "αποφοίτηση"
+      ],
+      "rugbysevens": [
+        "επτά ράγκμπι",
+        "ράγκμπι"
+      ],
+      "walkingdog": [
+        "σκύλος που περπατάει",
+        "σκύλος βόλτας",
+        "βόλτα τον σκύλο"
+      ],
+      "studying": [
+        "μελετώντας"
+      ],
+      "learnlanguage": [
+        "μάθημα αγγλικών",
+        "εξασκηθείτε στα αγγλικά",
+        "τάξη γαλλικών",
+        "μάθημα γαλλικών",
+        "γερμανική τάξη",
+        "μάθημα γερμανικών"
+      ],
+      "honors": [],
+      "handcraft": [
+        "ράψιμο",
+        "κέντημα",
+        "καπιτονέ"
+      ],
+      "karate": [
+        "καρατέ"
+      ],
+      "sleep": [
+        "ύπνος",
+        "κοιμισμένος",
+        "χνούδι",
+        "υπνάκο"
+      ],
+      "theateropera": [
+        "θέατρο",
+        "θεατρική όπερα"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "θέατρο"
+      ]
+    },
+    "he_il": {
+      "americanfootball": [
+        "כדורגל אמריקאי"
+      ],
+      "archery": [
+        "קַשׁתוּת"
+      ],
+      "art": [
+        "צִיוּר",
+        "סדנת אמנות",
+        "סדנת רישום",
+        "סדנת ציור"
+      ],
+      "athleticsjumping": [
+        "קפיצה אתלטית",
+        "קפיצות אתלטיקה"
+      ],
+      "badminton": [
+        "בַּדמִינטוֹן"
+      ],
+      "baseball": [
+        "כַּדוּר בָּסִיס"
+      ],
+      "basketball": [
+        "כַּדוּרסַל"
+      ],
+      "bbq": [
+        "מנגל",
+        "ברביקיו"
+      ],
+      "beer": [
+        "בִּירָה",
+        "בירות",
+        "אוקטוברפסט",
+        "חג אוקטובר"
+      ],
+      "drinks": [
+        "מַשׁקָאוֹת",
+        "קוקטייל",
+        "קוקטיילים",
+        "בִּירָה",
+        "בירות"
+      ],
+      "billiard": [
+        "ביליארד"
+      ],
+      "birthday": [
+        "יוֹם הוּלֶדֶת"
+      ],
+      "boxing": [
+        "אִגרוּף"
+      ],
+      "bookclub": [
+        "מועדון ספרים"
+      ],
+      "bowling": [
+        "בָּאוּלִינְג"
+      ],
+      "breakfast": [
+        "ארוחת בוקר"
+      ],
+      "camping": [
+        "קֶמפִּינג"
+      ],
+      "dinner": [
+        "אֲרוּחַת עֶרֶב"
+      ],
+      "carmaintenance": [
+        "תחזוקת רכב",
+        "תיקון רכב",
+        "mot"
+      ],
+      "cooking": [
+        "בישול"
+      ],
+      "climbing": [
+        "טיפוס",
+        "בולדרינג"
+      ],
+      "chinesenewyear": [
+        "ראש השנה הסינית"
+      ],
+      "cinema": [
+        "קוֹלנוֹעַ",
+        "סֶרֶט",
+        "סרטים"
+      ],
+      "coffee": [
+        "קָפֶה",
+        "קפה",
+        "בֵּית קָפֶה",
+        "בתי קפה"
+      ],
+      "videogaming": [
+        "משחק וידאו",
+        "משחקי וידאו"
+      ],
+      "backtoschool": [
+        "לחזור לבית הספר",
+        "איסוף ילדים",
+        "הורדת ילדים"
+      ],
+      "kidspickupdropoff": [
+        "לחזור לבית הספר",
+        "איסוף ילדים",
+        "הורדת ילדים"
+      ],
+      "fieldhockey": [
+        "הוקי שדה",
+        "הוֹקֵי"
+      ],
+      "graduation": [
+        "טֶקֶס סִיוּם",
+        "graduación"
+      ],
+      "rugbysevens": [
+        "שביעיות רוגבי",
+        "רוגבי"
+      ],
+      "walkingdog": [
+        "כלב מטייל",
+        "לטייל עם כלב",
+        "לטייל עם הכלב"
+      ],
+      "studying": [
+        "לומד"
+      ],
+      "learnlanguage": [
+        "שיעור אנגלית",
+        "קורס אנגלית",
+        "להתאמן באנגלית",
+        "שיעור צרפתית",
+        "קורס צרפתית",
+        "כיתת גרמנית",
+        "קורס גרמנית"
+      ],
+      "honors": [],
+      "handcraft": [
+        "תְפִירָה",
+        "רִקמָה",
+        "תפירת טלאים"
+      ],
+      "karate": [
+        "קָרָטֵה"
+      ],
+      "sleep": [
+        "לִישׁוֹן",
+        "יָשֵׁן",
+        "תְנוּמָה",
+        "מנמנם"
+      ],
+      "theateropera": [
+        "תֵאַטרוֹן",
+        "אופרת תיאטרון"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "תיאטרון אופרה"
+      ]
+    },
+    "ar_sa": {
+      "americanfootball": [
+        "كرة القدم الأمريكية"
+      ],
+      "archery": [
+        "الرماية"
+      ],
+      "art": [
+        "تلوين",
+        "ورشة فنية",
+        "ورشة رسم",
+        "ورشة الرسم"
+      ],
+      "athleticsjumping": [
+        "القفز الرياضي",
+        "ألعاب القوى القفز"
+      ],
+      "badminton": [
+        "كرة الريشة"
+      ],
+      "baseball": [
+        "البيسبول"
+      ],
+      "basketball": [
+        "كرة السلة"
+      ],
+      "bbq": [
+        "شواء",
+        "الشواء"
+      ],
+      "beer": [
+        "جعة",
+        "البيرة",
+        "مهرجان أكتوبر"
+      ],
+      "drinks": [
+        "مشروبات",
+        "كوكتيل",
+        "كوكتيلات",
+        "جعة",
+        "البيرة"
+      ],
+      "billiard": [
+        "البلياردو"
+      ],
+      "birthday": [
+        "عيد ميلاد"
+      ],
+      "boxing": [
+        "ملاكمة"
+      ],
+      "bookclub": [
+        "نادي الكتاب"
+      ],
+      "bowling": [
+        "البولينج"
+      ],
+      "breakfast": [
+        "إفطار"
+      ],
+      "camping": [
+        "التخييم"
+      ],
+      "dinner": [
+        "عشاء"
+      ],
+      "carmaintenance": [
+        "صيانة السيارة",
+        "إصلاح السيارة",
+        "موت"
+      ],
+      "cooking": [
+        "طبخ"
+      ],
+      "climbing": [
+        "التسلق",
+        "صخرة"
+      ],
+      "chinesenewyear": [
+        "السنة الصينية الجديدة"
+      ],
+      "cinema": [
+        "سينما",
+        "فيلم",
+        "أفلام"
+      ],
+      "coffee": [
+        "قهوة",
+        "القهوة",
+        "مقهى",
+        "المقاهي"
+      ],
+      "videogaming": [
+        "لعبة فيديو",
+        "ألعاب الفيديو"
+      ],
+      "backtoschool": [
+        "العودة إلى المدرسة",
+        "بيك اب الاطفال",
+        "هبوط الاطفال"
+      ],
+      "kidspickupdropoff": [
+        "العودة إلى المدرسة",
+        "بيك اب الاطفال",
+        "هبوط الاطفال"
+      ],
+      "fieldhockey": [
+        "الهوكي الميداني",
+        "الهوكي"
+      ],
+      "graduation": [
+        "تخرُّج",
+        "التخرج"
+      ],
+      "rugbysevens": [
+        "سباعيات الرجبي",
+        "لعبة الركبي"
+      ],
+      "walkingdog": [
+        "كلب يمشي",
+        "المشي الكلب"
+      ],
+      "studying": [
+        "دراسة"
+      ],
+      "learnlanguage": [
+        "فئة اللغة الإنجليزية",
+        "دورة اللغة الإنجليزية",
+        "ممارسة اللغة الإنجليزية",
+        "الطبقة الفرنسية",
+        "دورة الفرنسية",
+        "الطبقة الألمانية",
+        "دورة اللغة الألمانية"
+      ],
+      "honors": [],
+      "handcraft": [
+        "خياطة",
+        "تطريز",
+        "خياطة اللحف"
+      ],
+      "karate": [
+        "الكاراتيه"
+      ],
+      "sleep": [
+        "ينام",
+        "نائم",
+        "قيلولة"
+      ],
+      "theateropera": [
+        "مسرح",
+        "أوبرا مسرحية"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "مسرحية"
+      ]
+    },
+    "fa_ir": {
+      "americanfootball": [
+        "فوتبال آمریکایی"
+      ],
+      "archery": [
+        "تیراندازی با کمان"
+      ],
+      "art": [
+        "نقاشی",
+        "کارگاه هنری",
+        "کارگاه طراحی",
+        "کارگاه نقاشی"
+      ],
+      "athleticsjumping": [
+        "پرش ورزشی",
+        "پرش دو و میدانی"
+      ],
+      "badminton": [
+        "بدمینتون"
+      ],
+      "baseball": [
+        "بیسبال"
+      ],
+      "basketball": [
+        "بسکتبال"
+      ],
+      "bbq": [
+        "bbq",
+        "باربیکیو"
+      ],
+      "beer": [
+        "آبجو",
+        "جشنواره اکتبر",
+        "جشن اکتبر"
+      ],
+      "drinks": [
+        "نوشیدنی ها",
+        "کوکتل",
+        "کوکتل ها",
+        "آبجو"
+      ],
+      "billiard": [
+        "بیلیارد"
+      ],
+      "birthday": [
+        "تولد"
+      ],
+      "boxing": [
+        "بوکس"
+      ],
+      "bookclub": [
+        "باشگاه کتاب"
+      ],
+      "bowling": [
+        "بولینگ"
+      ],
+      "breakfast": [
+        "صبحانه"
+      ],
+      "camping": [
+        "کمپینگ"
+      ],
+      "dinner": [
+        "شام"
+      ],
+      "carmaintenance": [
+        "تعمیر و نگهداری خودرو",
+        "تعمیر ماشین",
+        "حرکت"
+      ],
+      "cooking": [
+        "پخت و پز"
+      ],
+      "climbing": [
+        "کوهنوردی",
+        "بولدرینگ"
+      ],
+      "chinesenewyear": [
+        "سال نو چینی"
+      ],
+      "cinema": [
+        "سینما",
+        "فیلم",
+        "فیلم ها"
+      ],
+      "coffee": [
+        "قهوه",
+        "قهوه ها",
+        "کافه",
+        "کافه ها"
+      ],
+      "videogaming": [
+        "بازی ویدیویی",
+        "بازی های ویدیویی"
+      ],
+      "backtoschool": [
+        "بازگشت به مدرسه",
+        "وانت بچه ها",
+        "بچه ها رها می شوند"
+      ],
+      "kidspickupdropoff": [
+        "بازگشت به مدرسه",
+        "وانت بچه ها",
+        "بچه ها رها می شوند"
+      ],
+      "fieldhockey": [
+        "هاکی روی چمن",
+        "هاکی"
+      ],
+      "graduation": [
+        "فارغ التحصیلی"
+      ],
+      "rugbysevens": [
+        "راگبی هفت",
+        "راگبی"
+      ],
+      "walkingdog": [
+        "سگ راه رفتن",
+        "سگ پیاده روی",
+        "سگ را راه بینداز"
+      ],
+      "studying": [
+        "مطالعه کردن"
+      ],
+      "learnlanguage": [
+        "کلاس انگلیسی",
+        "دوره انگلیسی",
+        "انگلیسی را تمرین کنید",
+        "کلاس فرانسه",
+        "دوره فرانسوی",
+        "کلاس آلمانی",
+        "دوره آلمانی"
+      ],
+      "honors": [],
+      "handcraft": [
+        "خیاطی",
+        "گلدوزی",
+        "لحاف کاری"
+      ],
+      "karate": [
+        "کاراته"
+      ],
+      "sleep": [
+        "بخواب",
+        "خوابیدن",
+        "چرت زدن"
+      ],
+      "theateropera": [
+        "تئاتر",
+        "اپرا تئاتر"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "تئاتر اپرا"
+      ]
+    },
+    "hi_in": {
+      "americanfootball": [
+        "अमेरिकी फुटबॉल"
+      ],
+      "archery": [
+        "तीरंदाजी"
+      ],
+      "art": [
+        "चित्रकारी",
+        "कला कार्यशाला",
+        "स्केचिंग कार्यशाला",
+        "ड्राइंग कार्यशाला"
+      ],
+      "athleticsjumping": [
+        "एथलेटिक कूद",
+        "एथलेटिक्स कूद"
+      ],
+      "badminton": [
+        "बैडमिंटन"
+      ],
+      "baseball": [
+        "बेसबॉल"
+      ],
+      "basketball": [
+        "बास्केटबाल"
+      ],
+      "bbq": [
+        "बीबीक्यू",
+        "बारबेक्यू",
+        "barbeque"
+      ],
+      "beer": [
+        "बियर",
+        "अक्टूबर उत्सव"
+      ],
+      "drinks": [
+        "पेय",
+        "कॉकटेल",
+        "बियर"
+      ],
+      "billiard": [
+        "बिलियर्ड"
+      ],
+      "birthday": [
+        "जन्मदिन"
+      ],
+      "boxing": [
+        "मुक्केबाज़ी"
+      ],
+      "bookclub": [
+        "पुस्तक क्लब"
+      ],
+      "bowling": [
+        "गेंदबाजी"
+      ],
+      "breakfast": [
+        "नाश्ता"
+      ],
+      "camping": [
+        "डेरा डालना"
+      ],
+      "dinner": [
+        "रात का खाना"
+      ],
+      "carmaintenance": [
+        "कार रखरखाव",
+        "कार दुरुस्ती",
+        "चुटकुला"
+      ],
+      "cooking": [
+        "खाना बनाना"
+      ],
+      "climbing": [
+        "आरोहण",
+        "बोल्डरिंग"
+      ],
+      "chinesenewyear": [
+        "चीनी नव वर्ष",
+        "चीनी नववर्ष"
+      ],
+      "cinema": [
+        "सिनेमा",
+        "चलचित्र",
+        "फिल्में"
+      ],
+      "coffee": [
+        "कॉफी",
+        "कैफे"
+      ],
+      "videogaming": [
+        "वीडियो गेम",
+        "वीडियोगेमिंग"
+      ],
+      "backtoschool": [
+        "वापस स्कूल",
+        "बच्चों को उठाना",
+        "बच्चों का छूटना"
+      ],
+      "kidspickupdropoff": [
+        "वापस स्कूल",
+        "बच्चों को उठाना",
+        "बच्चों का छूटना"
+      ],
+      "fieldhockey": [
+        "फील्ड हॉकी",
+        "हॉकी"
+      ],
+      "graduation": [
+        "स्नातक"
+      ],
+      "rugbysevens": [
+        "रग्बी सेवन्स",
+        "रग्बी"
+      ],
+      "walkingdog": [
+        "चलने वाला कुत्ता",
+        "कुत्ते को घुमाना",
+        "आत्म संतुष्टि का काम करना"
+      ],
+      "studying": [
+        "पढ़ना"
+      ],
+      "learnlanguage": [
+        "अंग्रेजी की कलास",
+        "अंग्रेजी का कोर्स",
+        "अंग्रेजी का अभ्यास करें",
+        "फ्रेंच कक्षा",
+        "फ्रेंच पाठ्यक्रम",
+        "जर्मन वर्ग",
+        "जर्मन पाठ्यक्रम"
+      ],
+      "honors": [],
+      "handcraft": [
+        "सिलाई",
+        "कढ़ाई",
+        "रजाई"
+      ],
+      "karate": [
+        "कराटे"
+      ],
+      "sleep": [
+        "नींद",
+        "सोना",
+        "झपकी"
+      ],
+      "theateropera": [
+        "थिएटर",
+        "थिएटर ओपेरा"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "थिएटरओपेरा"
+      ]
+    },
+    "id_id": {
+      "americanfootball": [
+        "sepak bola amerika"
+      ],
+      "archery": [
+        "panahan"
+      ],
+      "art": [
+        "lukisan",
+        "bengkel seni",
+        "bengkel sketsa",
+        "bengkel menggambar"
+      ],
+      "athleticsjumping": [
+        "lompat atletik",
+        "atletik melompat"
+      ],
+      "badminton": [
+        "bulutangkis"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "bola basket"
+      ],
+      "bbq": [
+        "barbekyu"
+      ],
+      "beer": [
+        "bir",
+        "oktoberfest",
+        "festival oktober"
+      ],
+      "drinks": [
+        "minuman",
+        "koktail",
+        "bir"
+      ],
+      "billiard": [
+        "bilyar"
+      ],
+      "birthday": [
+        "hari ulang tahun"
+      ],
+      "boxing": [
+        "tinju"
+      ],
+      "bookclub": [
+        "klub buku"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "sarapan"
+      ],
+      "camping": [
+        "berkemah"
+      ],
+      "dinner": [
+        "makan malam"
+      ],
+      "carmaintenance": [
+        "perawatan mobil",
+        "perbaikan mobil",
+        "mot"
+      ],
+      "cooking": [
+        "memasak"
+      ],
+      "climbing": [
+        "pendakian",
+        "batu besar"
+      ],
+      "chinesenewyear": [
+        "tahun baru cina"
+      ],
+      "cinema": [
+        "bioskop",
+        "film"
+      ],
+      "coffee": [
+        "kopi",
+        "kafe"
+      ],
+      "videogaming": [
+        "permainan video"
+      ],
+      "backtoschool": [
+        "kembali ke sekolah",
+        "penjemputan anak-anak",
+        "pengantaran anak-anak"
+      ],
+      "kidspickupdropoff": [
+        "kembali ke sekolah",
+        "penjemputan anak-anak",
+        "pengantaran anak-anak"
+      ],
+      "fieldhockey": [
+        "hoki lapangan",
+        "hoki"
+      ],
+      "graduation": [
+        "kelulusan"
+      ],
+      "rugbysevens": [
+        "rugbi tujuh",
+        "ragbi"
+      ],
+      "walkingdog": [
+        "anjing berjalan",
+        "anjing jalan-jalan",
+        "mengajak anjing jalan-jalan"
+      ],
+      "studying": [
+        "mempelajari"
+      ],
+      "learnlanguage": [
+        "kelas bahasa inggris",
+        "kursus bahasa inggris",
+        "berlatih bahasa inggris",
+        "kelas perancis",
+        "kursus perancis",
+        "kelas jerman",
+        "kursus bahasa jerman"
+      ],
+      "honors": [],
+      "handcraft": [
+        "jahit",
+        "sulaman",
+        "merajut"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "tidur",
+        "sedang tidur",
+        "tidur sebentar",
+        "tidur siang"
+      ],
+      "theateropera": [
+        "teater",
+        "opera teater"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "opera teater"
+      ]
+    },
+    "vi_vn": {
+      "americanfootball": [
+        "bóng đá mỹ"
+      ],
+      "archery": [
+        "bắn cung"
+      ],
+      "art": [
+        "bức vẽ",
+        "xưởng nghệ thuật",
+        "xưởng vẽ phác thảo",
+        "xưởng vẽ"
+      ],
+      "athleticsjumping": [
+        "nhảy thể thao",
+        "nhảy điền kinh"
+      ],
+      "badminton": [
+        "cầu lông"
+      ],
+      "baseball": [
+        "bóng chày"
+      ],
+      "basketball": [
+        "bóng rổ"
+      ],
+      "bbq": [
+        "thịt nướng",
+        "đồ nướng"
+      ],
+      "beer": [
+        "bia",
+        "lễ hội tháng mười"
+      ],
+      "drinks": [
+        "đồ uống",
+        "cocktail",
+        "bia"
+      ],
+      "billiard": [
+        "bida"
+      ],
+      "birthday": [
+        "sinh nhật"
+      ],
+      "boxing": [
+        "quyền anh"
+      ],
+      "bookclub": [
+        "câu lạc bộ sách"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "bữa sáng"
+      ],
+      "camping": [
+        "cắm trại"
+      ],
+      "dinner": [
+        "bữa tối"
+      ],
+      "carmaintenance": [
+        "bảo dưỡng xe",
+        "sửa xe",
+        "một đốm"
+      ],
+      "cooking": [
+        "nấu ăn"
+      ],
+      "climbing": [
+        "leo núi",
+        "sự ném đá"
+      ],
+      "chinesenewyear": [
+        "năm mới của trung quốc"
+      ],
+      "cinema": [
+        "rạp chiếu phim",
+        "bộ phim",
+        "phim"
+      ],
+      "coffee": [
+        "cà phê",
+        "quán cà phê"
+      ],
+      "videogaming": [
+        "trò chơi điện tử",
+        "chơi game video"
+      ],
+      "backtoschool": [
+        "trở lại trường học",
+        "đón trẻ em",
+        "đưa đón trẻ em"
+      ],
+      "kidspickupdropoff": [
+        "trở lại trường học",
+        "đón trẻ em",
+        "đưa đón trẻ em"
+      ],
+      "fieldhockey": [
+        "khúc côn cầu trên sân",
+        "khúc côn cầu"
+      ],
+      "graduation": [
+        "tốt nghiệp"
+      ],
+      "rugbysevens": [
+        "bóng bầu dục bảy",
+        "bóng bầu dục"
+      ],
+      "walkingdog": [
+        "chó đi dạo",
+        "dắt chó đi dạo"
+      ],
+      "studying": [
+        "học"
+      ],
+      "learnlanguage": [
+        "lớp học tiếng anh",
+        "khóa học tiếng anh",
+        "luyện tập tiếng anh",
+        "lớp học tiếng pháp",
+        "khóa học tiếng pháp",
+        "lớp học tiếng đức",
+        "khóa học tiếng đức"
+      ],
+      "honors": [],
+      "handcraft": [
+        "khâu vá",
+        "nghề thêu",
+        "sự chần bông"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "ngủ",
+        "đang ngủ",
+        "ngủ trưa"
+      ],
+      "theateropera": [
+        "nhà hát",
+        "nhà hát opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "vở kịch"
+      ]
+    },
+    "th_th": {
+      "americanfootball": [
+        "อเมริกันฟุตบอล"
+      ],
+      "archery": [
+        "ยิงธนู"
+      ],
+      "art": [
+        "จิตรกรรม",
+        "การประชุมเชิงปฏิบัติการศิลปะ",
+        "การประชุมเชิงปฏิบัติการการร่างภาพ",
+        "การประชุมเชิงปฏิบัติการการวาดภาพ"
+      ],
+      "athleticsjumping": [
+        "กระโดดกีฬา",
+        "กรีฑากระโดด"
+      ],
+      "badminton": [
+        "แบดมินตัน"
+      ],
+      "baseball": [
+        "เบสบอล"
+      ],
+      "basketball": [
+        "บาสเกตบอล"
+      ],
+      "bbq": [
+        "บาร์บีคิว"
+      ],
+      "beer": [
+        "เบียร์",
+        "เทศกาลออคโทเบอร์เฟสต์",
+        "เทศกาลเดือนตุลาคม"
+      ],
+      "drinks": [
+        "เครื่องดื่ม",
+        "ค็อกเทล",
+        "เบียร์"
+      ],
+      "billiard": [
+        "บิลเลียด"
+      ],
+      "birthday": [
+        "วันเกิด"
+      ],
+      "boxing": [
+        "มวย"
+      ],
+      "bookclub": [
+        "ชมรมหนังสือ"
+      ],
+      "bowling": [
+        "โบว์ลิ่ง"
+      ],
+      "breakfast": [
+        "อาหารเช้า"
+      ],
+      "camping": [
+        "ตั้งแคมป์"
+      ],
+      "dinner": [
+        "อาหารเย็น"
+      ],
+      "carmaintenance": [
+        "การบำรุงรักษารถยนต์",
+        "ซ่อมรถ",
+        "มธ"
+      ],
+      "cooking": [
+        "การทำอาหาร"
+      ],
+      "climbing": [
+        "การปีนป่าย",
+        "ก้อนหิน"
+      ],
+      "chinesenewyear": [
+        "ตรุษจีน"
+      ],
+      "cinema": [
+        "โรงหนัง",
+        "ภาพยนตร์"
+      ],
+      "coffee": [
+        "กาแฟ",
+        "คาเฟ่"
+      ],
+      "videogaming": [
+        "วิดีโอเกม"
+      ],
+      "backtoschool": [
+        "กลับไปโรงเรียน",
+        "รถกระบะสำหรับเด็ก",
+        "เด็กไปส่ง"
+      ],
+      "kidspickupdropoff": [
+        "กลับไปโรงเรียน",
+        "รถกระบะสำหรับเด็ก",
+        "เด็กไปส่ง"
+      ],
+      "fieldhockey": [
+        "กีฬาฮอกกี้",
+        "ฮอกกี้"
+      ],
+      "graduation": [
+        "การสำเร็จการศึกษา"
+      ],
+      "rugbysevens": [
+        "รักบี้เซเว่น",
+        "รักบี้"
+      ],
+      "walkingdog": [
+        "สุนัขเดิน",
+        "เดินสุนัข"
+      ],
+      "studying": [
+        "กำลังเรียน"
+      ],
+      "learnlanguage": [
+        "ชั้นเรียนภาษาอังกฤษ",
+        "หลักสูตรภาษาอังกฤษ",
+        "ฝึกภาษาอังกฤษ",
+        "ชั้นเรียนภาษาฝรั่งเศส",
+        "หลักสูตรภาษาฝรั่งเศส",
+        "ชั้นเรียนภาษาเยอรมัน",
+        "หลักสูตรภาษาเยอรมัน"
+      ],
+      "honors": [],
+      "handcraft": [
+        "เย็บ",
+        "เย็บปักถักร้อย",
+        "ควิลท์"
+      ],
+      "karate": [
+        "คาราเต้"
+      ],
+      "sleep": [
+        "นอน",
+        "นอนหลับ",
+        "งีบหลับ"
+      ],
+      "theateropera": [
+        "โรงภาพยนตร์",
+        "โรงละครโอเปร่า"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "โรงละครโอเปร่า"
+      ]
+    },
+    "fil_ph": {
+      "americanfootball": [
+        "american football"
+      ],
+      "archery": [
+        "pamamana"
+      ],
+      "art": [
+        "pagpipinta",
+        "pagawaan ng sining",
+        "pagawaan ng sketching",
+        "workshop sa pagguhit"
+      ],
+      "athleticsjumping": [
+        "athletic jumping",
+        "athletics jumping"
+      ],
+      "badminton": [
+        "badminton"
+      ],
+      "baseball": [
+        "baseball"
+      ],
+      "basketball": [
+        "basketball"
+      ],
+      "bbq": [
+        "bbq",
+        "barbecue",
+        "barbeque"
+      ],
+      "beer": [
+        "beer",
+        "beers",
+        "oktoberfest",
+        "october fest",
+        "octoberfest"
+      ],
+      "drinks": [
+        "inumin",
+        "cocktail",
+        "mga cocktail",
+        "beer",
+        "beers"
+      ],
+      "billiard": [
+        "bilyaran"
+      ],
+      "birthday": [
+        "kaarawan"
+      ],
+      "boxing": [
+        "boxing"
+      ],
+      "bookclub": [
+        "club ng libro"
+      ],
+      "bowling": [
+        "bowling"
+      ],
+      "breakfast": [
+        "almusal"
+      ],
+      "camping": [
+        "camping"
+      ],
+      "dinner": [
+        "hapunan"
+      ],
+      "carmaintenance": [
+        "pagpapanatili ng sasakyan",
+        "pagkumpuni ng sasakyan",
+        "mot"
+      ],
+      "cooking": [
+        "pagluluto"
+      ],
+      "climbing": [
+        "pag-akyat",
+        "malalaking bato"
+      ],
+      "chinesenewyear": [
+        "bagong taon ng tsino"
+      ],
+      "cinema": [
+        "sinehan",
+        "pelikula",
+        "mga pelikula"
+      ],
+      "coffee": [
+        "kape",
+        "mga kape",
+        "café",
+        "mga cafe"
+      ],
+      "videogaming": [
+        "video game",
+        "mga video game",
+        "videogaming",
+        "mga videogame"
+      ],
+      "backtoschool": [
+        "bumalik sa paaralan",
+        "pickup ng mga bata",
+        "pagbaba ng mga bata"
+      ],
+      "kidspickupdropoff": [
+        "bumalik sa paaralan",
+        "pickup ng mga bata",
+        "pagbaba ng mga bata"
+      ],
+      "fieldhockey": [
+        "field hockey",
+        "hockey"
+      ],
+      "graduation": [
+        "graduation"
+      ],
+      "rugbysevens": [
+        "rugby sevens",
+        "rugby"
+      ],
+      "walkingdog": [
+        "naglalakad na aso",
+        "lakad na aso",
+        "lakad ang aso"
+      ],
+      "studying": [
+        "nag-aaral"
+      ],
+      "learnlanguage": [
+        "klase sa ingles",
+        "kursong ingles",
+        "magsanay ng ingles",
+        "klase ng pranses",
+        "kursong pranses",
+        "klase ng german",
+        "kursong german"
+      ],
+      "honors": [],
+      "handcraft": [
+        "pananahi",
+        "pagbuburda",
+        "quilting"
+      ],
+      "karate": [
+        "karate"
+      ],
+      "sleep": [
+        "matulog",
+        "natutulog",
+        "idlip",
+        "pag-idlip"
+      ],
+      "theateropera": [
+        "teatro",
+        "teatro opera"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "theatreopera"
+      ]
+    },
+    "zh_cn": {
+      "americanfootball": [
+        "美式足球"
+      ],
+      "archery": [
+        "射箭"
+      ],
+      "art": [
+        "绘画",
+        "艺术工作坊",
+        "素描工作坊",
+        "绘图车间"
+      ],
+      "athleticsjumping": [
+        "运动跳跃",
+        "田径跳跃"
+      ],
+      "badminton": [
+        "羽毛球"
+      ],
+      "baseball": [
+        "棒球"
+      ],
+      "basketball": [
+        "篮球"
+      ],
+      "bbq": [
+        "烧烤"
+      ],
+      "beer": [
+        "啤酒",
+        "慕尼黑啤酒节",
+        "十月节",
+        "十月啤酒节"
+      ],
+      "drinks": [
+        "饮料",
+        "鸡尾酒",
+        "啤酒"
+      ],
+      "billiard": [
+        "台球"
+      ],
+      "birthday": [
+        "生日"
+      ],
+      "boxing": [
+        "拳击"
+      ],
+      "bookclub": [
+        "读书俱乐部"
+      ],
+      "bowling": [
+        "保龄球"
+      ],
+      "breakfast": [
+        "早餐"
+      ],
+      "camping": [
+        "野营"
+      ],
+      "dinner": [
+        "晚餐"
+      ],
+      "carmaintenance": [
+        "汽车保养",
+        "汽车修理",
+        "莫特"
+      ],
+      "cooking": [
+        "烹饪"
+      ],
+      "climbing": [
+        "攀登",
+        "抱石"
+      ],
+      "chinesenewyear": [
+        "春节",
+        "中国新年"
+      ],
+      "cinema": [
+        "电影"
+      ],
+      "coffee": [
+        "咖啡",
+        "咖啡店",
+        "咖啡馆"
+      ],
+      "videogaming": [
+        "视频游戏",
+        "电子游戏"
+      ],
+      "backtoschool": [
+        "回到学校",
+        "儿童皮卡",
+        "孩子们下车"
+      ],
+      "kidspickupdropoff": [
+        "回到学校",
+        "儿童皮卡",
+        "孩子们下车"
+      ],
+      "fieldhockey": [
+        "曲棍球"
+      ],
+      "graduation": [
+        "毕业"
+      ],
+      "rugbysevens": [
+        "七人制橄榄球",
+        "橄榄球"
+      ],
+      "walkingdog": [
+        "遛狗"
+      ],
+      "studying": [
+        "学习"
+      ],
+      "learnlanguage": [
+        "英语课",
+        "英语课程",
+        "练习英语",
+        "法语课",
+        "法语课程",
+        "德语班",
+        "德语课程"
+      ],
+      "honors": [],
+      "handcraft": [
+        "缝纫",
+        "刺绣",
+        "绗缝"
+      ],
+      "karate": [
+        "空手道"
+      ],
+      "sleep": [
+        "睡觉",
+        "睡眠",
+        "打盹",
+        "打瞌睡"
+      ],
+      "theateropera": [
+        "剧院",
+        "剧院歌剧"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "剧院歌剧"
+      ]
+    },
+    "ja_jp": {
+      "americanfootball": [
+        "アメフト"
+      ],
+      "archery": [
+        "アーチェリー"
+      ],
+      "art": [
+        "絵画",
+        "アートワークショップ",
+        "スケッチワークショップ",
+        "お絵描きワークショップ"
+      ],
+      "athleticsjumping": [
+        "アスレチックジャンプ",
+        "陸上競技ジャンプ"
+      ],
+      "badminton": [
+        "バドミントン"
+      ],
+      "baseball": [
+        "野球"
+      ],
+      "basketball": [
+        "バスケットボール"
+      ],
+      "bbq": [
+        "バーベキュー"
+      ],
+      "beer": [
+        "ビール",
+        "オクトーバーフェスト"
+      ],
+      "drinks": [
+        "飲み物",
+        "カクテル",
+        "ビール"
+      ],
+      "billiard": [
+        "ビリヤード"
+      ],
+      "birthday": [
+        "誕生日"
+      ],
+      "boxing": [
+        "ボクシング"
+      ],
+      "bookclub": [
+        "読書クラブ"
+      ],
+      "bowling": [
+        "ボーリング"
+      ],
+      "breakfast": [
+        "朝食"
+      ],
+      "camping": [
+        "キャンプ"
+      ],
+      "dinner": [
+        "夕食"
+      ],
+      "carmaintenance": [
+        "車の整備",
+        "車の修理",
+        "モット"
+      ],
+      "cooking": [
+        "料理"
+      ],
+      "climbing": [
+        "クライミング",
+        "ボルダリング"
+      ],
+      "chinesenewyear": [
+        "中国の旧正月"
+      ],
+      "cinema": [
+        "シネマ",
+        "映画"
+      ],
+      "coffee": [
+        "コーヒー",
+        "カフェ"
+      ],
+      "videogaming": [
+        "ビデオゲーム"
+      ],
+      "backtoschool": [
+        "学校に戻る",
+        "キッズピックアップ",
+        "子供の送り迎え"
+      ],
+      "kidspickupdropoff": [
+        "学校に戻る",
+        "キッズピックアップ",
+        "子供の送り迎え"
+      ],
+      "fieldhockey": [
+        "フィールドホッケー",
+        "ホッケー"
+      ],
+      "graduation": [
+        "卒業"
+      ],
+      "rugbysevens": [
+        "7人制ラグビー",
+        "ラグビー"
+      ],
+      "walkingdog": [
+        "散歩中の犬",
+        "犬の散歩",
+        "犬の散歩をする"
+      ],
+      "studying": [
+        "勉強する"
+      ],
+      "learnlanguage": [
+        "英語のクラス",
+        "英語コース",
+        "英語を練習する",
+        "フランス語のクラス",
+        "フレンチコース",
+        "ドイツ語クラス",
+        "ドイツ語コース"
+      ],
+      "honors": [],
+      "handcraft": [
+        "縫い",
+        "刺繍",
+        "キルティング"
+      ],
+      "karate": [
+        "空手"
+      ],
+      "sleep": [
+        "寝る",
+        "眠っている",
+        "昼寝"
+      ],
+      "theateropera": [
+        "劇場",
+        "劇場オペラ"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "劇場オペラ"
+      ]
+    },
+    "ko_kr": {
+      "americanfootball": [
+        "미식 축구"
+      ],
+      "archery": [
+        "양궁"
+      ],
+      "art": [
+        "그림",
+        "미술 워크숍",
+        "스케치 워크숍",
+        "드로잉 워크숍"
+      ],
+      "athleticsjumping": [
+        "운동 점프",
+        "육상 점프"
+      ],
+      "badminton": [
+        "배드민턴"
+      ],
+      "baseball": [
+        "야구"
+      ],
+      "basketball": [
+        "농구"
+      ],
+      "bbq": [
+        "바베큐",
+        "야외 파티"
+      ],
+      "beer": [
+        "맥주",
+        "옥토버페스트",
+        "10월 축제"
+      ],
+      "drinks": [
+        "음료수",
+        "칵테일",
+        "맥주"
+      ],
+      "billiard": [
+        "당구"
+      ],
+      "birthday": [
+        "생일"
+      ],
+      "boxing": [
+        "권투"
+      ],
+      "bookclub": [
+        "북클럽"
+      ],
+      "bowling": [
+        "볼링"
+      ],
+      "breakfast": [
+        "아침"
+      ],
+      "camping": [
+        "캠핑"
+      ],
+      "dinner": [
+        "저녁"
+      ],
+      "carmaintenance": [
+        "자동차 정비",
+        "자동차 수리",
+        "경구"
+      ],
+      "cooking": [
+        "요리"
+      ],
+      "climbing": [
+        "등산",
+        "볼더링"
+      ],
+      "chinesenewyear": [
+        "중국 설날"
+      ],
+      "cinema": [
+        "영화",
+        "영화 산업"
+      ],
+      "coffee": [
+        "커피",
+        "카페"
+      ],
+      "videogaming": [
+        "비디오 게임"
+      ],
+      "backtoschool": [
+        "학교로 돌아가다",
+        "어린이 픽업",
+        "어린이 하차"
+      ],
+      "kidspickupdropoff": [
+        "학교로 돌아가다",
+        "어린이 픽업",
+        "어린이 하차"
+      ],
+      "fieldhockey": [
+        "필드하키",
+        "하키"
+      ],
+      "graduation": [
+        "눈금",
+        "졸업"
+      ],
+      "rugbysevens": [
+        "럭비 세븐즈",
+        "럭비"
+      ],
+      "walkingdog": [
+        "산책하는 개",
+        "개를 산책시키다"
+      ],
+      "studying": [
+        "공부하는"
+      ],
+      "learnlanguage": [
+        "영어 수업",
+        "영어 코스",
+        "영어 연습",
+        "프랑스어 수업",
+        "프랑스어 코스",
+        "독일어 수업",
+        "독일어 코스"
+      ],
+      "honors": [],
+      "handcraft": [
+        "재봉",
+        "자수",
+        "퀼팅"
+      ],
+      "karate": [
+        "카라테"
+      ],
+      "sleep": [
+        "잠",
+        "자고 있는",
+        "선잠",
+        "낮잠"
+      ],
+      "theateropera": [
+        "극장",
+        "극장 오페라"
+      ],
+      "worldhistory": [],
+      "theatreopera": [
+        "극장"
+      ]
+    }
+  },
+  "legacyByLocale": {
+    "en_us": {
+      "learnlanguage": [
+        "english class",
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "en_gb": {
+      "learnlanguage": [
+        "english class",
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "es_es": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "ca_es": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "fr_fr": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "de_de": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "it_it": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "pt_br": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "ru_ru": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "nl_nl": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "pl_pl": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "tr_tr": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "sv_se": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "no_no": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "da_dk": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "fi_fi": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "cs_cz": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "sk_sk": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "hr_hr": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "sl_si": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "hu_hu": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "lt_lt": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "lv_lv": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "uk_ua": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "bg_bg": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "el_gr": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "he_il": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "ar_sa": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "fa_ir": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "hi_in": {
+      "learnlanguage": [
+        "english class",
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "id_id": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "vi_vn": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "th_th": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "fil_ph": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "zh_cn": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "ja_jp": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    },
+    "ko_kr": {
+      "learnlanguage": [
+        "english course",
+        "practice english",
+        "french class",
+        "french course",
+        "german class",
+        "german course"
+      ]
+    }
+  }
+}

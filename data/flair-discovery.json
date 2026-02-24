@@ -1,0 +1,195 @@
+{
+  "updatedAt": "2026-02-24T20:49:16.151Z",
+  "flairs": [
+    {
+      "id": "americanfootball",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "archery",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "art",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "athleticsjumping",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "backtoschool",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "badminton",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "baseball",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "basketball",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "bbq",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "beer",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "billiard",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "birthday",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "bookclub",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "bowling",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "boxing",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "breakfast",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "camping",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "carmaintenance",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "chinesenewyear",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "cinema",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "climbing",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "coffee",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "cooking",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "dinner",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "drinks",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "fieldhockey",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "graduation",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "handcraft",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "karate",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "kidspickupdropoff",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "learnlanguage",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "rugbysevens",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "sleep",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "studying",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "theateropera",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "theatreopera",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "videogaming",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "walkingdog",
+      "hasOld": true,
+      "hasNew": true
+    }
+  ]
+}
