@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Calendar Flairs Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-shape shape-one" aria-hidden="true"></div>
+  <div class="background-shape shape-two" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="eyebrow">Calendar Flair Archive</p>
+    <h1>Old vs New Google Calendar Flairs</h1>
+    <p class="intro">
+      A compact visual archive to compare the classic flair set against the newer style.
+    </p>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls-panel" aria-label="Display controls">
+      <h2>Display</h2>
+      <div class="toggle-row">
+        <button class="toggle active" data-filter="all">All</button>
+        <button class="toggle" data-filter="old">Old only</button>
+        <button class="toggle" data-filter="new">New only</button>
+      </div>
+      <p class="hint">Tip: edit arrays in <code>script.js</code> to add your own flair names/colors.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="old-title">
+      <div class="panel-head">
+        <h2 id="old-title">Old Flairs</h2>
+        <span class="count" id="old-count">0</span>
+      </div>
+      <div class="grid" id="old-grid"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="new-title">
+      <div class="panel-head">
+        <h2 id="new-title">New Flairs</h2>
+        <span class="count" id="new-count">0</span>
+      </div>
+      <div class="grid" id="new-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made for visual comparison of Google Calendar flair generations.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
