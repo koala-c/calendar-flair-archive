@@ -401,6 +401,7 @@ function canonicalFlairId(id) {
 const flairGrid = document.getElementById("flair-grid");
 const carouselPrev = document.getElementById("carousel-prev");
 const carouselNext = document.getElementById("carousel-next");
+const flairCarousel = document.getElementById("flair-carousel");
 const flairCount = document.getElementById("flair-count");
 const languageControls = document.getElementById("language-controls");
 const keywordSearch = document.getElementById("keyword-search");
@@ -796,6 +797,26 @@ function updateCarouselControls(totalSlides) {
   flairGrid.style.transform = `translateX(-${boundedIndex * 100}%)`;
   if (carouselPrev) carouselPrev.disabled = totalSlides <= 1 || boundedIndex <= 0;
   if (carouselNext) carouselNext.disabled = totalSlides <= 1 || boundedIndex >= totalSlides - 1;
+  syncCarouselHeight();
+}
+
+function syncCarouselHeight() {
+  if (!flairCarousel || !flairGrid) return;
+  const slides = flairGrid.querySelectorAll(".carousel-slide");
+  const activeSlide = slides[currentSlideIndex] || slides[0];
+  const activeCard = activeSlide?.querySelector(".flair");
+  if (!activeCard) {
+    flairCarousel.style.removeProperty("--carousel-card-height");
+    return;
+  }
+  const cardHeight = Math.ceil(activeCard.getBoundingClientRect().height);
+  flairCarousel.style.setProperty("--carousel-card-height", `${cardHeight}px`);
+}
+
+function scheduleCarouselHeightSync() {
+  syncCarouselHeight();
+  requestAnimationFrame(syncCarouselHeight);
+  setTimeout(syncCarouselHeight, 120);
 }
 
 function render() {
@@ -829,6 +850,14 @@ function render() {
   });
 
   updateCarouselControls(slides.length);
+  const renderedImages = flairGrid.querySelectorAll(".preview-img");
+  renderedImages.forEach((img) => {
+    if (!img.complete) {
+      img.addEventListener("load", syncCarouselHeight, { once: true });
+      img.addEventListener("error", syncCarouselHeight, { once: true });
+    }
+  });
+  scheduleCarouselHeightSync();
   flairCount.textContent = textFor().flairCount(visible.length, flairArchive.length);
 }
 

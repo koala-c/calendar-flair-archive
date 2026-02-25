@@ -10,23 +10,32 @@
   --preview-height: 190px;
   --chip-row-height: 28px;
   --chip-max-rows: 3;
+  --card-gap: 12px;
+  --control-height: 40px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+  overflow-y: scroll;
+}
+
 body {
   margin: 0;
-  height: 100dvh;
-  font-family: "Roboto", "Segoe UI", sans-serif;
+  min-height: 100dvh;
+  height: auto;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
     radial-gradient(circle at 8% -10%, #bcd5ff 0%, transparent 38%),
     radial-gradient(circle at 92% 0%, #94bbff 0%, transparent 30%),
     var(--bg);
   padding: 24px;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -91,6 +100,9 @@ h1 {
   display: grid;
   gap: 14px;
   grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  align-content: start;
+  align-items: start;
   flex: 1 1 auto;
   min-height: 0;
 }
@@ -123,10 +135,12 @@ h1 {
   gap: 6px;
   flex-wrap: nowrap;
   margin-left: auto;
+  min-width: 0;
 }
 
 .language-dropdown {
   position: relative;
+  width: min(320px, 100%);
 }
 
 .language-dropdown-summary {
@@ -135,9 +149,13 @@ h1 {
   border-radius: 8px;
   background: #fff;
   color: var(--ink);
-  padding: 7px 28px 7px 10px;
+  padding: 0 28px 0 10px;
   cursor: pointer;
-  min-width: 230px;
+  min-width: 0;
+  width: 100%;
+  min-height: var(--control-height);
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
@@ -263,8 +281,11 @@ h1 {
 .search-wrap input {
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 9px 10px;
+  padding: 0 10px;
   font: inherit;
+  font-size: 16px;
+  min-height: var(--control-height);
+  line-height: 1.2;
   background: #fff;
   color: var(--ink);
   width: 100%;
@@ -330,13 +351,13 @@ code {
 .carousel {
   display: grid;
   grid-template-columns: 42px 1fr 42px;
-  gap: 10px;
-  align-items: stretch;
+  gap: var(--card-gap);
+  align-items: start;
 }
 
 .carousel-viewport {
   overflow: hidden;
-  padding: 10px 10px 16px;
+  padding: 12px 0;
 }
 
 .carousel-track {
@@ -349,8 +370,10 @@ code {
   display: grid;
   grid-template-columns: repeat(var(--slide-cols, 3), minmax(0, 1fr));
   grid-template-rows: repeat(var(--slide-rows, 2), minmax(0, 1fr));
-  gap: 10px;
+  gap: var(--card-gap);
+  padding: 0 var(--card-gap);
   align-items: stretch;
+  box-sizing: border-box;
 }
 
 .carousel-arrow {
@@ -362,6 +385,10 @@ code {
   line-height: 0;
   cursor: pointer;
   position: relative;
+  align-self: start;
+  margin-top: 12px;
+  height: var(--carousel-card-height, auto);
+  min-height: 44px;
 }
 
 .carousel-arrow:disabled {
@@ -414,22 +441,39 @@ code {
   max-width: 100%;
   margin: 0 auto;
   border-radius: 10px;
-  border: 1px solid #dfe3eb;
-  background: transparent;
+  border: 0;
+  padding: 0;
+  background: #f1f3f4;
   overflow: hidden;
   display: grid;
   place-items: center;
+  line-height: 0;
+  transform: translateZ(0);
+}
+
+.preview-stack::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: #f1f3f4;
+  pointer-events: none;
 }
 
 .preview-img {
   position: static;
   display: block;
+  vertical-align: top;
   width: auto;
   height: auto;
   max-width: 100%;
+  border-radius: 10px;
   object-fit: contain;
   object-position: center center;
   transition: opacity 200ms ease, filter 200ms ease;
+  backface-visibility: hidden;
 }
 
 .preview-new {
@@ -496,9 +540,9 @@ code {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #5f6368;
-  background: rgba(255, 255, 255, 0.88);
-  padding: 1px 4px;
-  border-radius: 4px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   z-index: 4;
   pointer-events: text;
 }
@@ -510,22 +554,24 @@ code {
 
 .unavailable-ribbon {
   position: absolute;
-  top: 16px;
-  right: -56px;
-  width: 188px;
-  text-align: center;
-  transform: rotate(36deg);
-  transform-origin: center;
-  background: #4f5660;
-  color: #ffffff;
-  border: none;
-  font-size: 0.48rem;
-  line-height: 1.2;
+  left: 10px;
+  bottom: 8px;
+  width: auto;
+  text-align: left;
+  transform: none;
+  transform-origin: initial;
+  background: transparent;
+  color: #5f6368;
+  border: 0;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  font-size: 0.56rem;
+  line-height: 1;
   letter-spacing: 0.01em;
-  white-space: normal;
+  white-space: nowrap;
   text-transform: uppercase;
   font-weight: 300;
-  padding: 3px 6px;
+  display: block;
+  padding: 0;
   pointer-events: none;
   z-index: 3;
 }
@@ -534,10 +580,10 @@ code {
   width: 100%;
   margin: 0;
   color: var(--muted);
-  font-size: 0.87rem;
+  font-size: 0.82rem;
   flex: 0 0 auto;
-  max-height: 15dvh;
-  overflow: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 .legal {
@@ -547,6 +593,12 @@ code {
 }
 
 @media (max-width: 640px) {
+  body {
+    min-height: 100dvh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   body {
     padding: 14px;
     gap: 10px;
@@ -560,14 +612,81 @@ code {
     grid-template-columns: 36px 1fr 36px;
     gap: 8px;
   }
+  .carousel-viewport {
+    padding: 10px 0;
+  }
   .controls-row {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: stretch;
+    column-gap: 0;
+    row-gap: 8px;
   }
   .language-controls {
+    display: block;
     margin-left: 0;
+    width: 100%;
+    order: 1;
+  }
+  .search-wrap {
+    min-width: 0;
+    width: 100%;
+    order: 2;
+  }
+  .language-dropdown {
+    width: 100%;
+    max-width: none;
+  }
+  .language-dropdown-summary,
+  .search-wrap input {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+  .language-dropdown-menu {
+    right: 0;
+    left: auto;
+    min-width: 100%;
+    width: 100%;
   }
   .footer {
-    max-height: 18dvh;
+    max-height: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .controls-row {
+    grid-template-columns: 1fr;
+  }
+  .language-controls {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .language-dropdown {
+    max-width: none;
+  }
+}
+
+@media (max-width: 980px) {
+  body {
+    padding: 18px;
+  }
+  .panel {
+    padding: 12px;
+  }
+  .language-dropdown {
+    width: min(280px, 100%);
+  }
+  .carousel {
+    grid-template-columns: 38px 1fr 38px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carousel-viewport {
+    padding: 14px 0;
+  }
+  .panel {
+    padding: 16px;
   }
 }
