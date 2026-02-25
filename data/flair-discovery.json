@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-24T20:49:16.151Z",
+  "updatedAt": "2026-02-25T12:55:12.213Z",
   "flairs": [
     {
       "id": "americanfootball",
@@ -17,7 +17,17 @@
       "hasNew": true
     },
     {
+      "id": "artisticgymnastics",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
       "id": "athleticsjumping",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "babyshower",
       "hasOld": true,
       "hasNew": true
     },
@@ -82,6 +92,11 @@
       "hasNew": true
     },
     {
+      "id": "bus",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
       "id": "camping",
       "hasOld": true,
       "hasNew": true
@@ -102,12 +117,27 @@
       "hasNew": true
     },
     {
+      "id": "clean",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "climbing",
       "hasOld": true,
       "hasNew": true
     },
     {
+      "id": "code",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
       "id": "coffee",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "concert",
       "hasOld": true,
       "hasNew": true
     },
@@ -117,8 +147,33 @@
       "hasNew": true
     },
     {
+      "id": "cycling",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "dancing",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "datenight",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "dentist",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "dinner",
       "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "doctor",
+      "hasOld": false,
       "hasNew": true
     },
     {
@@ -127,7 +182,32 @@
       "hasNew": true
     },
     {
+      "id": "equestrian",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "fencing",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
       "id": "fieldhockey",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "flight",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "gamenight",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "golf",
       "hasOld": true,
       "hasNew": true
     },
@@ -137,12 +217,62 @@
       "hasNew": true
     },
     {
+      "id": "gym",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "haircut",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "halloween",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "handball",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
       "id": "handcraft",
       "hasOld": true,
       "hasNew": false
     },
     {
+      "id": "hiking",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "honors",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "hotel",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "interview",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "islamicnewyear",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "karate",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "kayaking",
       "hasOld": true,
       "hasNew": true
     },
@@ -152,9 +282,99 @@
       "hasNew": true
     },
     {
+      "id": "learninstrument",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "learnlanguage",
       "hasOld": true,
       "hasNew": false
+    },
+    {
+      "id": "lunch",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "manicure",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "mardigras",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "massage",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "newyear",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "nowruz",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "oilchange",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "pingpong",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "planmyday",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "pride",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "quinceanera",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "reachout",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "read",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "repair",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "restaurant",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "rhythmicgymnastics",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "rowing",
+      "hasOld": true,
+      "hasNew": true
     },
     {
       "id": "rugbysevens",
@@ -162,7 +382,37 @@
       "hasNew": true
     },
     {
+      "id": "running",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "sailing",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "santa",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "shopping",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "skiing",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
       "id": "sleep",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "soccer",
       "hasOld": true,
       "hasNew": true
     },
@@ -172,14 +422,49 @@
       "hasNew": true
     },
     {
+      "id": "swimming",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "tennis",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "thanksgiving",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "theateropera",
       "hasOld": true,
       "hasNew": false
     },
     {
-      "id": "theatreopera",
+      "id": "train",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "triathlon",
       "hasOld": true,
-      "hasNew": false
+      "hasNew": true
+    },
+    {
+      "id": "trip",
+      "hasOld": false,
+      "hasNew": true
+    },
+    {
+      "id": "valentinesday",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "videocall",
+      "hasOld": false,
+      "hasNew": true
     },
     {
       "id": "videogaming",
@@ -187,7 +472,62 @@
       "hasNew": true
     },
     {
+      "id": "violin",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "volleyball",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "walk",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
       "id": "walkingdog",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "waterpolo",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "wedding",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "worldhistory",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "wrestling",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "xmas",
+      "hasOld": true,
+      "hasNew": true
+    },
+    {
+      "id": "xmasmeal",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "xmasparty",
+      "hasOld": true,
+      "hasNew": false
+    },
+    {
+      "id": "yoga",
       "hasOld": true,
       "hasNew": true
     }

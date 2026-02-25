@@ -23,7 +23,7 @@
     newUrl: "https://ssl.gstatic.com/calendar/images/eventillustrations/2024_v2/img_dinner.svg"
   },
   { id: "carmaintenance", keywords: ["car maintenance", "car repair", "mot"], hasNew: false },
-  { id: "cooking", keywords: ["cooking"], hasNew: true },
+  { id: "cooking", keywords: ["cooking", "cook"], hasNew: true },
   { id: "climbing", keywords: ["climbing", "bouldering"], hasNew: true },
   { id: "chinesenewyear", keywords: ["chinese new year", "chinese new years", "chinese new year's"], hasNew: true },
   { id: "cinema", keywords: ["cinema", "movie", "movies"], hasNew: true },
@@ -44,8 +44,12 @@
   { id: "backtoschool", keywords: ["back to school", "kids pickup", "kids dropoff"], hasNew: false },
   { id: "kidspickupdropoff", keywords: ["back to school", "kids pickup", "kids dropoff"], hasNew: true },
   { id: "fieldhockey", keywords: ["field hockey", "hockey"], hasNew: true },
+  { id: "flight", keywords: ["flight", "flights"], hasNew: true },
   { id: "graduation", keywords: ["graduation", "graduación"], hasNew: true },
+  { id: "gym", keywords: ["gym"], hasNew: true },
+  { id: "interview", keywords: ["interview", "job interview"], hasNew: true },
   { id: "rugbysevens", keywords: ["rugby sevens", "rugby"], hasNew: true },
+  { id: "trip", keywords: ["trip", "travel"], hasNew: true },
   { id: "walkingdog", keywords: ["walking dog", "walk dog", "walk the dog"], hasNew: true },
   {
     id: "studying",
@@ -61,8 +65,16 @@
   { id: "honors", keywords: [], hasNew: false },
   { id: "handcraft", keywords: ["sewing", "embroidery", "quilting"], hasNew: false },
   { id: "karate", keywords: ["karate"], hasNew: true },
+  { id: "lunch", keywords: ["lunch"], hasNew: true },
   { id: "sleep", keywords: ["sleep", "sleeping", "nap", "napping"], hasNew: true },
-  { id: "theateropera", oldId: "theatreopera", keywords: ["theater", "theatre opera"], hasNew: false },
+  { id: "theateropera", keywords: ["theater", "theatre opera"], hasNew: false },
+  { id: "train", keywords: ["train", "trains"], hasNew: true },
+  { id: "bus", keywords: ["bus", "buses"], hasNew: true },
+  { id: "videocall", keywords: ["video call", "videocall"], hasNew: true },
+  { id: "walk", keywords: ["walk", "walking"], hasNew: true },
+  { id: "hiking", keywords: ["hiking", "hike"], hasNew: true },
+  { id: "running", keywords: ["running"], hasNew: true },
+  { id: "yoga", keywords: ["yoga"], hasNew: true },
   { id: "worldhistory", keywords: [], hasNew: false }
 ];
 
@@ -81,8 +93,8 @@ const uiText = {
     heroTitle: "Keyword-Triggered Calendar Flairs",
     heroIntro: "Compare illustration flairs that appear when event text matches certain keywords.",
     displayTitle: "Display",
-    searchLabel: "Search keyword",
-    searchPlaceholder: "Search in selected language",
+    searchLabel: "",
+    searchPlaceholder: "Search keyword in selected language",
     hint: "Tip: each card shows the new illustration by default. Hover to reveal the old one. If there is no new version, the old one appears in grey and becomes normal on hover.",
     flairsTitle: "Flairs",
     sourceLoading: "Source: Google image assets (ssl.gstatic.com)",
@@ -100,8 +112,8 @@ const uiText = {
     heroTitle: "Flairs de Calendario Activados por Palabras Clave",
     heroIntro: "Compara las ilustraciones que aparecen cuando el texto del evento coincide con ciertas palabras clave.",
     displayTitle: "Vista",
-    searchLabel: "Buscar palabra clave",
-    searchPlaceholder: "Buscar en el idioma seleccionado",
+    searchLabel: "",
+    searchPlaceholder: "Buscar palabra clave en el idioma seleccionado",
     hint: "Consejo: cada tarjeta muestra la ilustración nueva por defecto. Al pasar el mouse se ve la antigua. Si no hay versión nueva, la antigua aparece en gris y en hover se ve normal.",
     flairsTitle: "Flairs",
     sourceLoading: "Fuente: recursos de imágenes de Google (ssl.gstatic.com)",
@@ -119,8 +131,8 @@ const uiText = {
     heroTitle: "Flairs de Calendari Activats per Paraules Clau",
     heroIntro: "Compara les il·lustracions que apareixen quan el text de l'esdeveniment coincideix amb certes paraules clau.",
     displayTitle: "Visualització",
-    searchLabel: "Cerca paraula clau",
-    searchPlaceholder: "Cerca en l'idioma seleccionat",
+    searchLabel: "",
+    searchPlaceholder: "Cerca paraula clau en l'idioma seleccionat",
     hint: "Consell: cada targeta mostra la il·lustració nova per defecte. En passar el cursor es veu l'antiga. Si no hi ha versió nova, l'antiga apareix en gris i en hover es veu normal.",
     flairsTitle: "Flairs",
     sourceLoading: "Font: recursos d'imatges de Google (ssl.gstatic.com)",
@@ -138,8 +150,8 @@ const uiText = {
     heroTitle: "Flairs de Calendrier déclenchés par mots-clés",
     heroIntro: "Comparez les illustrations qui apparaissent lorsque le texte d'un événement correspond à certains mots-clés.",
     displayTitle: "Affichage",
-    searchLabel: "Rechercher un mot-clé",
-    searchPlaceholder: "Rechercher dans la langue sélectionnée",
+    searchLabel: "",
+    searchPlaceholder: "Rechercher un mot-clé dans la langue sélectionnée",
     hint: "Astuce: chaque carte affiche la nouvelle illustration par défaut. Au survol, l'ancienne apparaît. S'il n'y a pas de nouvelle version, l'ancienne est grisée puis normale au survol.",
     flairsTitle: "Flairs",
     sourceLoading: "Source : ressources d'images Google (ssl.gstatic.com)",
@@ -157,8 +169,8 @@ const uiText = {
     heroTitle: "Flairs Calendar по ключевым словам",
     heroIntro: "Сравните иллюстрации, которые появляются, когда текст события совпадает с ключевыми словами.",
     displayTitle: "Отображение",
-    searchLabel: "Поиск ключевого слова",
-    searchPlaceholder: "Поиск на выбранном языке",
+    searchLabel: "",
+    searchPlaceholder: "Поиск ключевого слова на выбранном языке",
     hint: "Совет: по умолчанию показывается новая иллюстрация. При наведении показывается старая. Если новой версии нет, старая будет серой и станет обычной при наведении.",
     flairsTitle: "Flairs",
     sourceLoading: "Источник: ресурсы изображений Google (ssl.gstatic.com)",
@@ -293,6 +305,62 @@ let localizedKeywords = {
     theateropera: ["театр", "опера"]
   }
 };
+const uiTextRuntimeCache = {};
+const uiTextTranslateCache = new Map();
+const uiTextKeys = [
+  "pageTitle",
+  "eyebrow",
+  "heroTitle",
+  "heroIntro",
+  "displayTitle",
+  "searchLabel",
+  "searchPlaceholder",
+  "hint",
+  "flairsTitle",
+  "sourceLoading",
+  "sourceFailed",
+  "noKeyword",
+  "notAvailable",
+  "footerSource",
+  "legal"
+];
+const notAvailableByLanguage = {
+  en: "Unavailable",
+  es: "No disponible",
+  ca: "No disponible",
+  fr: "Indisponible",
+  de: "Nicht verfügbar",
+  it: "Non disponibile",
+  pt: "Indisponível",
+  ru: "Недоступно",
+  nl: "Niet beschikbaar",
+  pl: "Niedostępne",
+  tr: "Kullanılamıyor",
+  sv: "Otillgänglig",
+  no: "Utilgjengelig",
+  da: "Utilgængelig",
+  fi: "Ei saatavilla",
+  cs: "Nedostupné",
+  sk: "Nedostupné",
+  hr: "Nedostupno",
+  sl: "Ni na voljo",
+  hu: "Nem elérhető",
+  lt: "Nepasiekiama",
+  lv: "Nav pieejams",
+  uk: "Недоступно",
+  bg: "Недостъпно",
+  ro: "Indisponibil",
+  el: "Μη διαθέσιμο",
+  sr: "Недоступно",
+  id: "Tidak tersedia",
+  ms: "Tidak tersedia",
+  vi: "Không có",
+  th: "ไม่พร้อมใช้งาน",
+  hi: "उपलब्ध नहीं",
+  ja: "利用不可",
+  ko: "사용 불가",
+  zh: "不可用"
+};
 let legacyLocalizedKeywords = {
   en_us: {
     learnlanguage: ["english class", "english course", "practice english", "french class", "french course", "german class", "german course"]
@@ -310,14 +378,29 @@ let legacyLocalizedKeywords = {
     learnlanguage: ["урок английского"]
   }
 };
-const oldImage = (id) =>
+const oldImageTmly = (id) =>
+  `https://ssl.gstatic.com/tmly/f8944938hffheth4ew890ht4i8/flairs/xxhdpi/img_${id}.jpg`;
+const oldImageV1 = (id) =>
   `https://ssl.gstatic.com/calendar/images/eventillustrations/v1/img_${id}_1x.jpg`;
 const newImage = (id) =>
   `https://ssl.gstatic.com/calendar/images/eventillustrations/2024_v2/img_${id}.svg`;
-const oldImageForFlair = (flair) => flair.oldUrl || oldImage(flair.oldId || flair.id);
+const oldImageCandidatesForFlair = (flair) => {
+  if (flair.oldUrl) return [flair.oldUrl];
+  const id = flair.oldId || flair.id;
+  return [oldImageTmly(id), oldImageV1(id)];
+};
+const oldImageForFlair = (flair) => googleOldResolvedUrl.get(flair.id) || oldImageCandidatesForFlair(flair)[0];
 const newImageForFlair = (flair) => flair.newUrl || newImage(flair.newId || flair.id);
+const FLAIR_ID_ALIAS_MAP = { theatreopera: "theateropera" };
+
+function canonicalFlairId(id) {
+  const normalized = String(id || "").trim().toLowerCase();
+  return FLAIR_ID_ALIAS_MAP[normalized] || normalized;
+}
 
 const flairGrid = document.getElementById("flair-grid");
+const carouselPrev = document.getElementById("carousel-prev");
+const carouselNext = document.getElementById("carousel-next");
 const flairCount = document.getElementById("flair-count");
 const languageControls = document.getElementById("language-controls");
 const keywordSearch = document.getElementById("keyword-search");
@@ -335,8 +418,11 @@ const legalText = document.getElementById("legal-text");
 
 let selectedLanguage = "en_us";
 let searchText = "";
+let currentSlideIndex = 0;
+let resizeRenderTimer = null;
 const googleNewAvailability = new Map();
 const googleOldAvailability = new Map();
+const googleOldResolvedUrl = new Map();
 let keywordLoadSummary = { ok: 1, total: 1, count: 0, failed: false };
 
 async function loadLanguageDataset() {
@@ -365,21 +451,41 @@ async function loadDiscoveryDataset() {
     const data = await response.json();
     if (!Array.isArray(data.flairs)) return;
 
-    const byId = new Map(flairArchive.map((f) => [f.id, f]));
+    const byId = new Map();
+    flairArchive.forEach((flair) => {
+      const id = canonicalFlairId(flair.id);
+      const existing = byId.get(id);
+      if (existing) {
+        existing.hasNew = existing.hasNew || Boolean(flair.hasNew);
+        existing.keywords = Array.from(new Set([...(existing.keywords || []), ...(flair.keywords || [])]));
+      } else {
+        byId.set(id, {
+          ...flair,
+          id,
+          oldId: flair.oldId,
+          newId: flair.newId,
+          keywords: Array.from(new Set((flair.keywords || []).map((k) => String(k).trim()).filter(Boolean)))
+        });
+      }
+    });
+
     data.flairs.forEach((item) => {
-      const existing = byId.get(item.id);
+      const id = canonicalFlairId(item.id);
+      const existing = byId.get(id);
       if (existing) {
         if (typeof item.hasNew === "boolean" && !existing.newId && !existing.newUrl) {
-          existing.hasNew = item.hasNew;
+          existing.hasNew = Boolean(item.hasNew) || existing.hasNew;
         }
       } else {
-        flairArchive.push({
-          id: item.id,
-          keywords: [item.id],
+        byId.set(id, {
+          id,
+          keywords: [id],
           hasNew: !!item.hasNew
         });
       }
     });
+
+    flairArchive = Array.from(byId.values()).sort((a, b) => a.id.localeCompare(b.id));
 
     if (!localizedKeywords.en_us) localizedKeywords.en_us = {};
     flairArchive.forEach((flair) => {
@@ -393,7 +499,79 @@ async function loadDiscoveryDataset() {
 }
 
 function textFor(locale = selectedLanguage) {
-  return uiText[locale] || uiText.en_us;
+  return uiTextRuntimeCache[locale] || uiText[locale] || uiText.en_us;
+}
+
+function localizedNotAvailable(locale = selectedLanguage) {
+  const direct = (uiTextRuntimeCache[locale]?.notAvailable) || uiText[locale]?.notAvailable;
+  if (direct) return direct;
+  const lower = String(locale || "").toLowerCase();
+  if (notAvailableByLanguage[lower]) return notAvailableByLanguage[lower];
+  const base = lower.split("_")[0].split("-")[0];
+  return notAvailableByLanguage[base] || uiText.en_us.notAvailable;
+}
+
+function sourceLoadedText(t) {
+  return typeof t.sourceLoaded === "function" ? t.sourceLoaded() : (t.sourceLoading || uiText.en_us.sourceLoading);
+}
+
+function flairCountTextFactory(template) {
+  const raw = String(template || "__V__ / __T__ flairs");
+  return (visible, total) => raw
+    .replace(/__V__/g, String(visible))
+    .replace(/__T__/g, String(total));
+}
+
+function parseTranslationPayload(payload) {
+  if (!Array.isArray(payload)) return "";
+  const chunks = Array.isArray(payload[0]) ? payload[0] : [];
+  return chunks
+    .filter(Boolean)
+    .map((chunk) => (Array.isArray(chunk) ? chunk[0] || "" : ""))
+    .join("")
+    .trim();
+}
+
+async function translateUiPhrase(text, targetLang) {
+  const input = String(text || "").trim();
+  if (!input || targetLang === "en") return input;
+  const cacheKey = `${targetLang}::${input}`;
+  if (uiTextTranslateCache.has(cacheKey)) return uiTextTranslateCache.get(cacheKey);
+  try {
+    const url = new URL("https://translate.googleapis.com/translate_a/single");
+    url.searchParams.set("client", "gtx");
+    url.searchParams.set("sl", "en");
+    url.searchParams.set("tl", targetLang);
+    url.searchParams.set("dt", "t");
+    url.searchParams.set("q", input);
+    const response = await fetch(url.toString());
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const payload = await response.json();
+    const translated = parseTranslationPayload(payload) || input;
+    uiTextTranslateCache.set(cacheKey, translated);
+    return translated;
+  } catch {
+    uiTextTranslateCache.set(cacheKey, input);
+    return input;
+  }
+}
+
+async function ensureUiTextLocale(locale) {
+  if (uiText[locale] || uiTextRuntimeCache[locale]) return;
+  const base = uiText.en_us;
+  const target = String(locale || "en_us").split("_")[0].split("-")[0].toLowerCase() || "en";
+  const translated = {};
+
+  for (const key of uiTextKeys) {
+    translated[key] = await translateUiPhrase(base[key], target);
+  }
+
+  const flairCountTemplate = await translateUiPhrase("__V__ / __T__ flairs", target);
+  uiTextRuntimeCache[locale] = {
+    ...translated,
+    flairCount: flairCountTextFactory(flairCountTemplate),
+    sourceLoaded: () => translated.sourceLoading
+  };
 }
 
 function applyUiLanguage() {
@@ -404,7 +582,7 @@ function applyUiLanguage() {
   eyebrowText.textContent = t.eyebrow;
   heroTitle.textContent = t.heroTitle;
   heroIntro.textContent = t.heroIntro;
-  displayTitle.textContent = t.displayTitle;
+  if (displayTitle) displayTitle.textContent = t.displayTitle;
   searchLabel.textContent = t.searchLabel;
   keywordSearch.placeholder = t.searchPlaceholder;
   hintText.textContent = t.hint;
@@ -414,7 +592,7 @@ function applyUiLanguage() {
   if (keywordLoadSummary.failed) {
     keywordSourceStatus.textContent = t.sourceFailed;
   } else if (keywordLoadSummary.ok > 0) {
-    keywordSourceStatus.textContent = t.sourceLoaded();
+    keywordSourceStatus.textContent = sourceLoadedText(t);
   } else {
     keywordSourceStatus.textContent = t.sourceLoading;
   }
@@ -451,18 +629,57 @@ function titleCaseFromId(id) {
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+function fallbackKeywordsFromId(id) {
+  const normalized = String(id || "").trim().toLowerCase();
+  if (!normalized) return [];
+  const spaced = normalized.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/_/g, " ");
+  return Array.from(new Set([spaced, normalized].map((value) => value.trim()).filter(Boolean)));
+}
+
 function keywordListForFlair(flair, locale) {
   const explicit = localizedKeywords[locale]?.[flair.id] || [];
-  const base = locale === "en_us" ? flair.keywords : [];
-  return Array.from(new Set([...explicit, ...base]));
+  if (locale === "en_us") {
+    const englishFallback = localizedKeywords.en_us?.[flair.id] || [];
+    const base = flair.keywords || [];
+    const idFallback = fallbackKeywordsFromId(flair.id);
+    return Array.from(
+      new Set(
+        [...explicit, ...englishFallback, ...base, ...idFallback]
+          .map((value) => String(value || "").trim())
+          .filter(Boolean)
+      )
+    );
+  }
+  const localized = Array.from(
+    new Set(
+      explicit
+        .map((value) => String(value || "").trim())
+        .filter(Boolean)
+    )
+  );
+  const englishSet = new Set(
+    (localizedKeywords.en_us?.[flair.id] || [])
+      .map((value) => String(value || "").trim().toLowerCase())
+      .filter(Boolean)
+  );
+  const filtered = localized.filter((keyword) => !englishSet.has(keyword.toLowerCase()));
+  return filtered.length ? filtered : localized;
 }
 
 function legacyKeywordListForFlair(flair, locale) {
   const legacy = legacyLocalizedKeywords[locale]?.[flair.id] || [];
   if (locale === "en_us" && flair.id === "learnlanguage") {
-    return Array.from(new Set([...legacy, ...flair.keywords.filter((k) => k !== "studying")]));
+    const englishLegacy = legacyLocalizedKeywords.en_us?.[flair.id] || [];
+    return Array.from(new Set([...legacy, ...englishLegacy, ...flair.keywords.filter((k) => k !== "studying")]));
   }
-  return legacy;
+  const localizedLegacy = Array.from(new Set(legacy));
+  const englishLegacySet = new Set(
+    (legacyLocalizedKeywords.en_us?.[flair.id] || [])
+      .map((value) => String(value || "").trim().toLowerCase())
+      .filter(Boolean)
+  );
+  const filteredLegacy = localizedLegacy.filter((keyword) => !englishLegacySet.has(String(keyword).toLowerCase()));
+  return filteredLegacy.length ? filteredLegacy : localizedLegacy;
 }
 
 function checkGoogleImage(url) {
@@ -491,10 +708,15 @@ function flairHasOld(flair) {
 async function loadGoogleAvailability() {
   await Promise.all(
     flairArchive.map(async (flair) => {
-      const [newExists, oldExists] = await Promise.all([
-        checkGoogleImage(newImageForFlair(flair)),
-        checkGoogleImage(oldImageForFlair(flair))
-      ]);
+      const newExists = await checkGoogleImage(newImageForFlair(flair));
+      let oldExists = false;
+      for (const oldUrl of oldImageCandidatesForFlair(flair)) {
+        if (await checkGoogleImage(oldUrl)) {
+          oldExists = true;
+          googleOldResolvedUrl.set(flair.id, oldUrl);
+          break;
+        }
+      }
       googleNewAvailability.set(flair.id, newExists);
       googleOldAvailability.set(flair.id, oldExists);
     })
@@ -508,12 +730,12 @@ function flairCard(flair) {
   const localeKeywords = keywordListForFlair(flair, selectedLanguage);
   const legacyKeywords = legacyKeywordListForFlair(flair, selectedLanguage);
   const unavailableClass = hasNew ? "" : " unavailable";
-  const ribbonMarkup = hasNew ? "" : `<span class="unavailable-ribbon">${textFor().notAvailable}</span>`;
+  const ribbonMarkup = hasNew ? "" : `<span class="unavailable-ribbon">${localizedNotAvailable()}</span>`;
   const currentMarkup = localeKeywords.map((kw) => `<span class="keyword">${kw}</span>`).join("");
   const legacyMarkup = legacyKeywords.map((kw) => `<span class="keyword old-keyword">${kw}</span>`).join("");
   const keywordsMarkup = hasNew
-    ? ((currentMarkup || legacyMarkup) ? `${currentMarkup}${legacyMarkup}` : `<span class="keyword">${textFor().noKeyword}</span>`)
-    : (currentMarkup ? localeKeywords.map((kw) => `<span class="keyword old-keyword">${kw}</span>`).join("") : `<span class="keyword old-keyword">${textFor().noKeyword}</span>`);
+    ? `${currentMarkup}${legacyMarkup}`
+    : localeKeywords.map((kw) => `<span class="keyword old-keyword">${kw}</span>`).join("");
   const name = titleCaseFromId(flair.id);
   let previewMarkup = "";
   if (hasNew && hasOld) {
@@ -555,6 +777,27 @@ function populateSuggestions() {
   // Intentionally no datalist suggestions: plain search input without dropdown arrow.
 }
 
+function carouselLayout() {
+  if (window.innerWidth <= 640) {
+    return { rows: 1, cols: 1, perSlide: 1 };
+  }
+  if (window.innerWidth <= 980) {
+    return { rows: 1, cols: 2, perSlide: 2 };
+  }
+  if (window.innerWidth <= 1280) {
+    return { rows: 1, cols: 3, perSlide: 3 };
+  }
+  return { rows: 1, cols: 4, perSlide: 4 };
+}
+
+function updateCarouselControls(totalSlides) {
+  const boundedIndex = Math.max(0, Math.min(currentSlideIndex, Math.max(0, totalSlides - 1)));
+  currentSlideIndex = boundedIndex;
+  flairGrid.style.transform = `translateX(-${boundedIndex * 100}%)`;
+  if (carouselPrev) carouselPrev.disabled = totalSlides <= 1 || boundedIndex <= 0;
+  if (carouselNext) carouselNext.disabled = totalSlides <= 1 || boundedIndex >= totalSlides - 1;
+}
+
 function render() {
   const query = searchText.toLowerCase();
   const visible = flairArchive.filter((flair) => {
@@ -570,7 +813,22 @@ function render() {
   });
 
   flairGrid.innerHTML = "";
-  visible.forEach((flair) => flairGrid.appendChild(flairCard(flair)));
+  const layout = carouselLayout();
+  const slides = [];
+  for (let i = 0; i < visible.length; i += layout.perSlide) {
+    slides.push(visible.slice(i, i + layout.perSlide));
+  }
+
+  slides.forEach((chunk) => {
+    const slide = document.createElement("div");
+    slide.className = "carousel-slide";
+    slide.style.setProperty("--slide-cols", String(layout.cols));
+    slide.style.setProperty("--slide-rows", String(layout.rows));
+    chunk.forEach((flair) => slide.appendChild(flairCard(flair)));
+    flairGrid.appendChild(slide);
+  });
+
+  updateCarouselControls(slides.length);
   flairCount.textContent = textFor().flairCount(visible.length, flairArchive.length);
 }
 
@@ -582,8 +840,51 @@ function shortLangCode(code) {
   return code.split("_")[0];
 }
 
-function setLanguage(nextLanguage) {
+function languageDisplayLabel(lang) {
+  const rawCode = String(lang.code || "").trim();
+  const code = rawCode.replace("_", "-").toUpperCase();
+  const parts = code.split("-");
+  const region = parts[1] || "";
+  const rawLabel = String(lang.label || rawCode).trim();
+  const hasRegionInLabel = /\([^)]*\)/.test(rawLabel);
+  const label = hasRegionInLabel
+    ? rawLabel
+    : (region ? `${rawLabel} (${region})` : rawLabel);
+  return code ? `${label} [${code}]` : label;
+}
+
+function languageDisplayParts(lang) {
+  const rawCode = String(lang.code || "").trim();
+  const code = rawCode.replace("_", "-").toUpperCase();
+  const parts = code.split("-");
+  const region = parts[1] || "";
+  const rawLabel = String(lang.label || rawCode).trim();
+  const hasRegionInLabel = /\([^)]*\)/.test(rawLabel);
+  const label = hasRegionInLabel
+    ? rawLabel
+    : (region ? `${rawLabel} (${region})` : rawLabel);
+  return { label, codeTag: code ? `[${code}]` : "" };
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function languageOptionHtml(lang) {
+  const { label, codeTag } = languageDisplayParts(lang);
+  if (!codeTag) return `<span class="lang-label">${escapeHtml(label)}</span>`;
+  return `<span class="lang-label">${escapeHtml(label)}</span> <span class="lang-code">${escapeHtml(codeTag)}</span>`;
+}
+
+async function setLanguage(nextLanguage) {
+  await ensureUiTextLocale(nextLanguage);
   selectedLanguage = nextLanguage;
+  currentSlideIndex = 0;
   applyUiLanguage();
   populateSuggestions();
   render();
@@ -594,18 +895,31 @@ function setupLanguageSelector() {
   languageControls.innerHTML = "";
 
   if (languageConfig.length > 5) {
-    const select = document.createElement("select");
-    select.id = "language-select";
-    select.setAttribute("aria-label", "Language");
+    const details = document.createElement("details");
+    details.className = "language-dropdown";
+
+    const summary = document.createElement("summary");
+    summary.className = "language-dropdown-summary";
+    const selected = languageConfig.find((lang) => lang.code === selectedLanguage) || languageConfig[0];
+    summary.innerHTML = languageOptionHtml(selected);
+    details.appendChild(summary);
+
+    const menu = document.createElement("div");
+    menu.className = "language-dropdown-menu";
     languageConfig.forEach((lang) => {
-      const option = document.createElement("option");
-      option.value = lang.code;
-      option.textContent = shortLangCode(lang.code);
-      select.appendChild(option);
+    const option = document.createElement("button");
+      option.type = "button";
+      option.className = `language-dropdown-option${lang.code === selectedLanguage ? " active" : ""}`;
+      option.setAttribute("aria-label", lang.label);
+      option.innerHTML = languageOptionHtml(lang);
+      option.addEventListener("click", async () => {
+        details.removeAttribute("open");
+        await setLanguage(lang.code);
+      });
+      menu.appendChild(option);
     });
-    select.value = selectedLanguage;
-    select.addEventListener("change", (event) => setLanguage(event.target.value));
-    languageControls.appendChild(select);
+    details.appendChild(menu);
+    languageControls.appendChild(details);
     return;
   }
 
@@ -613,27 +927,49 @@ function setupLanguageSelector() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `lang-btn${lang.code === selectedLanguage ? " active" : ""}`;
-    button.textContent = shortLangCode(lang.code);
+    button.textContent = languageDisplayLabel(lang);
     button.setAttribute("aria-label", lang.label);
-    button.addEventListener("click", () => setLanguage(lang.code));
+    button.addEventListener("click", async () => setLanguage(lang.code));
     languageControls.appendChild(button);
   });
 }
 
 keywordSearch.addEventListener("input", (event) => {
   searchText = event.target.value.trim();
+  currentSlideIndex = 0;
   render();
+});
+
+if (carouselPrev) {
+  carouselPrev.addEventListener("click", () => {
+    currentSlideIndex -= 1;
+    updateCarouselControls(flairGrid.children.length);
+  });
+}
+
+if (carouselNext) {
+  carouselNext.addEventListener("click", () => {
+    currentSlideIndex += 1;
+    updateCarouselControls(flairGrid.children.length);
+  });
+}
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeRenderTimer);
+  resizeRenderTimer = setTimeout(() => render(), 120);
 });
 
 async function init() {
   await loadLanguageDataset();
   await loadDiscoveryDataset();
+  await ensureUiTextLocale(selectedLanguage);
   applyUiLanguage();
   await loadGoogleAvailability();
   selectedLanguage = guessBrowserLanguage();
   if (!languageHasFlairs(selectedLanguage)) {
     selectedLanguage = "en_us";
   }
+  await ensureUiTextLocale(selectedLanguage);
   applyUiLanguage();
   setupLanguageSelector();
   populateSuggestions();

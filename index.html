@@ -23,16 +23,14 @@
 
   <main class="layout">
     <section class="panel controls-panel" aria-label="Display controls">
-      <div class="display-head">
-        <h2 id="display-title">Display</h2>
+      <div class="controls-row">
+        <label class="search-wrap" for="keyword-search">
+          <span id="search-label">Search keyword</span>
+          <input id="keyword-search" type="search" placeholder="Search in selected language">
+        </label>
         <div id="language-controls" class="language-controls" aria-label="Language controls"></div>
       </div>
-      <label class="search-wrap" for="keyword-search">
-        <span id="search-label">Search keyword</span>
-        <input id="keyword-search" type="search" placeholder="Search in selected language">
-      </label>
       <p class="hint" id="hint-text">Tip: each card shows the new illustration by default. Hover to reveal the old one. If there is no new version, the old one appears in grey and becomes normal on hover.</p>
-      <p class="source" id="keyword-source-status">Keyword source: loading...</p>
     </section>
 
     <section class="panel" aria-labelledby="all-title">
@@ -40,11 +38,18 @@
         <h2 id="all-title">Flairs</h2>
         <span class="count" id="flair-count">0</span>
       </div>
-      <div class="grid" id="flair-grid"></div>
+      <div class="carousel" id="flair-carousel">
+        <button class="carousel-arrow" id="carousel-prev" type="button" aria-label="Previous flairs">&#8249;</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="flair-grid"></div>
+        </div>
+        <button class="carousel-arrow" id="carousel-next" type="button" aria-label="Next flairs">&#8250;</button>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
+    <p class="source" id="keyword-source-status">Keyword source: loading...</p>
     <p id="footer-source-text">
       Archive for comparing old and new keyword flair illustrations.
       Source reference:
