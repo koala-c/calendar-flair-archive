@@ -89,7 +89,7 @@ let languageConfig = [
 const uiText = {
   en_us: {
     pageTitle: "Calendar Flair Archive (Unofficial)",
-    eyebrow: "Calendar Flair Archive",
+    eyebrow: "Flair Archive",
     heroTitle: "Keyword-Triggered Calendar Flairs",
     heroIntro: "Compare illustration flairs that appear when event text matches certain keywords.",
     displayTitle: "Display",
@@ -133,7 +133,7 @@ const uiText = {
   },
   es_es: {
     pageTitle: "Archivo de Flairs de Calendario (No oficial)",
-    eyebrow: "Archivo de Flairs de Calendario",
+    eyebrow: "Archivo de Flairs",
     heroTitle: "Flairs de Calendario Activados por Palabras Clave",
     heroIntro: "Compara las ilustraciones que aparecen cuando el texto del evento coincide con ciertas palabras clave.",
     displayTitle: "Vista",
@@ -177,7 +177,7 @@ const uiText = {
   },
   ca_es: {
     pageTitle: "Arxiu de Flairs de Calendari (No oficial)",
-    eyebrow: "Arxiu de Flairs de Calendari",
+    eyebrow: "Arxiu de Flairs",
     heroTitle: "Flairs de Calendari Activats per Paraules Clau",
     heroIntro: "Compara les il·lustracions que apareixen quan el text de l'esdeveniment coincideix amb certes paraules clau.",
     displayTitle: "Visualització",
@@ -221,8 +221,8 @@ const uiText = {
   },
   fr_fr: {
     pageTitle: "Archive des Flairs de Calendrier (Non officielle)",
-    eyebrow: "Archive des Flairs de Calendrier",
-    heroTitle: "Flairs de Calendrier déclenchés par mots-clés",
+    eyebrow: "Archive des Flairs",
+    heroTitle: "Flairs de Calendrier Déclenchés par Mots-clés",
     heroIntro: "Comparez les illustrations qui apparaissent lorsque le texte d'un événement correspond à certains mots-clés.",
     displayTitle: "Affichage",
     searchLabel: "",
@@ -265,8 +265,8 @@ const uiText = {
   },
   ru_ru: {
     pageTitle: "Архив Flair Calendar (Неофициально)",
-    eyebrow: "Архив Flair Calendar",
-    heroTitle: "Flairs Calendar по ключевым словам",
+    eyebrow: "Архив Flair",
+    heroTitle: "Flairs Календаря по Ключевым Словам",
     heroIntro: "Сравните иллюстрации, которые появляются, когда текст события совпадает с ключевыми словами.",
     displayTitle: "Отображение",
     searchLabel: "",
