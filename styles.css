@@ -372,6 +372,77 @@ h1 {
   grid-column: auto;
 }
 
+.add-keywords-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.add-kw-chip {
+  font-size: 0.76rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid #e0e3e7;
+  background: #f1f3f4;
+  color: #3c4043;
+}
+
+.add-kw-chip.is-duplicate {
+  background: #fce8e6;
+  border-color: #f28b82;
+  color: #c5221f;
+  text-decoration: line-through;
+}
+
+.add-id-field {
+  grid-column: 1 / -1;
+}
+
+.add-combobox {
+  position: relative;
+}
+
+.add-combobox input {
+  width: 100%;
+}
+
+.add-combobox-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.add-combobox-list li {
+  padding: 7px 12px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.add-combobox-list li:hover,
+.add-combobox-list li[aria-selected="true"] {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+
+.add-combobox-list li.is-new-id {
+  color: #1a73e8;
+  font-style: italic;
+}
+
 .add-field input,
 .add-field select {
   border: 1px solid var(--line);
@@ -914,4 +985,109 @@ code {
   .panel {
     padding: 16px;
   }
+}
+
+/* Skeleton cards */
+@keyframes skeleton-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.flair-skeleton {
+  pointer-events: none;
+}
+
+.skeleton-block {
+  border-radius: 8px;
+  background: linear-gradient(90deg, #e8eaed 25%, #f1f3f4 50%, #e8eaed 75%);
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Match the "old keyword" chip base tone while still shimmering. */
+.keyword.old-keyword.skeleton-block {
+  background: linear-gradient(90deg, #d8d8d8 25%, #ececec 50%, #d8d8d8 75%);
+}
+
+.skeleton-preview-stack {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.skeleton-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.skeleton-chip {
+  height: 24px;
+  border-radius: 999px;
+  padding: 0;
+  display: inline-block;
+  font-size: 0;
+  line-height: 24px;
+}
+
+.skeleton-id {
+  width: 60px;
+  height: 10px;
+  border-radius: 4px;
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+}
+
+/* Mini loader (flair count) */
+#flair-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flair-count-loader {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(66, 133, 244, 0.2);
+  border-top-color: #4285f4;
+  border-radius: 50%;
+  animation: loader-spin 0.7s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.skeleton-ribbon {
+  width: 110px;
+  height: 10px;
+  border-radius: 4px;
+}
+
+/* App loader overlay */
+.add-flair-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+}
+
+.add-flair-loader:not([hidden]) {
+  display: flex;
+}
+
+.add-flair-loader-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(66, 133, 244, 0.2);
+  border-top-color: #4285f4;
+  border-radius: 50%;
+  animation: loader-spin 0.7s linear infinite;
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
 }

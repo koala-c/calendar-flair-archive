@@ -74,7 +74,10 @@
         <h2 id="all-title">Flairs</h2>
         <div class="panel-head-actions">
           <button id="add-flair-toggle" class="add-flair-toggle" type="button">+ Add</button>
-          <span class="count" id="flair-count">0</span>
+          <span class="count" id="flair-count" aria-live="polite">
+            <span id="flair-count-text"></span>
+            <!-- <span id="flair-count-loader" class="flair-count-loader" hidden></span> -->
+          </span>
         </div>
       </div>
       <div class="carousel" id="flair-carousel">
@@ -103,6 +106,9 @@
 
   <div id="add-flair-backdrop" class="add-flair-backdrop" hidden></div>
   <section id="add-flair-panel" class="add-flair-panel" hidden aria-label="Add flair form" role="dialog" aria-modal="true">
+    <div id="add-flair-loader" class="add-flair-loader" hidden aria-hidden="true">
+      <div class="add-flair-loader-spinner"></div>
+    </div>
     <div class="add-flair-head">
       <strong id="add-flair-title">Add</strong>
       <div class="add-flair-head-actions">
@@ -111,13 +117,12 @@
       </div>
     </div>
     <div class="add-flair-grid">
-      <label class="add-field">
+      <label class="add-field add-id-field">
         <span id="add-id-label">Flair ID</span>
-        <select id="add-id-select"></select>
-      </label>
-      <label class="add-field add-new-id-field">
-        <span id="add-new-id-label">Or new ID</span>
-        <input id="add-new-id" type="text" placeholder="example: meeting">
+        <div class="add-combobox" id="add-id-combobox">
+          <input id="add-id-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search or enter new ID" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" role="combobox">
+          <ul id="add-id-listbox" class="add-combobox-list" role="listbox" hidden></ul>
+        </div>
       </label>
       <label class="add-field">
         <span id="add-lang-label">Keyword language</span>
@@ -125,7 +130,8 @@
       </label>
       <label class="add-field add-keywords-field">
         <span id="add-keywords-label">Keywords</span>
-        <input id="add-keywords-input" type="text" placeholder="comma, separated, keywords">
+        <input id="add-keywords-input" type="text" placeholder="keyword one, keyword two; keyword three" spellcheck="true">
+        <div id="add-keywords-preview" class="add-keywords-preview" hidden></div>
       </label>
     </div>
     <div class="add-preview" id="add-preview">

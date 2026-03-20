@@ -553,6 +553,8 @@ const carouselPrev = document.getElementById("carousel-prev");
 const carouselNext = document.getElementById("carousel-next");
 const flairCarousel = document.getElementById("flair-carousel");
 const flairCount = document.getElementById("flair-count");
+const flairCountText = document.getElementById("flair-count-text");
+const flairCountLoader = document.getElementById("flair-count-loader");
 const languageControls = document.getElementById("language-controls");
 const keywordSearch = document.getElementById("keyword-search");
 const keywordSourceStatus = document.getElementById("keyword-source-status");
@@ -572,9 +574,9 @@ const addFlairPanel = document.getElementById("add-flair-panel");
 const addFlairTitle = document.getElementById("add-flair-title");
 const addFlairClose = document.getElementById("add-flair-close");
 const addIdLabel = document.getElementById("add-id-label");
-const addIdSelect = document.getElementById("add-id-select");
-const addNewIdLabel = document.getElementById("add-new-id-label");
-const addNewIdInput = document.getElementById("add-new-id");
+const addIdInput = document.getElementById("add-id-input");
+const addIdListbox = document.getElementById("add-id-listbox");
+let addIdSelectedValue = "";
 const addLangLabel = document.getElementById("add-lang-label");
 const addKeywordLanguage = document.getElementById("add-keyword-language");
 const addKeywordsLabel = document.getElementById("add-keywords-label");
@@ -587,6 +589,7 @@ const addFormStatus = document.getElementById("add-form-status");
 const addKeywordsSubmit = document.getElementById("add-keywords-submit");
 
 const USER_KEYWORDS_STORAGE_KEY = "calendar_flair_user_keywords_v1";
+const USER_IDS_STORAGE_KEY = "calendar_flair_user_ids_v1";
 const EMPTY_PREVIEW_IMAGE_SRC = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
 let selectedLanguage = "en_us";
@@ -595,11 +598,68 @@ let currentSlideIndex = 0;
 let resizeRenderTimer = null;
 let addPreviewDebounceTimer = null;
 let addPreviewCheckVersion = 0;
+let flairsLoadingInProgress = false;
 const googleNewAvailability = new Map();
 const googleOldAvailability = new Map();
 const googleOldResolvedUrl = new Map();
 let keywordLoadSummary = { ok: 1, total: 1, count: 0, failed: false };
 let addPreviewState = { id: "", newExists: false, oldExists: false, oldUrl: "" };
+
+const AVAIL_CACHE_KEY = "flair_availability_v1";
+
+function loadAvailabilityCache() {
+  try {
+    return JSON.parse(localStorage.getItem(AVAIL_CACHE_KEY)) || {};
+  } catch {
+    return {};
+  }
+}
+
+function saveAvailabilityCache(cache) {
+  try {
+    localStorage.setItem(AVAIL_CACHE_KEY, JSON.stringify(cache));
+  } catch {}
+}
+
+function setFlairCountLoading(isLoading) {
+  if (!flairCountText || !flairCountLoader) return;
+  if (isLoading) {
+    flairCountText.hidden = true;
+    flairCountLoader.hidden = false;
+  } else {
+    flairCountText.hidden = false;
+    flairCountLoader.hidden = true;
+  }
+}
+
+function setFlairsLoading(value) {
+  flairsLoadingInProgress = value;
+  updateLoadingState();
+}
+
+function updateLoadingState() {
+  setFlairCountLoading(flairsLoadingInProgress);
+}
+
+let englishKeywordSetCache = null;
+
+function getEnglishKeywordSet() {
+  if (englishKeywordSetCache) return englishKeywordSetCache;
+
+  englishKeywordSetCache = new Set(
+    Object.values(localizedKeywords.en_us || {})
+      .flatMap((list) => (Array.isArray(list) ? list : []))
+      .map((kw) =>
+        String(kw || "")
+          .trim()
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      )
+  );
+
+  return englishKeywordSetCache;
+}
 
 async function loadLanguageDataset() {
   try {
@@ -793,8 +853,7 @@ function applyUiLanguage() {
     addFlairClose.title = t.addFlairClose || uiText.en_us.addFlairClose;
   }
   if (addIdLabel) addIdLabel.textContent = t.addFlairId || uiText.en_us.addFlairId;
-  if (addNewIdLabel) addNewIdLabel.textContent = t.addFlairNewId || uiText.en_us.addFlairNewId;
-  if (addNewIdInput) addNewIdInput.placeholder = t.addFlairNewIdPlaceholder || uiText.en_us.addFlairNewIdPlaceholder;
+  if (addIdInput) addIdInput.placeholder = t.addFlairNewIdPlaceholder || uiText.en_us.addFlairNewIdPlaceholder;
   if (addLangLabel) addLangLabel.textContent = t.addFlairLanguage || uiText.en_us.addFlairLanguage;
   if (addKeywordsLabel) addKeywordsLabel.textContent = t.addFlairKeywords || uiText.en_us.addFlairKeywords;
   if (addKeywordsInput) addKeywordsInput.placeholder = t.addFlairKeywordsPlaceholder || uiText.en_us.addFlairKeywordsPlaceholder;
@@ -812,16 +871,22 @@ function applyUiLanguage() {
 
 function openAddFlairModal() {
   if (!addFlairPanel) return;
+  hidePanelLoader();
   addFlairPanel.hidden = false;
   if (addFlairBackdrop) addFlairBackdrop.hidden = false;
   addPreviewCheckVersion += 1;
   setupAddFlairForm();
+  if (addKeywordsInput && addKeywordLanguage) {
+    const lang = languageConfig.find((l) => l.code === addKeywordLanguage.value);
+    addKeywordsInput.lang = lang?.tl || lang?.code?.split("_")[0] || "en";
+  }
   scheduleAddPreviewCheck();
   updateSaveButtonVisibility();
 }
 
 function closeAddFlairModal() {
   if (!addFlairPanel) return;
+  hidePanelLoader();
   addFlairPanel.hidden = true;
   if (addFlairBackdrop) addFlairBackdrop.hidden = true;
   clearTimeout(addPreviewDebounceTimer);
@@ -885,9 +950,65 @@ function parseKeywordsInput(value) {
   return dedupeKeywords(
     String(value || "")
       .split(/[,;]/)
-      .map((item) => item.trim())
+      .map((item) => item
+        .trim()
+        .replace(/^['"“”‘’]+|['"“”‘’]+$/g, "")
+        .replace(/\s+/g, " ")
+      )
       .filter(Boolean)
   );
+}
+
+function stripDiacritics(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function normalizeKeywordForSpellingMatch(value) {
+  return stripDiacritics(String(value || ""))
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function candidateKeywordsForSpellingCorrection(flairId, locale) {
+  const flair = flairArchive.find((item) => item.id === flairId);
+  if (!flair) return [];
+
+  const localized = localizedKeywords?.[locale]?.[flairId] || [];
+  const base = locale === "en_us" ? (flair.keywords || []) : [];
+  const fromKeywordList = keywordListForFlair(flair, locale) || [];
+  const fromLegacy = legacyKeywordListForFlair(flair, locale) || [];
+
+  return Array.from(new Set(
+    [...localized, ...base, ...fromKeywordList, ...fromLegacy]
+      .map((k) => String(k || "").trim())
+      .filter(Boolean)
+  ));
+}
+
+function correctKeywordSpelling(flairId, locale, keyword) {
+  const raw = String(keyword || "").trim();
+  if (!raw) return raw;
+
+  const normalizedInput = normalizeKeywordForSpellingMatch(raw);
+  if (!normalizedInput) return raw;
+
+  const candidates = candidateKeywordsForSpellingCorrection(flairId, locale);
+  if (!candidates.length) return raw;
+
+  const matches = candidates.filter((c) => normalizeKeywordForSpellingMatch(c) === normalizedInput);
+  if (!matches.length) return raw;
+
+  // If they typed exactly the canonical keyword (case-insensitive), keep it as-is.
+  const exactCaseInsensitive = matches.find((c) => String(c).trim().toLowerCase() === raw.toLowerCase());
+  if (exactCaseInsensitive) return exactCaseInsensitive;
+
+  // Otherwise auto-correct to the closest match by length (most likely missing accents/ñ).
+  const inputLen = raw.length;
+  matches.sort((a, b) => Math.abs(String(a).trim().length - inputLen) - Math.abs(String(b).trim().length - inputLen));
+  return matches[0] || raw;
 }
 
 function normalizeIdInput(value) {
@@ -901,9 +1022,7 @@ function normalizeIdInput(value) {
 }
 
 function selectedAddFlairId() {
-  const typed = normalizeIdInput(addNewIdInput?.value || "");
-  if (typed) return typed;
-  return normalizeIdInput(addIdSelect?.value || "");
+  return addIdSelectedValue;
 }
 
 function ensureFlairEntry(id) {
@@ -943,10 +1062,7 @@ function languageLooksValidForLocale(keyword, locale) {
   if (base === "ru") return hasCyrillic;
   if (hasCyrillic) return false;
   if (base !== "en") {
-    const englishFlattened = Object.values(localizedKeywords.en_us || {})
-      .flatMap((list) => (Array.isArray(list) ? list : []))
-      .map((kw) => String(kw || "").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
-    const englishSet = new Set(englishFlattened);
+    const englishSet = getEnglishKeywordSet();
     if (englishSet.has(normalized)) return false;
   }
   return true;
@@ -993,9 +1109,61 @@ function userStoredKeywords() {
 }
 
 function persistUserKeywordEntry(entry) {
+  const id = normalizeIdInput(entry?.id);
+  const locale = toLocaleCode(entry?.locale);
+  const keywords = dedupeKeywords(Array.isArray(entry?.keywords) ? entry.keywords : []);
+  if (!id || !locale || !keywords.length) return;
+
   const current = userStoredKeywords();
-  const merged = [...current, entry];
-  localStorage.setItem(USER_KEYWORDS_STORAGE_KEY, JSON.stringify(merged));
+  const idx = current.findIndex((e) => normalizeIdInput(e?.id) === id && toLocaleCode(e?.locale) === locale);
+  const mergedEntry = idx >= 0
+    ? {
+      ...current[idx],
+      id,
+      locale,
+      keywords: dedupeKeywords([...(Array.isArray(current[idx]?.keywords) ? current[idx].keywords : []), ...keywords])
+    }
+    : { id, locale, keywords };
+
+  const merged = idx >= 0
+    ? current.map((e, i) => (i === idx ? mergedEntry : e))
+    : [...current, mergedEntry];
+
+  try {
+    localStorage.setItem(USER_KEYWORDS_STORAGE_KEY, JSON.stringify(merged));
+  } catch {
+    // Ignore storage failures (e.g., quota/privacy) to avoid breaking the UI.
+  }
+}
+
+function userStoredIds() {
+  try {
+    const raw = localStorage.getItem(USER_IDS_STORAGE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function persistUserFlairId(id) {
+  const normalized = normalizeIdInput(id);
+  if (!normalized) return;
+  const current = userStoredIds();
+  if (current.includes(normalized)) return;
+  try {
+    localStorage.setItem(USER_IDS_STORAGE_KEY, JSON.stringify([...current, normalized]));
+  } catch {
+    // Ignore storage failures (e.g., quota/privacy) to avoid breaking the UI.
+  }
+}
+
+function applyUserStoredIds() {
+  userStoredIds().forEach((id) => {
+    const normalized = normalizeIdInput(id);
+    if (normalized) ensureFlairEntry(normalized);
+  });
 }
 
 function pruneInvalidStoredKeywords() {
@@ -1051,17 +1219,44 @@ function applyUserStoredKeywords() {
 }
 
 async function detectFlairAvailability(flair) {
+  const cache = loadAvailabilityCache();
+
+  if (cache[flair.id]) {
+    const cached = cache[flair.id];
+    googleNewAvailability.set(flair.id, cached.newExists);
+    googleOldAvailability.set(flair.id, cached.oldExists);
+    if (cached.oldUrl) {
+      googleOldResolvedUrl.set(flair.id, cached.oldUrl);
+    }
+    return;
+  }
+
   const newExists = await checkGoogleImage(newImageForFlair(flair));
+
   let oldExists = false;
+  let resolvedOldUrl = "";
+
   for (const oldUrl of oldImageCandidatesForFlair(flair)) {
     if (await checkGoogleImage(oldUrl)) {
       oldExists = true;
-      googleOldResolvedUrl.set(flair.id, oldUrl);
+      resolvedOldUrl = oldUrl;
       break;
     }
   }
+
   googleNewAvailability.set(flair.id, newExists);
   googleOldAvailability.set(flair.id, oldExists);
+  if (resolvedOldUrl) {
+    googleOldResolvedUrl.set(flair.id, resolvedOldUrl);
+  }
+
+  cache[flair.id] = {
+    newExists,
+    oldExists,
+    oldUrl: resolvedOldUrl
+  };
+
+  saveAvailabilityCache(cache);
 }
 
 function keywordListForFlair(flair, locale) {
@@ -1133,10 +1328,68 @@ function flairHasOld(flair) {
   return true;
 }
 
+function showSkeletons() {
+  if (!flairGrid) return;
+  const layout = carouselLayout();
+  flairGrid.innerHTML = "";
+  const slide = document.createElement("div");
+  slide.className = "carousel-slide";
+  slide.style.setProperty("--slide-cols", String(layout.cols));
+  slide.style.setProperty("--slide-rows", String(layout.rows));
+  const skeletonFlairs = flairArchive.slice(0, layout.perSlide);
+  for (let i = 0; i < layout.perSlide; i++) {
+    const flair = skeletonFlairs[i] || skeletonFlairs[skeletonFlairs.length - 1] || { id: "", hasNew: false };
+    const hasNew = Boolean(flair?.hasNew);
+    const unavailableClass = hasNew ? "" : " unavailable";
+    const ribbonMarkup = hasNew ? "" : `
+      <span class="unavailable-ribbon">
+        <span class="skeleton-block skeleton-ribbon" aria-hidden="true"></span>
+      </span>
+    `;
+
+    const previewMarkup = hasNew
+      ? `
+        <div class="preview-stack skeleton-preview-stack">
+          <div class="preview-img preview-new skeleton-block skeleton-img" aria-hidden="true"></div>
+          <div class="preview-img preview-old skeleton-block skeleton-img" aria-hidden="true"></div>
+        </div>
+      `
+      : `
+        <div class="preview-stack no-new skeleton-preview-stack">
+          <div class="preview-img preview-old-only skeleton-block skeleton-img" aria-hidden="true"></div>
+        </div>
+      `;
+
+    const chipWidths = [72, 54, 88];
+    const chipsMarkup = chipWidths.map((w, idx) => {
+      const isOldChip = !hasNew || idx === 2;
+      return `<span class="keyword skeleton-block skeleton-chip${isOldChip ? " old-keyword" : ""}" style="width:${w}px" aria-hidden="true"></span>`;
+    }).join("");
+
+    const card = document.createElement("div");
+    card.className = `flair flair-skeleton${unavailableClass}`;
+    card.innerHTML = `
+      ${ribbonMarkup}
+      ${previewMarkup}
+      <div class="keywords">${chipsMarkup}</div>
+      <div class="flair-id skeleton-block skeleton-id" aria-hidden="true"></div>
+    `;
+    slide.appendChild(card);
+  }
+  flairGrid.appendChild(slide);
+  updateCarouselControls(1);
+}
+
 async function loadGoogleAvailability() {
-  await Promise.all(
-    flairArchive.map(async (flair) => detectFlairAvailability(flair))
-  );
+  const tasks = flairArchive.map((flair) => async () => {
+    try {
+      await detectFlairAvailability(flair);
+    } catch (e) {
+      console.warn("Availability check failed:", flair.id);
+    }
+  });
+
+  await runWithLimit(tasks, 6);
 }
 
 function flairCard(flair) {
@@ -1235,7 +1488,13 @@ function scheduleCarouselHeightSync() {
 }
 
 function render() {
+  if (flairsLoadingInProgress) {
+    showSkeletons();
+    return;
+  }
+
   const query = searchText.toLowerCase();
+
   const visible = flairArchive.filter((flair) => {
     if (!query) return true;
     const haystack = [
@@ -1245,26 +1504,37 @@ function render() {
     ]
       .join(" ")
       .toLowerCase();
+
     return haystack.includes(query);
   });
 
-  flairGrid.innerHTML = "";
   const layout = carouselLayout();
   const slides = [];
+
   for (let i = 0; i < visible.length; i += layout.perSlide) {
     slides.push(visible.slice(i, i + layout.perSlide));
   }
+
+  const fragment = document.createDocumentFragment();
 
   slides.forEach((chunk) => {
     const slide = document.createElement("div");
     slide.className = "carousel-slide";
     slide.style.setProperty("--slide-cols", String(layout.cols));
     slide.style.setProperty("--slide-rows", String(layout.rows));
-    chunk.forEach((flair) => slide.appendChild(flairCard(flair)));
-    flairGrid.appendChild(slide);
+
+    chunk.forEach((flair) => {
+      slide.appendChild(flairCard(flair));
+    });
+
+    fragment.appendChild(slide);
   });
 
+  flairGrid.innerHTML = "";
+  flairGrid.appendChild(fragment);
+
   updateCarouselControls(slides.length);
+
   const renderedImages = flairGrid.querySelectorAll(".preview-img");
   renderedImages.forEach((img) => {
     if (!img.complete) {
@@ -1272,8 +1542,19 @@ function render() {
       img.addEventListener("error", syncCarouselHeight, { once: true });
     }
   });
+
   scheduleCarouselHeightSync();
-  flairCount.textContent = textFor().flairCount(visible.length, flairArchive.length);
+
+  if (flairCountText) {
+    flairCountText.textContent = textFor().flairCount(
+      visible.length,
+      flairArchive.length
+    );
+    if (!flairsLoadingInProgress) {
+      flairCountText.hidden = false;
+      if (flairCountLoader) flairCountLoader.hidden = true;
+    }
+  }
 }
 
 function languageHasFlairs(locale) {
@@ -1381,18 +1662,151 @@ function setupLanguageSelector() {
 
 function updateSaveButtonVisibility() {
   if (!addKeywordsSubmit) return;
-  const hasId = Boolean(addIdSelect?.value);
+  const hasId = Boolean(addIdSelectedValue);
   const hasKeywords = Boolean(addKeywordsInput?.value?.trim());
   addKeywordsSubmit.style.display = hasId && hasKeywords ? "" : "none";
 }
 
-function setupAddFlairForm() {
-  if (!addIdSelect || !addKeywordLanguage) return;
+function updateKeywordsPreview() {
+  const preview = document.getElementById("add-keywords-preview");
+  if (!preview) return;
+  const raw = addKeywordsInput?.value || "";
+  const typed = parseKeywordsInput(raw);
+  if (!typed.length || !addIdSelectedValue) {
+    preview.hidden = true;
+    preview.innerHTML = "";
+    return;
+  }
+  const locale = toLocaleCode(addKeywordLanguage?.value || selectedLanguage);
+  const flair = flairArchive.find((f) => f.id === addIdSelectedValue);
+  const existing = flair ? keywordListForFlair(flair, locale).map((k) => k.toLowerCase()) : [];
+  const corrected = dedupeKeywords(typed.map((kw) => correctKeywordSpelling(addIdSelectedValue, locale, kw)));
+  preview.innerHTML = corrected.map((kw) => {
+    const isDup = existing.includes(kw.toLowerCase());
+    return `<span class="add-kw-chip${isDup ? " is-duplicate" : ""}">${kw}</span>`;
+  }).join("");
+  preview.hidden = false;
+}
 
-  const sortedFlairIds = flairArchive.map((flair) => flair.id).sort((a, b) => a.localeCompare(b));
-  addIdSelect.innerHTML = sortedFlairIds
-    .map((id) => `<option value="${id}">${id}</option>`)
-    .join("");
+function setupIdCombobox(allIds) {
+  if (!addIdInput || !addIdListbox) return;
+
+  const existingIdSet = new Set(allIds.map((id) => String(id).toLowerCase()));
+  let idTypingDebounceTimer = null;
+
+  const renderList = (filter) => {
+    const q = filter.toLowerCase();
+    const matches = allIds.filter((id) => id.includes(q));
+    addIdListbox.innerHTML = "";
+
+    const exactMatch = allIds.includes(q);
+    if (q && !exactMatch) {
+      const li = document.createElement("li");
+      li.textContent = `+ "${q}" (nuevo)`;
+      li.className = "is-new-id";
+      li.dataset.value = q;
+      li.setAttribute("role", "option");
+      addIdListbox.appendChild(li);
+    }
+
+    matches.slice(0, 50).forEach((id) => {
+      const li = document.createElement("li");
+      li.textContent = id;
+      li.dataset.value = id;
+      li.setAttribute("role", "option");
+      if (id === addIdSelectedValue) li.setAttribute("aria-selected", "true");
+      addIdListbox.appendChild(li);
+    });
+
+    addIdListbox.hidden = addIdListbox.children.length === 0;
+    addIdInput.setAttribute("aria-expanded", String(!addIdListbox.hidden));
+  };
+
+  // Remove old listeners by cloning
+  const freshInput = addIdInput.cloneNode(true);
+  addIdInput.parentNode.replaceChild(freshInput, addIdInput);
+  // Re-assign module-level reference via closure workaround
+  const inp = freshInput;
+
+  const finalizeTypedId = () => {
+    const raw = inp.value.trim();
+    const normalized = normalizeIdInput(raw);
+
+    // If the user picked from the list, keep it.
+    if (addIdSelectedValue && normalized && String(addIdSelectedValue).toLowerCase() === String(normalized).toLowerCase()) {
+      return;
+    }
+
+    // Empty input => no selection => hide keyword preview / disable save.
+    if (!normalized) {
+      addIdSelectedValue = "";
+      updateSaveButtonVisibility();
+      updateKeywordsPreview();
+      scheduleAddPreviewCheck(0);
+      return;
+    }
+
+    // If it matches an existing ID, we must wait for explicit selection.
+    if (existingIdSet.has(normalized)) {
+      addIdSelectedValue = "";
+      updateSaveButtonVisibility();
+      updateKeywordsPreview();
+      scheduleAddPreviewCheck(0);
+      return;
+    }
+
+    // Otherwise it's a "new" ID: start searching immediately after typing stops.
+    addIdSelectedValue = normalized;
+    updateSaveButtonVisibility();
+    updateKeywordsPreview();
+    scheduleAddPreviewCheck(600);
+  };
+
+  inp.addEventListener("input", () => {
+    addIdSelectedValue = "";
+    updateSaveButtonVisibility();
+    if (addFormStatus) addFormStatus.textContent = "";
+    updateKeywordsPreview();
+    renderList(inp.value.trim());
+    // Cancel any in-flight preview check while typing.
+    clearTimeout(addPreviewDebounceTimer);
+    addPreviewCheckVersion += 1;
+    clearTimeout(idTypingDebounceTimer);
+    idTypingDebounceTimer = setTimeout(finalizeTypedId, 450);
+  });
+
+  inp.addEventListener("focus", () => renderList(inp.value.trim()));
+
+  inp.addEventListener("blur", () => {
+    clearTimeout(idTypingDebounceTimer);
+    finalizeTypedId();
+    setTimeout(() => {
+      addIdListbox.hidden = true;
+      inp.setAttribute("aria-expanded", "false");
+    }, 150);
+  });
+
+  addIdListbox.addEventListener("mousedown", (e) => {
+    const li = e.target.closest("li[data-value]");
+    if (!li) return;
+    e.preventDefault();
+    addIdSelectedValue = li.dataset.value;
+    inp.value = addIdSelectedValue;
+    addIdListbox.hidden = true;
+    inp.setAttribute("aria-expanded", "false");
+    if (addFormStatus) addFormStatus.textContent = "";
+    clearTimeout(idTypingDebounceTimer);
+    scheduleAddPreviewCheck();
+    updateSaveButtonVisibility();
+    updateKeywordsPreview();
+  });
+}
+
+function setupAddFlairForm() {
+  if (!addKeywordLanguage) return;
+
+  const allIds = flairArchive.map((f) => f.id).sort((a, b) => a.localeCompare(b));
+  setupIdCombobox(allIds);
 
   addKeywordLanguage.innerHTML = languageConfig
     .map((lang) => `<option value="${lang.code}">${languageDisplayLabel(lang)}</option>`)
@@ -1404,7 +1818,6 @@ function setupAddFlairForm() {
 
 async function updateAddFlairPreview(version = addPreviewCheckVersion) {
   if (!addPreviewNewImg || !addPreviewOldImg || !addFormStatus) return;
-  const typedId = normalizeIdInput(addNewIdInput?.value || "");
   const flairId = selectedAddFlairId();
   if (!flairId) {
     addPreviewNewImg.src = EMPTY_PREVIEW_IMAGE_SRC;
@@ -1416,30 +1829,16 @@ async function updateAddFlairPreview(version = addPreviewCheckVersion) {
     return;
   }
 
-  const probeFlair = flairArchive.find((flair) => flair.id === flairId) || { id: flairId, hasNew: false, keywords: [flairId] };
-  const idExistsInArchive = Boolean(addIdSelect && Array.from(addIdSelect.options).some((option) => option.value === flairId));
-  if (typedId && addIdSelect) {
-    if (idExistsInArchive) {
-      addIdSelect.value = flairId;
-    } else {
-      // New ID not in dropdown yet — add it and select it
-      const newOption = document.createElement("option");
-      newOption.value = flairId;
-      newOption.textContent = flairId;
-      newOption.dataset.userAdded = "true";
-      // Insert in alphabetical order
-      const options = Array.from(addIdSelect.options);
-      const insertBefore = options.find((o) => o.value > flairId);
-      if (insertBefore) {
-        addIdSelect.insertBefore(newOption, insertBefore);
-      } else {
-        addIdSelect.appendChild(newOption);
-      }
-      addIdSelect.value = flairId;
-      if (addNewIdInput) addNewIdInput.value = "";
-      updateSaveButtonVisibility();
-    }
+  function withTimeout(promise, ms = 5000) {
+    return Promise.race([
+      promise,
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("timeout")), ms)
+      )
+    ]);
   }
+
+  const probeFlair = flairArchive.find((flair) => flair.id === flairId) || { id: flairId, hasNew: false, keywords: [flairId] };
   const newUrl = newImageForFlair(probeFlair);
   const oldCandidates = oldImageCandidatesForFlair(probeFlair);
   const [newExists, oldFirstExists] = await Promise.all([
@@ -1480,15 +1879,13 @@ async function updateAddFlairPreview(version = addPreviewCheckVersion) {
     const t = textFor();
     if (!newExists && !oldExists) {
       addFormStatus.textContent = t.addFlairNotFound || uiText.en_us.addFlairNotFound;
-    } else if (typedId && idExistsInArchive) {
-      addFormStatus.textContent = t.addFlairIdExists || uiText.en_us.addFlairIdExists;
     } else {
       addFormStatus.textContent = "";
     }
   }
 }
 
-function scheduleAddPreviewCheck() {
+function scheduleAddPreviewCheck(delayMs = 1400) {
   const t = textFor();
   const flairId = selectedAddFlairId();
   if (addFormStatus) {
@@ -1499,13 +1896,23 @@ function scheduleAddPreviewCheck() {
   const version = addPreviewCheckVersion;
   addPreviewDebounceTimer = setTimeout(() => {
     updateAddFlairPreview(version);
-  }, 1400);
+  }, delayMs);
+}
+
+function showPanelLoader() {
+  const loader = document.getElementById("add-flair-loader");
+  if (loader) loader.hidden = false;
+}
+
+function hidePanelLoader() {
+  const loader = document.getElementById("add-flair-loader");
+  if (loader) loader.hidden = true;
 }
 
 async function handleAddKeywordsSubmit() {
   const flairId = selectedAddFlairId();
   const locale = toLocaleCode(addKeywordLanguage?.value || selectedLanguage);
-  const keywords = parseKeywordsInput(addKeywordsInput?.value || "");
+  let keywords = parseKeywordsInput(addKeywordsInput?.value || "");
   const t = textFor();
 
   if (!flairId) {
@@ -1525,12 +1932,16 @@ async function handleAddKeywordsSubmit() {
 
   const existing = flairArchive.find((flair) => flair.id === flairId);
   const flair = existing || ensureFlairEntry(flairId);
+  if (!existing) persistUserFlairId(flairId);
   flair.hasNew = Boolean(flair.hasNew || detectedNew);
   if (detectedOld && addPreviewState.oldUrl) {
     googleOldResolvedUrl.set(flairId, addPreviewState.oldUrl);
   }
 
   if (keywords.length) {
+    // Auto-correct common orthography issues (missing accents/ñ) based on known variants.
+    keywords = dedupeKeywords(keywords.map((kw) => correctKeywordSpelling(flairId, locale, kw)));
+
     const invalidLanguageKeyword = keywords.find((kw) => !languageLooksValidForLocale(kw, locale));
     if (invalidLanguageKeyword) {
       if (addFormStatus) addFormStatus.textContent = t.addFlairInvalidLanguage || uiText.en_us.addFlairInvalidLanguage;
@@ -1556,8 +1967,12 @@ async function handleAddKeywordsSubmit() {
   } else {
     if (addFormStatus) addFormStatus.textContent = t.addFlairAdded || uiText.en_us.addFlairAdded;
   }
-  if (addNewIdInput) addNewIdInput.value = "";
+  if (addIdInput) addIdInput.value = "";
+  addIdSelectedValue = "";
   if (addKeywordsInput) addKeywordsInput.value = "";
+  const preview = document.getElementById("add-keywords-preview");
+  if (preview) { preview.hidden = true; preview.innerHTML = ""; }
+  updateSaveButtonVisibility();
   setupAddFlairForm();
   render();
 }
@@ -1596,36 +2011,33 @@ if (addFlairBackdrop) {
   addFlairBackdrop.addEventListener("click", () => closeAddFlairModal());
 }
 
-if (addIdSelect) {
-  addIdSelect.addEventListener("change", () => {
-    if (addNewIdInput) addNewIdInput.value = "";
-    if (addFormStatus) addFormStatus.textContent = "";
-    scheduleAddPreviewCheck();
-    updateSaveButtonVisibility();
-  });
-}
-
-if (addNewIdInput) {
-  addNewIdInput.addEventListener("input", () => {
-    scheduleAddPreviewCheck();
-  });
-}
-
 if (addKeywordLanguage) {
   addKeywordLanguage.addEventListener("change", () => {
     if (addFormStatus) addFormStatus.textContent = "";
+    if (addKeywordsInput) {
+      const lang = languageConfig.find((l) => l.code === addKeywordLanguage.value);
+      addKeywordsInput.lang = lang?.tl || lang?.code?.split("_")[0] || "en";
+    }
+    updateSaveButtonVisibility();
+    updateKeywordsPreview();
   });
 }
 
 if (addKeywordsInput) {
   addKeywordsInput.addEventListener("input", () => {
     updateSaveButtonVisibility();
+    updateKeywordsPreview();
   });
 }
 
 if (addKeywordsSubmit) {
   addKeywordsSubmit.addEventListener("click", async () => {
-    await handleAddKeywordsSubmit();
+    showPanelLoader();
+    try {
+      await handleAddKeywordsSubmit();
+    } finally {
+      hidePanelLoader();
+    }
   });
 }
 
@@ -1640,28 +2052,60 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
+async function runWithLimit(tasks, limit = 6) {
+  const results = [];
+  const executing = [];
+
+  for (const task of tasks) {
+    const p = task().then((res) => {
+      executing.splice(executing.indexOf(p), 1);
+      return res;
+    });
+
+    results.push(p);
+    executing.push(p);
+
+    if (executing.length >= limit) {
+      await Promise.race(executing);
+    }
+  }
+
+  return Promise.all(results);
+}
+
 async function init() {
   await loadLanguageDataset();
   await loadDiscoveryDataset();
+
   sanitizeKnownBadMappings();
   pruneInvalidStoredKeywords();
+  applyUserStoredIds();
   applyUserStoredKeywords();
   sanitizeKnownBadMappings();
-  await ensureUiTextLocale(selectedLanguage);
-  applyUiLanguage();
-  await loadGoogleAvailability();
+
   selectedLanguage = guessBrowserLanguage();
   if (!languageHasFlairs(selectedLanguage)) {
     selectedLanguage = "en_us";
   }
+
   await ensureUiTextLocale(selectedLanguage);
   applyUiLanguage();
+
   setupLanguageSelector();
   setupAddFlairForm();
   populateSuggestions();
-  render();
+
+  flairsLoadingInProgress = true;
+  updateLoadingState();
+  showSkeletons();
+
+  try {
+    await loadGoogleAvailability();
+  } finally {
+    flairsLoadingInProgress = false;
+    updateLoadingState();
+    render();
+  }
 }
 
 init();
-
-
