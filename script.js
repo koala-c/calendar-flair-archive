@@ -109,7 +109,7 @@ const uiText = {
     addFlairNewIdPlaceholder: "example: meeting",
     addFlairLanguage: "Keyword language",
     addFlairKeywords: "Keywords",
-    addFlairKeywordsPlaceholder: "comma, separated, keywords",
+    addFlairKeywordsPlaceholder: "keyword one, keyword two; keyword three",
     addFlairPreviewNew: "New",
     addFlairPreviewOld: "Old",
     addFlairSubmit: "Save",
@@ -153,7 +153,7 @@ const uiText = {
     addFlairNewIdPlaceholder: "ejemplo: reunion",
     addFlairLanguage: "Idioma de keywords",
     addFlairKeywords: "Keywords",
-    addFlairKeywordsPlaceholder: "keywords separadas por coma",
+    addFlairKeywordsPlaceholder: "keyword uno, keyword dos; keyword tres",
     addFlairPreviewNew: "Nuevo",
     addFlairPreviewOld: "Antiguo",
     addFlairSubmit: "Guardar",
@@ -197,7 +197,7 @@ const uiText = {
     addFlairNewIdPlaceholder: "exemple: reunió",
     addFlairLanguage: "Idioma de keywords",
     addFlairKeywords: "Keywords",
-    addFlairKeywordsPlaceholder: "keywords separades per comes",
+    addFlairKeywordsPlaceholder: "keyword un, keyword dos; keyword tres",
     addFlairPreviewNew: "Nou",
     addFlairPreviewOld: "Antic",
     addFlairSubmit: "Desar",
@@ -241,7 +241,7 @@ const uiText = {
     addFlairNewIdPlaceholder: "exemple : reunion",
     addFlairLanguage: "Langue des mots-clés",
     addFlairKeywords: "Mots-clés",
-    addFlairKeywordsPlaceholder: "mots-clés séparés par des virgules",
+    addFlairKeywordsPlaceholder: "mot-clé un, mot-clé deux; mot-clé trois",
     addFlairPreviewNew: "Nouveau",
     addFlairPreviewOld: "Ancien",
     addFlairSubmit: "Enregistrer",
@@ -285,7 +285,7 @@ const uiText = {
     addFlairNewIdPlaceholder: "пример: meeting",
     addFlairLanguage: "Язык ключевых слов",
     addFlairKeywords: "Ключевые слова",
-    addFlairKeywordsPlaceholder: "ключевые слова через запятую",
+    addFlairKeywordsPlaceholder: "ключевое слово 1, ключевое слово 2; ключевое слово 3",
     addFlairPreviewNew: "Новая",
     addFlairPreviewOld: "Старая",
     addFlairSubmit: "Сохранить",
@@ -817,6 +817,7 @@ function openAddFlairModal() {
   addPreviewCheckVersion += 1;
   setupAddFlairForm();
   scheduleAddPreviewCheck();
+  updateSaveButtonVisibility();
 }
 
 function closeAddFlairModal() {
@@ -883,7 +884,7 @@ function dedupeKeywords(values) {
 function parseKeywordsInput(value) {
   return dedupeKeywords(
     String(value || "")
-      .split(",")
+      .split(/[,;]/)
       .map((item) => item.trim())
       .filter(Boolean)
   );
@@ -1378,6 +1379,13 @@ function setupLanguageSelector() {
   });
 }
 
+function updateSaveButtonVisibility() {
+  if (!addKeywordsSubmit) return;
+  const hasId = Boolean(addIdSelect?.value);
+  const hasKeywords = Boolean(addKeywordsInput?.value?.trim());
+  addKeywordsSubmit.style.display = hasId && hasKeywords ? "" : "none";
+}
+
 function setupAddFlairForm() {
   if (!addIdSelect || !addKeywordLanguage) return;
 
@@ -1410,8 +1418,27 @@ async function updateAddFlairPreview(version = addPreviewCheckVersion) {
 
   const probeFlair = flairArchive.find((flair) => flair.id === flairId) || { id: flairId, hasNew: false, keywords: [flairId] };
   const idExistsInArchive = Boolean(addIdSelect && Array.from(addIdSelect.options).some((option) => option.value === flairId));
-  if (typedId && idExistsInArchive && addIdSelect) {
-    addIdSelect.value = flairId;
+  if (typedId && addIdSelect) {
+    if (idExistsInArchive) {
+      addIdSelect.value = flairId;
+    } else {
+      // New ID not in dropdown yet — add it and select it
+      const newOption = document.createElement("option");
+      newOption.value = flairId;
+      newOption.textContent = flairId;
+      newOption.dataset.userAdded = "true";
+      // Insert in alphabetical order
+      const options = Array.from(addIdSelect.options);
+      const insertBefore = options.find((o) => o.value > flairId);
+      if (insertBefore) {
+        addIdSelect.insertBefore(newOption, insertBefore);
+      } else {
+        addIdSelect.appendChild(newOption);
+      }
+      addIdSelect.value = flairId;
+      if (addNewIdInput) addNewIdInput.value = "";
+      updateSaveButtonVisibility();
+    }
   }
   const newUrl = newImageForFlair(probeFlair);
   const oldCandidates = oldImageCandidatesForFlair(probeFlair);
@@ -1574,6 +1601,7 @@ if (addIdSelect) {
     if (addNewIdInput) addNewIdInput.value = "";
     if (addFormStatus) addFormStatus.textContent = "";
     scheduleAddPreviewCheck();
+    updateSaveButtonVisibility();
   });
 }
 
@@ -1586,6 +1614,12 @@ if (addNewIdInput) {
 if (addKeywordLanguage) {
   addKeywordLanguage.addEventListener("change", () => {
     if (addFormStatus) addFormStatus.textContent = "";
+  });
+}
+
+if (addKeywordsInput) {
+  addKeywordsInput.addEventListener("input", () => {
+    updateSaveButtonVisibility();
   });
 }
 
