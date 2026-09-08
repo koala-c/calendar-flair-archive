@@ -1,0 +1,11 @@
+{
+  "name": "calendar-flair-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed-firebase": "node scripts/seedFirebase.mjs"
+  },
+  "dependencies": {
+    "firebase": "^11.6.0"
+  }
+}

@@ -590,6 +590,7 @@ const addKeywordsSubmit = document.getElementById("add-keywords-submit");
 
 const USER_KEYWORDS_STORAGE_KEY = "calendar_flair_user_keywords_v1";
 const USER_IDS_STORAGE_KEY = "calendar_flair_user_ids_v1";
+const FIRESTORE_FLAIRS_COLLECTION = "flairs";
 const EMPTY_PREVIEW_IMAGE_SRC = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 
 let selectedLanguage = "en_us";
@@ -1159,6 +1160,135 @@ function persistUserFlairId(id) {
   }
 }
 
+function firebaseConfigReady() {
+  const config = window.FIREBASE_CONFIG;
+  return Boolean(
+    window.firebase
+    && config
+    && typeof config === "object"
+    && String(config.projectId || "").trim()
+    && String(config.apiKey || "").trim()
+  );
+}
+
+let firestoreDb = null;
+
+function getFirestoreDb() {
+  if (!firebaseConfigReady()) return null;
+  if (firestoreDb) return firestoreDb;
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(window.FIREBASE_CONFIG);
+    }
+    firestoreDb = firebase.firestore();
+    return firestoreDb;
+  } catch (error) {
+    console.warn("Firebase could not be initialized.", error);
+    return null;
+  }
+}
+
+function applyRemoteFlairRecord(data) {
+  const id = normalizeIdInput(data?.id);
+  if (!id) return;
+
+  persistUserFlairId(id);
+  ensureFlairEntry(id);
+
+  const byLocale = data?.keywordsByLocale && typeof data.keywordsByLocale === "object"
+    ? data.keywordsByLocale
+    : {};
+
+  Object.entries(byLocale).forEach(([locale, keywords]) => {
+    const localeCode = toLocaleCode(locale);
+    const list = dedupeKeywords(Array.isArray(keywords) ? keywords : []);
+    if (!localeCode || !list.length) return;
+    mergeLocalizedKeywords(localeCode, id, list);
+    persistUserKeywordEntry({ id, locale: localeCode, keywords: list });
+    if (localeCode === "en_us") {
+      const flair = flairArchive.find((item) => item.id === id);
+      if (flair) {
+        flair.keywords = dedupeKeywords([...(flair.keywords || []), ...list]);
+      }
+    }
+  });
+}
+
+async function persistFirebaseFlairId(id) {
+  const db = getFirestoreDb();
+  const flairId = normalizeIdInput(id);
+  if (!db || !flairId) return;
+
+  try {
+    await db.collection(FIRESTORE_FLAIRS_COLLECTION).doc(flairId).set({
+      id: flairId,
+      updatedAt: firebase.firestore.Timestamp.now()
+    }, { merge: true });
+  } catch (error) {
+    console.warn("Could not save flair ID to Firebase.", error);
+  }
+}
+
+async function persistFirebaseFlairKeywords(id, locale, keywords) {
+  const db = getFirestoreDb();
+  const flairId = normalizeIdInput(id);
+  const localeCode = toLocaleCode(locale);
+  const list = dedupeKeywords(Array.isArray(keywords) ? keywords : []);
+  if (!db || !flairId || !localeCode || !list.length) return;
+
+  const ref = db.collection(FIRESTORE_FLAIRS_COLLECTION).doc(flairId);
+  try {
+    await db.runTransaction(async (tx) => {
+      const snap = await tx.get(ref);
+      if (!snap.exists) {
+        tx.set(ref, {
+          id: flairId,
+          keywordsByLocale: { [localeCode]: list },
+          updatedAt: firebase.firestore.Timestamp.now()
+        });
+        return;
+      }
+      tx.update(ref, {
+        [`keywordsByLocale.${localeCode}`]: firebase.firestore.FieldValue.arrayUnion(...list),
+        updatedAt: firebase.firestore.Timestamp.now()
+      });
+    });
+  } catch (error) {
+    console.warn("Could not save flair keywords to Firebase.", error);
+  }
+}
+
+async function loadFirebaseFlairs() {
+  const db = getFirestoreDb();
+  if (!db) return;
+
+  try {
+    const snap = await db.collection(FIRESTORE_FLAIRS_COLLECTION).get();
+    snap.forEach((doc) => {
+      applyRemoteFlairRecord({ id: doc.id, ...doc.data() });
+    });
+  } catch (error) {
+    console.warn("Could not load flairs from Firebase.", error);
+  }
+}
+
+function subscribeFirebaseFlairs() {
+  const db = getFirestoreDb();
+  if (!db) return;
+
+  db.collection(FIRESTORE_FLAIRS_COLLECTION).onSnapshot((snap) => {
+    snap.docChanges().forEach((change) => {
+      if (change.type === "removed") return;
+      applyRemoteFlairRecord({ id: change.doc.id, ...change.doc.data() });
+    });
+    setupAddFlairForm();
+    populateSuggestions();
+    render();
+  }, (error) => {
+    console.warn("Firebase flair updates stopped.", error);
+  });
+}
+
 function applyUserStoredIds() {
   userStoredIds().forEach((id) => {
     const normalized = normalizeIdInput(id);
@@ -1196,7 +1326,10 @@ async function addTranslatedKeywordsToOtherLocales(flairId, sourceLocale, keywor
       translatedList.push(cleaned);
     }
     if (translatedList.length) {
-      mergeLocalizedKeywords(targetLocale, flairId, dedupeKeywords(translatedList));
+      const unique = dedupeKeywords(translatedList);
+      mergeLocalizedKeywords(targetLocale, flairId, unique);
+      persistUserKeywordEntry({ id: flairId, locale: targetLocale, keywords: unique });
+      await persistFirebaseFlairKeywords(flairId, targetLocale, unique);
     }
   }
 }
@@ -1933,6 +2066,7 @@ async function handleAddKeywordsSubmit() {
   const existing = flairArchive.find((flair) => flair.id === flairId);
   const flair = existing || ensureFlairEntry(flairId);
   if (!existing) persistUserFlairId(flairId);
+  await persistFirebaseFlairId(flairId);
   flair.hasNew = Boolean(flair.hasNew || detectedNew);
   if (detectedOld && addPreviewState.oldUrl) {
     googleOldResolvedUrl.set(flairId, addPreviewState.oldUrl);
@@ -1958,6 +2092,7 @@ async function handleAddKeywordsSubmit() {
     }
     await addTranslatedKeywordsToOtherLocales(flairId, locale, keywords);
     persistUserKeywordEntry({ id: flairId, locale, keywords });
+    await persistFirebaseFlairKeywords(flairId, locale, keywords);
   }
 
   await detectFlairAvailability(flair);
@@ -2081,6 +2216,7 @@ async function init() {
   pruneInvalidStoredKeywords();
   applyUserStoredIds();
   applyUserStoredKeywords();
+  await loadFirebaseFlairs();
   sanitizeKnownBadMappings();
 
   selectedLanguage = guessBrowserLanguage();
@@ -2105,6 +2241,7 @@ async function init() {
     flairsLoadingInProgress = false;
     updateLoadingState();
     render();
+    subscribeFirebaseFlairs();
   }
 }
 
