@@ -73,7 +73,9 @@
       <div class="panel-head">
         <h2 id="all-title">Flairs</h2>
         <div class="panel-head-actions">
-          <button id="add-flair-toggle" class="add-flair-toggle" type="button">+ Add</button>
+          <button id="add-flair-toggle" class="icon-button" type="button" aria-label="Add flair" title="Add flair">
+            <span class="material-symbols-rounded" aria-hidden="true">add</span>
+          </button>
           <button id="copy-flairs" class="icon-button" type="button" aria-label="Copy all flair IDs" title="Copy all flair IDs">
             <span class="material-symbols-rounded" aria-hidden="true">content_copy</span>
           </button>
@@ -81,6 +83,7 @@
             <span id="flair-count-text"></span>
             <!-- <span id="flair-count-loader" class="flair-count-loader" hidden></span> -->
           </span>
+          <span id="flair-loading-status" class="flair-loading-status" role="status" aria-live="polite" hidden></span>
         </div>
       </div>
       <div class="carousel" id="flair-carousel">
@@ -109,6 +112,31 @@
 
   <div id="add-flair-backdrop" class="add-flair-backdrop" hidden></div>
   <div id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden></div>
+  <section id="edit-flair-panel" class="add-flair-panel edit-flair-panel" hidden aria-label="Edit flair keywords" role="dialog" aria-modal="true">
+    <div class="add-flair-head">
+      <strong id="edit-flair-title">Edit keywords</strong>
+      <div class="add-flair-head-actions">
+        <button id="edit-keywords-submit" class="add-flair-icon-btn add-flair-save" type="button" aria-label="Save" title="Save">save</button>
+        <button id="edit-flair-close" class="add-flair-icon-btn add-flair-close" type="button" aria-label="Close" title="Close">close</button>
+      </div>
+    </div>
+    <div class="add-flair-grid">
+      <label class="add-field">
+        <span>Flair ID</span>
+        <select id="edit-flair-id" aria-label="Flair ID"></select>
+      </label>
+      <label class="add-field" for="edit-keyword-language">
+        <span id="edit-flair-language-label">Language</span>
+        <select id="edit-keyword-language"></select>
+      </label>
+      <label class="add-field add-keywords-field" for="edit-keywords-input">
+        <span id="edit-keywords-label">Keywords</span>
+        <input id="edit-keywords-input" type="text" placeholder="Add keyword" spellcheck="true">
+        <div id="edit-keywords-list" class="add-keywords-preview"></div>
+      </label>
+    </div>
+    <p id="edit-form-status" class="add-form-status" aria-live="polite"></p>
+  </section>
   <section id="add-flair-panel" class="add-flair-panel" hidden aria-label="Add flair form" role="dialog" aria-modal="true">
     <div id="add-flair-loader" class="add-flair-loader" hidden aria-hidden="true">
       <div class="add-flair-loader-spinner"></div>
@@ -121,14 +149,14 @@
       </div>
     </div>
     <div class="add-flair-grid">
-      <label class="add-field add-id-field">
+      <label class="add-field add-id-field" id="add-id-field">
         <span id="add-id-label">Flair ID</span>
         <div class="add-combobox" id="add-id-combobox">
           <input id="add-id-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search or enter new ID" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" role="combobox">
           <ul id="add-id-listbox" class="add-combobox-list" role="listbox" hidden></ul>
         </div>
       </label>
-      <label class="add-field">
+      <label class="add-field" id="add-lang-field">
         <span id="add-lang-label">Keyword language</span>
         <select id="add-keyword-language"></select>
       </label>

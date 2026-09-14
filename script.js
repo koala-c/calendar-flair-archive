@@ -555,6 +555,7 @@ const flairCarousel = document.getElementById("flair-carousel");
 const flairCount = document.getElementById("flair-count");
 const flairCountText = document.getElementById("flair-count-text");
 const flairCountLoader = document.getElementById("flair-count-loader");
+const flairLoadingStatus = document.getElementById("flair-loading-status");
 const languageControls = document.getElementById("language-controls");
 const keywordSearch = document.getElementById("keyword-search");
 const keywordSourceStatus = document.getElementById("keyword-source-status");
@@ -575,9 +576,11 @@ const addFlairPanel = document.getElementById("add-flair-panel");
 const addFlairTitle = document.getElementById("add-flair-title");
 const addFlairClose = document.getElementById("add-flair-close");
 const addIdLabel = document.getElementById("add-id-label");
-const addIdInput = document.getElementById("add-id-input");
+let addIdInput = document.getElementById("add-id-input");
 const addIdListbox = document.getElementById("add-id-listbox");
 let addIdSelectedValue = "";
+let editingFlairId = "";
+let editingKeywords = [];
 const addLangLabel = document.getElementById("add-lang-label");
 const addKeywordLanguage = document.getElementById("add-keyword-language");
 const addKeywordsLabel = document.getElementById("add-keywords-label");
@@ -589,8 +592,19 @@ const addPreviewOldImg = document.getElementById("add-preview-old-img");
 const addFormStatus = document.getElementById("add-form-status");
 const addKeywordsSubmit = document.getElementById("add-keywords-submit");
 const copyToast = document.getElementById("copy-toast");
+const addIdField = document.getElementById("add-id-field");
+const addLangField = document.getElementById("add-lang-field");
+const editFlairPanel = document.getElementById("edit-flair-panel");
+const editFlairClose = document.getElementById("edit-flair-close");
+const editFlairIdText = document.getElementById("edit-flair-id");
+const editKeywordLanguage = document.getElementById("edit-keyword-language");
+const editKeywordsInput = document.getElementById("edit-keywords-input");
+const editKeywordsList = document.getElementById("edit-keywords-list");
+const editKeywordsSubmit = document.getElementById("edit-keywords-submit");
+const editFormStatus = document.getElementById("edit-form-status");
 
 const USER_KEYWORDS_STORAGE_KEY = "calendar_flair_user_keywords_v1";
+const USER_KEYWORD_OVERRIDES_STORAGE_KEY = "calendar_flair_user_keyword_overrides_v1";
 const USER_IDS_STORAGE_KEY = "calendar_flair_user_ids_v1";
 const FIRESTORE_FLAIRS_COLLECTION = "flairs";
 const EMPTY_PREVIEW_IMAGE_SRC = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
@@ -601,13 +615,14 @@ let currentSlideIndex = 0;
 let resizeRenderTimer = null;
 let addPreviewDebounceTimer = null;
 let addPreviewCheckVersion = 0;
-let flairsLoadingInProgress = false;
+let flairsLoadingInProgress = true;
 const googleNewAvailability = new Map();
 const googleOldAvailability = new Map();
 const googleOldResolvedUrl = new Map();
 let keywordLoadSummary = { ok: 1, total: 1, count: 0, failed: false };
 let addPreviewState = { id: "", newExists: false, oldExists: false, oldUrl: "" };
 let copyToastTimer = null;
+let editingLanguage = "en_us";
 
 const AVAIL_CACHE_KEY = "flair_availability_v1";
 
@@ -643,6 +658,15 @@ function setFlairsLoading(value) {
 
 function updateLoadingState() {
   setFlairCountLoading(flairsLoadingInProgress);
+  document.querySelectorAll("button").forEach((button) => {
+    button.disabled = flairsLoadingInProgress;
+  });
+}
+
+function updateAvailabilityStatus(checked, total) {
+  if (!flairLoadingStatus) return;
+  flairLoadingStatus.textContent = `Loading images ${checked}/${total}`;
+  flairLoadingStatus.hidden = checked >= total;
 }
 
 let englishKeywordSetCache = null;
@@ -849,7 +873,11 @@ function applyUiLanguage() {
   } else {
     keywordSourceStatus.textContent = t.sourceLoading;
   }
-  if (addFlairToggle) addFlairToggle.textContent = t.addFlairToggle || uiText.en_us.addFlairToggle;
+  if (addFlairToggle) {
+    const addLabel = t.addFlairToggle || uiText.en_us.addFlairToggle;
+    addFlairToggle.setAttribute("aria-label", addLabel);
+    addFlairToggle.title = addLabel;
+  }
   if (addFlairTitle) addFlairTitle.textContent = t.addFlairTitle || uiText.en_us.addFlairTitle;
   if (addFlairClose) {
     addFlairClose.textContent = "close";
@@ -875,6 +903,8 @@ function applyUiLanguage() {
 
 function openAddFlairModal() {
   if (!addFlairPanel) return;
+  editingFlairId = "";
+  editingKeywords = [];
   hidePanelLoader();
   addFlairPanel.hidden = false;
   if (addFlairBackdrop) addFlairBackdrop.hidden = false;
@@ -888,11 +918,112 @@ function openAddFlairModal() {
   updateSaveButtonVisibility();
 }
 
+function openEditFlairModal(flair) {
+  if (!editFlairPanel || !flair) return;
+  editingFlairId = flair.id;
+  editingLanguage = selectedLanguage;
+  editingKeywords = keywordsForEditLanguage(flair, editingLanguage);
+  editFlairPanel.hidden = false;
+  if (addFlairBackdrop) addFlairBackdrop.hidden = false;
+  if (editFlairIdText) {
+    editFlairIdText.innerHTML = flairArchive
+      .map((item) => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.id)}</option>`)
+      .join("");
+    editFlairIdText.value = flair.id;
+  }
+  if (editKeywordLanguage) {
+    editKeywordLanguage.innerHTML = languageConfig
+      .map((language) => `<option value="${language.code}">${languageDisplayLabel(language)}</option>`)
+      .join("");
+    editKeywordLanguage.value = editingLanguage;
+  }
+  if (editKeywordsInput) editKeywordsInput.value = "";
+  if (editFormStatus) editFormStatus.textContent = "";
+  renderEditKeywords();
+}
+
+function closeEditFlairModal() {
+  if (!editFlairPanel) return;
+  editFlairPanel.hidden = true;
+  if (addFlairBackdrop && addFlairPanel?.hidden) addFlairBackdrop.hidden = true;
+  editingFlairId = "";
+  editingKeywords = [];
+  editingLanguage = selectedLanguage;
+  if (editKeywordsInput) editKeywordsInput.value = "";
+  if (editKeywordsList) editKeywordsList.innerHTML = "";
+}
+
+function keywordsForEditLanguage(flair, locale) {
+  return dedupeKeywords([
+    ...keywordListForFlair(flair, locale),
+    ...legacyKeywordListForFlair(flair, locale)
+  ]);
+}
+
+function renderEditKeywords() {
+  if (!editKeywordsList) return;
+  editKeywordsList.innerHTML = "";
+  editingKeywords.forEach((keyword) => {
+    const chip = document.createElement("span");
+    chip.className = "add-kw-chip edit-keyword-chip";
+    chip.dataset.keyword = keyword;
+    const label = document.createElement("span");
+    label.textContent = keyword;
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove-kw";
+    remove.setAttribute("aria-label", `Remove ${keyword}`);
+    remove.title = `Remove ${keyword}`;
+    remove.textContent = "close";
+    remove.addEventListener("click", () => {
+      editingKeywords = editingKeywords.filter((item) => item.toLowerCase() !== keyword.toLowerCase());
+      renderEditKeywords();
+    });
+    chip.append(label, remove);
+    editKeywordsList.appendChild(chip);
+  });
+}
+
+async function saveEditedFlairKeywords() {
+  if (!editingFlairId) return;
+  const locale = editingLanguage;
+  const additions = parseKeywordsInput(editKeywordsInput?.value || "");
+  const nextKeywords = dedupeKeywords([...editingKeywords, ...additions]
+    .map((keyword) => correctKeywordSpelling(editingFlairId, locale, keyword)));
+  const invalidLanguageKeyword = nextKeywords.find((keyword) => !languageLooksValidForLocale(keyword, locale));
+  const invalidRelationKeyword = nextKeywords.find((keyword) => !keywordLooksRelevantToFlair(editingFlairId, keyword, locale));
+  if (invalidLanguageKeyword) {
+    if (editFormStatus) editFormStatus.textContent = textFor().addFlairInvalidLanguage || uiText.en_us.addFlairInvalidLanguage;
+    return;
+  }
+  if (invalidRelationKeyword) {
+    if (editFormStatus) editFormStatus.textContent = textFor().addFlairInvalidIdMatch || uiText.en_us.addFlairInvalidIdMatch;
+    return;
+  }
+
+  if (!localizedKeywords[locale]) localizedKeywords[locale] = {};
+  localizedKeywords[locale][editingFlairId] = nextKeywords;
+  if (locale === "en_us") {
+    const flair = flairArchive.find((item) => item.id === editingFlairId);
+    if (flair) flair.keywords = nextKeywords;
+  }
+  persistUserKeywordOverride({ id: editingFlairId, locale, keywords: nextKeywords });
+  await replaceFirebaseFlairKeywords(editingFlairId, locale, nextKeywords);
+  closeEditFlairModal();
+  render();
+}
+
 function closeAddFlairModal() {
   if (!addFlairPanel) return;
   hidePanelLoader();
   addFlairPanel.hidden = true;
   if (addFlairBackdrop) addFlairBackdrop.hidden = true;
+  editingFlairId = "";
+  editingKeywords = [];
+  if (addIdField) addIdField.hidden = false;
+  if (addLangField) addLangField.hidden = false;
+  if (addFlairTitle) addFlairTitle.textContent = textFor().addFlairTitle || uiText.en_us.addFlairTitle;
+  addIdSelectedValue = "";
   clearTimeout(addPreviewDebounceTimer);
   addPreviewCheckVersion += 1;
   if (addFormStatus) addFormStatus.textContent = "";
@@ -1026,7 +1157,7 @@ function normalizeIdInput(value) {
 }
 
 function selectedAddFlairId() {
-  return addIdSelectedValue;
+  return editingFlairId || addIdSelectedValue;
 }
 
 function ensureFlairEntry(id) {
@@ -1140,6 +1271,47 @@ function persistUserKeywordEntry(entry) {
   }
 }
 
+function persistUserKeywordOverride(entry) {
+  const id = normalizeIdInput(entry?.id);
+  const locale = toLocaleCode(entry?.locale);
+  const keywords = dedupeKeywords(Array.isArray(entry?.keywords) ? entry.keywords : []);
+  if (!id || !locale) return;
+
+  const current = userStoredKeywordOverrides();
+  const next = current.filter((item) => normalizeIdInput(item?.id) !== id || toLocaleCode(item?.locale) !== locale);
+  next.push({ id, locale, keywords });
+  try {
+    localStorage.setItem(USER_KEYWORD_OVERRIDES_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Ignore storage failures without interrupting the editor.
+  }
+}
+
+function userStoredKeywordOverrides() {
+  try {
+    const raw = localStorage.getItem(USER_KEYWORD_OVERRIDES_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function applyUserStoredKeywordOverrides() {
+  userStoredKeywordOverrides().forEach((entry) => {
+    const id = normalizeIdInput(entry?.id);
+    const locale = toLocaleCode(entry?.locale);
+    const keywords = dedupeKeywords(Array.isArray(entry?.keywords) ? entry.keywords : []);
+    if (!id || !locale) return;
+    if (!localizedKeywords[locale]) localizedKeywords[locale] = {};
+    localizedKeywords[locale][id] = keywords;
+    if (locale === "en_us") {
+      const flair = flairArchive.find((item) => item.id === id);
+      if (flair) flair.keywords = keywords;
+    }
+  });
+}
+
 function userStoredIds() {
   try {
     const raw = localStorage.getItem(USER_IDS_STORAGE_KEY);
@@ -1215,6 +1387,7 @@ function applyRemoteFlairRecord(data) {
       }
     }
   });
+  applyUserStoredKeywordOverrides();
 }
 
 async function persistFirebaseFlairId(id) {
@@ -1261,12 +1434,32 @@ async function persistFirebaseFlairKeywords(id, locale, keywords) {
   }
 }
 
+async function replaceFirebaseFlairKeywords(id, locale, keywords) {
+  const db = getFirestoreDb();
+  const flairId = normalizeIdInput(id);
+  const localeCode = toLocaleCode(locale);
+  if (!db || !flairId || !localeCode) return;
+
+  try {
+    await db.collection(FIRESTORE_FLAIRS_COLLECTION).doc(flairId).set({
+      id: flairId,
+      keywordsByLocale: { [localeCode]: dedupeKeywords(keywords) },
+      updatedAt: firebase.firestore.Timestamp.now()
+    }, { merge: true });
+  } catch (error) {
+    console.warn("Could not replace flair keywords in Firebase.", error);
+  }
+}
+
 async function loadFirebaseFlairs() {
   const db = getFirestoreDb();
   if (!db) return;
 
   try {
-    const snap = await db.collection(FIRESTORE_FLAIRS_COLLECTION).get();
+    const snap = await Promise.race([
+      db.collection(FIRESTORE_FLAIRS_COLLECTION).get(),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("Firebase load timeout")), 8000))
+    ]);
     snap.forEach((doc) => {
       applyRemoteFlairRecord({ id: doc.id, ...doc.data() });
     });
@@ -1347,13 +1540,17 @@ function subscribeFirebaseFlairs() {
   if (!db) return;
 
   db.collection(FIRESTORE_FLAIRS_COLLECTION).onSnapshot((snap) => {
-    snap.docChanges().forEach((change) => {
-      if (change.type === "removed") return;
-      applyRemoteFlairRecord({ id: change.doc.id, ...change.doc.data() });
-    });
-    setupAddFlairForm();
-    populateSuggestions();
-    render();
+    try {
+      snap.docChanges().forEach((change) => {
+        if (change.type === "removed") return;
+        applyRemoteFlairRecord({ id: change.doc.id, ...change.doc.data() });
+      });
+      setupAddFlairForm();
+      populateSuggestions();
+      render();
+    } catch (error) {
+      console.error("Could not apply Firebase flair updates.", error);
+    }
   }, (error) => {
     console.warn("Firebase flair updates stopped.", error);
   });
@@ -1597,12 +1794,17 @@ function showSkeletons() {
   updateCarouselControls(1);
 }
 
-async function loadGoogleAvailability() {
+async function loadGoogleAvailability(onProgress) {
+  let checked = 0;
+  const total = flairArchive.length;
   const tasks = flairArchive.map((flair) => async () => {
     try {
       await detectFlairAvailability(flair);
     } catch (e) {
       console.warn("Availability check failed:", flair.id);
+    } finally {
+      checked += 1;
+      onProgress?.(checked, total);
     }
   });
 
@@ -1626,21 +1828,21 @@ function flairCard(flair) {
   let previewMarkup = "";
   if (hasNew && hasOld) {
     previewMarkup = `
-      <div class="preview-stack">
-        <img class="preview-img preview-new" src="${newImageForFlair(flair)}" alt="${name} new illustration" loading="lazy">
-        <img class="preview-img preview-old" src="${oldImageForFlair(flair)}" alt="${name} old illustration" loading="lazy">
+      <div class="preview-stack image-preview-loading">
+        <img class="preview-img preview-new image-loading" src="${newImageForFlair(flair)}" alt="${name} new illustration" loading="lazy">
+        <img class="preview-img preview-old image-loading" src="${oldImageForFlair(flair)}" alt="${name} old illustration" loading="lazy">
       </div>
     `;
   } else if (hasNew) {
     previewMarkup = `
-      <div class="preview-stack">
-        <img class="preview-img preview-static" src="${newImageForFlair(flair)}" alt="${name} new illustration" loading="lazy">
+      <div class="preview-stack image-preview-loading">
+        <img class="preview-img preview-static image-loading" src="${newImageForFlair(flair)}" alt="${name} new illustration" loading="lazy">
       </div>
     `;
   } else if (hasOld) {
     previewMarkup = `
-      <div class="preview-stack no-new">
-        <img class="preview-img preview-old-only" src="${oldImageForFlair(flair)}" alt="${name} old illustration" loading="lazy">
+      <div class="preview-stack no-new image-preview-loading">
+        <img class="preview-img preview-old-only image-loading" src="${oldImageForFlair(flair)}" alt="${name} old illustration" loading="lazy">
       </div>
     `;
   } else {
@@ -1656,6 +1858,7 @@ function flairCard(flair) {
     <div class="keywords">${keywordsMarkup}</div>
     <div class="flair-id">${flair.id.toLowerCase()}</div>
   `;
+  card.addEventListener("click", () => openEditFlairModal(flair));
   return card;
 }
 
@@ -1754,9 +1957,19 @@ function render() {
 
   const renderedImages = flairGrid.querySelectorAll(".preview-img");
   renderedImages.forEach((img) => {
-    if (!img.complete) {
-      img.addEventListener("load", syncCarouselHeight, { once: true });
-      img.addEventListener("error", syncCarouselHeight, { once: true });
+    const finishImageLoading = () => {
+      img.classList.remove("image-loading");
+      const stack = img.closest(".preview-stack");
+      if (stack && !stack.querySelector(".image-loading")) {
+        stack.classList.remove("image-preview-loading");
+      }
+      syncCarouselHeight();
+    };
+    if (!img.complete || img.naturalWidth === 0) {
+      img.addEventListener("load", finishImageLoading, { once: true });
+      img.addEventListener("error", finishImageLoading, { once: true });
+    } else {
+      finishImageLoading();
     }
   });
 
@@ -1879,9 +2092,11 @@ function setupLanguageSelector() {
 
 function updateSaveButtonVisibility() {
   if (!addKeywordsSubmit) return;
-  const hasId = Boolean(addIdSelectedValue);
+  const hasId = Boolean(selectedAddFlairId());
   const hasKeywords = Boolean(addKeywordsInput?.value?.trim());
-  addKeywordsSubmit.style.display = hasId && hasKeywords ? "" : "none";
+  const canSave = editingFlairId ? hasId : hasId && hasKeywords;
+  addKeywordsSubmit.hidden = !canSave;
+  addKeywordsSubmit.disabled = !canSave;
 }
 
 function updateKeywordsPreview() {
@@ -1889,6 +2104,15 @@ function updateKeywordsPreview() {
   if (!preview) return;
   const raw = addKeywordsInput?.value || "";
   const typed = parseKeywordsInput(raw);
+  if (editingFlairId) {
+    const allKeywords = dedupeKeywords([...editingKeywords, ...typed]);
+    preview.innerHTML = allKeywords.map((keyword) => {
+      const source = editingKeywords.some((item) => item.toLowerCase() === keyword.toLowerCase()) ? "saved" : "typed";
+      return `<span class="add-kw-chip" data-keyword-source="${source}" data-keyword="${escapeHtml(keyword)}">${escapeHtml(keyword)} <button type="button" class="remove-kw" aria-label="Remove ${escapeHtml(keyword)}">close</button></span>`;
+    }).join("");
+    preview.hidden = allKeywords.length === 0;
+    return;
+  }
   if (!typed.length || !addIdSelectedValue) {
     preview.hidden = true;
     preview.innerHTML = "";
@@ -1942,7 +2166,7 @@ function setupIdCombobox(allIds) {
   // Remove old listeners by cloning
   const freshInput = addIdInput.cloneNode(true);
   addIdInput.parentNode.replaceChild(freshInput, addIdInput);
-  // Re-assign module-level reference via closure workaround
+  addIdInput = freshInput;
   const inp = freshInput;
 
   const finalizeTypedId = () => {
@@ -2003,20 +2227,22 @@ function setupIdCombobox(allIds) {
     }, 150);
   });
 
-  addIdListbox.addEventListener("mousedown", (e) => {
-    const li = e.target.closest("li[data-value]");
-    if (!li) return;
-    e.preventDefault();
-    addIdSelectedValue = li.dataset.value;
-    inp.value = addIdSelectedValue;
-    addIdListbox.hidden = true;
-    inp.setAttribute("aria-expanded", "false");
-    if (addFormStatus) addFormStatus.textContent = "";
-    clearTimeout(idTypingDebounceTimer);
-    scheduleAddPreviewCheck();
-    updateSaveButtonVisibility();
-    updateKeywordsPreview();
-  });
+  if (addIdListbox.dataset.listenerAttached !== "true") {
+    addIdListbox.addEventListener("mousedown", (e) => {
+      const li = e.target.closest("li[data-value]");
+      if (!li) return;
+      e.preventDefault();
+      addIdSelectedValue = li.dataset.value;
+      addIdInput.value = addIdSelectedValue;
+      addIdListbox.hidden = true;
+      addIdInput.setAttribute("aria-expanded", "false");
+      if (addFormStatus) addFormStatus.textContent = "";
+      scheduleAddPreviewCheck();
+      updateSaveButtonVisibility();
+      updateKeywordsPreview();
+    });
+    addIdListbox.dataset.listenerAttached = "true";
+  }
 }
 
 function setupAddFlairForm() {
@@ -2132,12 +2358,40 @@ async function handleAddKeywordsSubmit() {
   let keywords = parseKeywordsInput(addKeywordsInput?.value || "");
   const t = textFor();
 
+  if (editingFlairId) {
+    keywords = dedupeKeywords([...editingKeywords, ...keywords].map((kw) => correctKeywordSpelling(flairId, locale, kw)));
+    const invalidLanguageKeyword = keywords.find((kw) => !languageLooksValidForLocale(kw, locale));
+    const invalidRelationKeyword = keywords.find((kw) => !keywordLooksRelevantToFlair(flairId, kw, locale));
+    if (invalidLanguageKeyword) {
+      if (addFormStatus) addFormStatus.textContent = t.addFlairInvalidLanguage || uiText.en_us.addFlairInvalidLanguage;
+      return;
+    }
+    if (invalidRelationKeyword) {
+      if (addFormStatus) addFormStatus.textContent = t.addFlairInvalidIdMatch || uiText.en_us.addFlairInvalidIdMatch;
+      return;
+    }
+
+    const addedKeywords = keywords.filter((keyword) => !editingKeywords.some((item) => item.toLowerCase() === keyword.toLowerCase()));
+    if (!localizedKeywords[locale]) localizedKeywords[locale] = {};
+    localizedKeywords[locale][flairId] = keywords;
+    if (locale === "en_us") {
+      const flair = flairArchive.find((item) => item.id === flairId);
+      if (flair) flair.keywords = keywords;
+    }
+    persistUserKeywordOverride({ id: flairId, locale, keywords });
+    await replaceFirebaseFlairKeywords(flairId, locale, keywords);
+    if (addedKeywords.length) await addTranslatedKeywordsToOtherLocales(flairId, locale, addedKeywords);
+    closeAddFlairModal();
+    render();
+    return;
+  }
+
   if (!flairId) {
     if (addFormStatus) addFormStatus.textContent = t.addFlairMissing || uiText.en_us.addFlairMissing;
     return;
   }
 
-  if (addPreviewState.id !== flairId) {
+  if (addPreviewState.id !== flairId || (!addPreviewState.newExists && !addPreviewState.oldExists)) {
     await updateAddFlairPreview();
   }
   const detectedNew = addPreviewState.id === flairId && addPreviewState.newExists;
@@ -2178,8 +2432,6 @@ async function handleAddKeywordsSubmit() {
     persistUserKeywordEntry({ id: flairId, locale, keywords });
     await persistFirebaseFlairKeywords(flairId, locale, keywords);
   }
-
-  await detectFlairAvailability(flair);
 
   if (!keywords.length) {
     if (addFormStatus) addFormStatus.textContent = t.addFlairDetected || uiText.en_us.addFlairDetected;
@@ -2230,8 +2482,15 @@ if (addFlairClose) {
   addFlairClose.addEventListener("click", () => closeAddFlairModal());
 }
 
+if (editFlairClose) {
+  editFlairClose.addEventListener("click", () => closeEditFlairModal());
+}
+
 if (addFlairBackdrop) {
-  addFlairBackdrop.addEventListener("click", () => closeAddFlairModal());
+  addFlairBackdrop.addEventListener("click", () => {
+    closeAddFlairModal();
+    closeEditFlairModal();
+  });
 }
 
 if (addKeywordLanguage) {
@@ -2248,6 +2507,72 @@ if (addKeywordLanguage) {
 
 if (addKeywordsInput) {
   addKeywordsInput.addEventListener("input", () => {
+    updateSaveButtonVisibility();
+    updateKeywordsPreview();
+  });
+}
+
+if (editKeywordsInput) {
+  editKeywordsInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    const additions = parseKeywordsInput(editKeywordsInput.value);
+    editingKeywords = dedupeKeywords([...editingKeywords, ...additions]);
+    editKeywordsInput.value = "";
+    renderEditKeywords();
+  });
+}
+
+if (editKeywordLanguage) {
+  editKeywordLanguage.addEventListener("change", () => {
+    if (!editingFlairId) return;
+    editingLanguage = editKeywordLanguage.value;
+    const flair = flairArchive.find((item) => item.id === editingFlairId);
+    editingKeywords = flair ? keywordsForEditLanguage(flair, editingLanguage) : [];
+    if (editKeywordsInput) editKeywordsInput.value = "";
+    if (editFormStatus) editFormStatus.textContent = "";
+    renderEditKeywords();
+  });
+}
+
+if (editFlairIdText) {
+  editFlairIdText.addEventListener("change", () => {
+    if (!editFlairPanel || editFlairPanel.hidden) return;
+    editingFlairId = editFlairIdText.value;
+    const flair = flairArchive.find((item) => item.id === editingFlairId);
+    editingKeywords = flair ? keywordsForEditLanguage(flair, editingLanguage) : [];
+    if (editKeywordsInput) editKeywordsInput.value = "";
+    if (editFormStatus) editFormStatus.textContent = "";
+    renderEditKeywords();
+  });
+}
+
+if (editKeywordsSubmit) {
+  editKeywordsSubmit.addEventListener("click", async () => {
+    editKeywordsSubmit.disabled = true;
+    try {
+      await saveEditedFlairKeywords();
+    } finally {
+      if (editFlairPanel && !editFlairPanel.hidden) editKeywordsSubmit.disabled = false;
+    }
+  });
+}
+
+const addKeywordsPreview = document.getElementById("add-keywords-preview");
+if (addKeywordsPreview) {
+  addKeywordsPreview.addEventListener("click", (event) => {
+    const removeButton = event.target.closest(".remove-kw");
+    if (!removeButton || !editingFlairId) return;
+    const chip = removeButton.closest("[data-keyword]");
+    const keyword = chip?.dataset.keyword || "";
+    const source = chip?.dataset.keywordSource;
+    if (source === "saved") {
+      editingKeywords = editingKeywords.filter((item) => item.toLowerCase() !== keyword.toLowerCase());
+    } else if (addKeywordsInput) {
+      addKeywordsInput.value = parseKeywordsInput(addKeywordsInput.value)
+        .filter((item) => item.toLowerCase() !== keyword.toLowerCase())
+        .join(", ");
+    }
     updateSaveButtonVisibility();
     updateKeywordsPreview();
   });
@@ -2273,6 +2598,9 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && addFlairPanel && !addFlairPanel.hidden) {
     closeAddFlairModal();
   }
+  if (event.key === "Escape" && editFlairPanel && !editFlairPanel.hidden) {
+    closeEditFlairModal();
+  }
 });
 
 async function runWithLimit(tasks, limit = 6) {
@@ -2297,6 +2625,9 @@ async function runWithLimit(tasks, limit = 6) {
 }
 
 async function init() {
+  setFlairsLoading(true);
+  showSkeletons();
+
   await loadLanguageDataset();
   await loadDiscoveryDataset();
 
@@ -2304,8 +2635,7 @@ async function init() {
   pruneInvalidStoredKeywords();
   applyUserStoredIds();
   applyUserStoredKeywords();
-  await loadFirebaseFlairs();
-  sanitizeKnownBadMappings();
+  applyUserStoredKeywordOverrides();
 
   selectedLanguage = guessBrowserLanguage();
   if (!languageHasFlairs(selectedLanguage)) {
@@ -2319,18 +2649,21 @@ async function init() {
   setupAddFlairForm();
   populateSuggestions();
 
-  flairsLoadingInProgress = true;
-  updateLoadingState();
-  showSkeletons();
+  setFlairsLoading(false);
+  render();
+  updateAvailabilityStatus(0, flairArchive.length);
 
-  try {
-    await loadGoogleAvailability();
-  } finally {
-    flairsLoadingInProgress = false;
-    updateLoadingState();
+  loadGoogleAvailability((checked, total) => {
+    updateAvailabilityStatus(checked, total);
+  }).then(() => {
     render();
     subscribeFirebaseFlairs();
-  }
+  }).catch((error) => {
+    console.error("Could not finish flair availability checks.", error);
+    updateAvailabilityStatus(flairArchive.length, flairArchive.length);
+    render();
+    subscribeFirebaseFlairs();
+  });
 }
 
 init().catch((error) => {

@@ -565,6 +565,12 @@ h1 {
   min-height: 1.1em;
 }
 
+.edit-keyword-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .source {
   font-size: 0.82rem;
   color: var(--muted);
@@ -740,6 +746,10 @@ code {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
+.flair:not(.flair-skeleton) {
+  cursor: pointer;
+}
+
 .flair:hover {
   transform: translateY(-2px);
   border-color: #d2e3fc;
@@ -760,6 +770,31 @@ code {
   place-items: center;
   line-height: 0;
   transform: translateZ(0);
+}
+
+.preview-stack.image-preview-loading {
+  width: min(100%, 320px);
+  aspect-ratio: var(--preview-ratio);
+}
+
+.preview-stack.image-preview-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #e8eaed 25%, #f1f3f4 50%, #e8eaed 75%);
+  background-size: 800px 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.preview-img.image-loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+  opacity: 0;
 }
 
 .preview-stack::after {
@@ -793,18 +828,22 @@ code {
 }
 
 .preview-old {
-  display: none;
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
-  opacity: 1;
+  opacity: 0;
 }
 
 .flair:hover .preview-new {
-  display: none;
+  opacity: 0;
 }
 
 .flair:hover .preview-old {
-  display: block;
+  opacity: 1;
 }
 
 .preview-old-only {
@@ -1085,6 +1124,34 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+.flair-loading-status {
+  color: var(--muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.add-kw-chip .remove-kw {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: "Material Symbols Rounded";
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.add-kw-chip .remove-kw:hover {
+  background: rgba(60, 64, 67, 0.12);
+  color: var(--ink);
 }
 
 .flair-count-loader {
