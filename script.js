@@ -588,6 +588,7 @@ const addPreviewNewImg = document.getElementById("add-preview-new-img");
 const addPreviewOldImg = document.getElementById("add-preview-old-img");
 const addFormStatus = document.getElementById("add-form-status");
 const addKeywordsSubmit = document.getElementById("add-keywords-submit");
+const copyToast = document.getElementById("copy-toast");
 
 const USER_KEYWORDS_STORAGE_KEY = "calendar_flair_user_keywords_v1";
 const USER_IDS_STORAGE_KEY = "calendar_flair_user_ids_v1";
@@ -606,6 +607,7 @@ const googleOldAvailability = new Map();
 const googleOldResolvedUrl = new Map();
 let keywordLoadSummary = { ok: 1, total: 1, count: 0, failed: false };
 let addPreviewState = { id: "", newExists: false, oldExists: false, oldUrl: "" };
+let copyToastTimer = null;
 
 const AVAIL_CACHE_KEY = "flair_availability_v1";
 
@@ -1283,28 +1285,61 @@ function flairIdsAsPlainText() {
 
 async function copyAllFlairs() {
   const text = flairIdsAsPlainText();
-  if (!text) return;
+  if (!text) {
+    showCopyToast("Nothing to copy.", true);
+    return;
+  }
+
+  let copied = false;
 
   try {
-    await navigator.clipboard.writeText(text);
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      await navigator.clipboard.writeText(text);
+      copied = true;
+    }
   } catch {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    textarea.remove();
+    copied = false;
+  }
+
+  if (!copied) {
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      copied = typeof document.execCommand === "function" && document.execCommand("copy");
+      textarea.remove();
+    } catch {
+      copied = false;
+    }
+  }
+
+  if (!copied) {
+    showCopyToast("Could not copy flair IDs.", true);
+    return;
   }
 
   copyFlairsButton?.setAttribute("aria-label", "Flair IDs copied");
   copyFlairsButton?.setAttribute("title", "Flair IDs copied");
+  showCopyToast("Flair IDs copied.");
   setTimeout(() => {
     copyFlairsButton?.setAttribute("aria-label", "Copy all flair IDs");
     copyFlairsButton?.setAttribute("title", "Copy all flair IDs");
   }, 1500);
+}
+
+function showCopyToast(message, isError = false) {
+  if (!copyToast) return;
+  clearTimeout(copyToastTimer);
+  copyToast.textContent = message;
+  copyToast.classList.toggle("error", isError);
+  copyToast.hidden = false;
+  copyToastTimer = setTimeout(() => {
+    copyToast.hidden = true;
+  }, 2400);
 }
 
 function subscribeFirebaseFlairs() {
@@ -1341,7 +1376,11 @@ function pruneInvalidStoredKeywords() {
       return { id, locale, keywords };
     })
     .filter((entry) => entry.id && entry.locale && entry.keywords.length);
-  localStorage.setItem(USER_KEYWORDS_STORAGE_KEY, JSON.stringify(cleaned));
+  try {
+    localStorage.setItem(USER_KEYWORDS_STORAGE_KEY, JSON.stringify(cleaned));
+  } catch {
+    // Storage can be blocked by privacy settings; keep the in-memory data usable.
+  }
 }
 
 async function addTranslatedKeywordsToOtherLocales(flairId, sourceLocale, keywords) {
@@ -1473,11 +1512,21 @@ function legacyKeywordListForFlair(flair, locale) {
   return filteredLegacy.length ? filteredLegacy : localizedLegacy;
 }
 
-function checkGoogleImage(url) {
+function checkGoogleImage(url, timeoutMs = 5000) {
   return new Promise((resolve) => {
     const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
+    let settled = false;
+    const finish = (available) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timeoutId);
+      img.onload = null;
+      img.onerror = null;
+      resolve(available);
+    };
+    const timeoutId = setTimeout(() => finish(false), timeoutMs);
+    img.onload = () => finish(true);
+    img.onerror = () => finish(false);
     img.src = url;
   });
 }
@@ -2255,8 +2304,13 @@ async function init() {
   pruneInvalidStoredKeywords();
   applyUserStoredIds();
   applyUserStoredKeywords();
+  await loadFirebaseFlairs();
+  sanitizeKnownBadMappings();
 
   selectedLanguage = guessBrowserLanguage();
+  if (!languageHasFlairs(selectedLanguage)) {
+    selectedLanguage = "en_us";
+  }
 
   await ensureUiTextLocale(selectedLanguage);
   applyUiLanguage();
@@ -2265,19 +2319,24 @@ async function init() {
   setupAddFlairForm();
   populateSuggestions();
 
+  flairsLoadingInProgress = true;
+  updateLoadingState();
+  showSkeletons();
+
+  try {
+    await loadGoogleAvailability();
+  } finally {
+    flairsLoadingInProgress = false;
+    updateLoadingState();
+    render();
+    subscribeFirebaseFlairs();
+  }
+}
+
+init().catch((error) => {
+  console.error("Calendar Flair Archive failed to finish loading.", error);
   flairsLoadingInProgress = false;
   updateLoadingState();
   render();
-
-  loadFirebaseFlairs().then(() => {
-    sanitizeKnownBadMappings();
-    setupAddFlairForm();
-    populateSuggestions();
-    render();
-  });
-
-  loadGoogleAvailability().then(() => render());
-  subscribeFirebaseFlairs();
-}
-
-init();
+  showCopyToast("Some data could not be loaded.", true);
+});
