@@ -281,6 +281,27 @@ h1 {
   background: #f8fbff;
 }
 
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: var(--control-height);
+  height: var(--control-height);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  border-color: #aecbfa;
+  background: var(--accent-soft);
+}
+
+.icon-button .material-symbols-rounded {
+  font-size: 20px;
+}
+
 .add-flair-panel {
   position: fixed;
   top: 50%;

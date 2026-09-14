@@ -569,6 +569,7 @@ const allTitle = document.getElementById("all-title");
 const footerSourceText = document.getElementById("footer-source-text");
 const legalText = document.getElementById("legal-text");
 const addFlairToggle = document.getElementById("add-flair-toggle");
+const copyFlairsButton = document.getElementById("copy-flairs");
 const addFlairBackdrop = document.getElementById("add-flair-backdrop");
 const addFlairPanel = document.getElementById("add-flair-panel");
 const addFlairTitle = document.getElementById("add-flair-title");
@@ -1270,6 +1271,40 @@ async function loadFirebaseFlairs() {
   } catch (error) {
     console.warn("Could not load flairs from Firebase.", error);
   }
+}
+
+function flairIdsAsPlainText() {
+  return flairArchive
+    .map((flair) => normalizeIdInput(flair.id))
+    .filter(Boolean)
+    .filter((id, index, ids) => ids.indexOf(id) === index)
+    .join(";");
+}
+
+async function copyAllFlairs() {
+  const text = flairIdsAsPlainText();
+  if (!text) return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
+  }
+
+  copyFlairsButton?.setAttribute("aria-label", "Flair IDs copied");
+  copyFlairsButton?.setAttribute("title", "Flair IDs copied");
+  setTimeout(() => {
+    copyFlairsButton?.setAttribute("aria-label", "Copy all flair IDs");
+    copyFlairsButton?.setAttribute("title", "Copy all flair IDs");
+  }, 1500);
 }
 
 function subscribeFirebaseFlairs() {
@@ -2138,6 +2173,10 @@ if (addFlairToggle && addFlairPanel) {
   });
 }
 
+if (copyFlairsButton) {
+  copyFlairsButton.addEventListener("click", copyAllFlairs);
+}
+
 if (addFlairClose) {
   addFlairClose.addEventListener("click", () => closeAddFlairModal());
 }
@@ -2216,8 +2255,6 @@ async function init() {
   pruneInvalidStoredKeywords();
   applyUserStoredIds();
   applyUserStoredKeywords();
-  await loadFirebaseFlairs();
-  sanitizeKnownBadMappings();
 
   selectedLanguage = guessBrowserLanguage();
   if (!languageHasFlairs(selectedLanguage)) {
@@ -2231,18 +2268,19 @@ async function init() {
   setupAddFlairForm();
   populateSuggestions();
 
-  flairsLoadingInProgress = true;
+  flairsLoadingInProgress = false;
   updateLoadingState();
-  showSkeletons();
+  render();
 
-  try {
-    await loadGoogleAvailability();
-  } finally {
-    flairsLoadingInProgress = false;
-    updateLoadingState();
+  loadFirebaseFlairs().then(() => {
+    sanitizeKnownBadMappings();
+    setupAddFlairForm();
+    populateSuggestions();
     render();
-    subscribeFirebaseFlairs();
-  }
+  });
+
+  loadGoogleAvailability().then(() => render());
+  subscribeFirebaseFlairs();
 }
 
 init();
