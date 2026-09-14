@@ -284,19 +284,19 @@ h1 {
 .icon-button {
   display: inline-grid;
   place-items: center;
-  width: var(--control-height);
-  height: var(--control-height);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  color: #3c4043;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #1a73e8;
   font: inherit;
   cursor: pointer;
 }
 
 .icon-button:hover {
-  border-color: #aecbfa;
-  background: #f8fbff;
+  background: rgba(26, 115, 232, 0.1);
+  color: #174ea6;
 }
 
 .icon-button .material-symbols-rounded {
