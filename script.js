@@ -2257,9 +2257,6 @@ async function init() {
   applyUserStoredKeywords();
 
   selectedLanguage = guessBrowserLanguage();
-  if (!languageHasFlairs(selectedLanguage)) {
-    selectedLanguage = "en_us";
-  }
 
   await ensureUiTextLocale(selectedLanguage);
   applyUiLanguage();

@@ -288,14 +288,15 @@ h1 {
   height: var(--control-height);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--paper);
-  color: var(--accent);
+  background: #fff;
+  color: #3c4043;
+  font: inherit;
   cursor: pointer;
 }
 
 .icon-button:hover {
   border-color: #aecbfa;
-  background: var(--accent-soft);
+  background: #f8fbff;
 }
 
 .icon-button .material-symbols-rounded {
